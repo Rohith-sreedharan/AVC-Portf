@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC - Apparel Branding Company</title>
+
+    <!-- libraries CSS -->
+    <link rel="stylesheet" href="/static/icon/flaticon_glamer.css">
+    <link rel="stylesheet" href="/static/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendor/splide/splide.min.css">
+    <link rel="stylesheet" href="/static/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/vendor/slim-select/slimselect.css">
+    <link rel="stylesheet" href="/static/vendor/animate-wow/animate.min.css">
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <!-- SIDEBAR SECTION START -->
+    {% include 'header.html' %}
+    <!-- HEADER SECTION END -->
+
+
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <div class="ul-container">
+            <div class="ul-breadcrumb">
+                <h2 class="ul-breadcrumb-title">Faq</h2>
+                <div class="ul-breadcrumb-nav">
+                    <a href="/"><i class="flaticon-home"></i> Home</a>
+                    <i class="flaticon-arrow-point-to-right"></i>
+                    <span class="current-page">Faq</span>
+                </div>
+            </div>
+        </div>
+        <!-- BREADCRUMB SECTION END -->
+
+
+        <!-- FAQ SECTION START -->
+        <section class="ul-faq">
+            <div class="ul-inner-page-container">
+                <div class="ul-accordion">
+                    <!-- single question -->
+                    <div class="ul-single-accordion-item">
+                        <div class="ul-single-accordion-item__header">
+                            <div class="left">
+                                <h3 class="ul-single-accordion-item__title">What services does ABC - Apparel Branding Company offer?</h3>
+                            </div>
+                            <span class="icon"><i class="flaticon-plus"></i></span>
+                        </div>
+
+                        <div class="ul-single-accordion-item__body">
+                            <p class="mb-0">ABC specializes in custom apparel branding solutions including screen printing, embroidery, heat transfer, and digital printing. We also offer design services, bulk ordering, and corporate branding packages tailored to your needs.</p>
+                        </div>
+                    </div>
+
+                    <!-- single question -->
+                    <div class="ul-single-accordion-item">
+                        <div class="ul-single-accordion-item__header">
+                            <div class="left">
+                                <h3 class="ul-single-accordion-item__title">What are your minimum order quantities?</h3>
+                            </div>
+                            <span class="icon"><i class="flaticon-plus"></i></span>
+                        </div>
+
+                        <div class="ul-single-accordion-item__body">
+                            <p class="mb-0">Our minimum order quantities vary by service: Screen printing starts at 24 pieces, embroidery at 12 pieces, and heat transfer at 6 pieces. For digital printing, we can accommodate orders as small as 1 piece. Contact us for specific requirements and bulk pricing.</p>
+                        </div>
+                    </div>
+
+                    <!-- single question -->
+                    <div class="ul-single-accordion-item">
+                        <div class="ul-single-accordion-item__header">
+                            <div class="left">
+                                <h3 class="ul-single-accordion-item__title">What is your typical turnaround time?</h3>
+                            </div>
+                            <span class="icon"><i class="flaticon-plus"></i></span>
+                        </div>
+
+                        <div class="ul-single-accordion-item__body">
+                            <p class="mb-0">Standard turnaround time is 7-10 business days after design approval. Rush orders can be completed in 3-5 business days for an additional fee. Large orders may require additional time. We'll provide specific timing estimates with your quote.</p>
+                        </div>
+                    </div>
+
+                    <!-- single question -->
+                    <div class="ul-single-accordion-item">
+                        <div class="ul-single-accordion-item__header">
+                            <div class="left">
+                                <h3 class="ul-single-accordion-item__title">Do you offer design services?</h3>
+                            </div>
+                            <span class="icon"><i class="flaticon-plus"></i></span>
+                        </div>
+
+                        <div class="ul-single-accordion-item__body">
+                            <p class="mb-0">Yes, our in-house design team can help create custom designs for your apparel. We offer complimentary basic design consultation and can develop complete custom designs for a fee. We can also work with your existing artwork or logos.</p>
+                        </div>
+                    </div>
+
+                    <!-- single question -->
+                    <div class="ul-single-accordion-item">
+                        <div class="ul-single-accordion-item__header">
+                            <div class="left">
+                                <h3 class="ul-single-accordion-item__title">What payment methods do you accept?</h3>
+                            </div>
+                            <span class="icon"><i class="flaticon-plus"></i></span>
+                        </div>
+
+                        <div class="ul-single-accordion-item__body">
+                            <p class="mb-0">We accept all major credit cards, bank transfers, and corporate purchase orders. For new clients, we require a 50% deposit to begin production, with the remaining balance due before shipping. Regular clients may qualify for net-30 terms.</p>
+                        </div>
+                    </div>
+
+                    <!-- single question -->
+                    <div class="ul-single-accordion-item">
+                        <div class="ul-single-accordion-item__header">
+                            <div class="left">
+                                <h3 class="ul-single-accordion-item__title">Do you offer samples before full production?</h3>
+                            </div>
+                            <span class="icon"><i class="flaticon-plus"></i></span>
+                        </div>
+
+                        <div class="ul-single-accordion-item__body">
+                            <p class="mb-0">Yes, we can provide pre-production samples for approval. Sample costs vary based on the printing method and quantity needed. Sample fees are typically credited toward your final order when you proceed with full production.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ SECTION END -->
+    </main>
+
+
+    <!-- FOOTER SECTION START -->
+    {% include 'footer.html' %}
+    <!-- FOOTER SECTION END -->
+
+    <!-- libraries JS -->
+    <script src="/static/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/splide/splide.min.js"></script>
+    <script src="/static/vendor/splide/splide-extension-auto-scroll.min.js"></script>
+    <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/static/vendor/slim-select/slimselect.min.js"></script>
+    <script src="/static/vendor/animate-wow/wow.min.js"></script>
+    <script src="/static/vendor/splittype/index.min.js"></script>
+    <script src="/static/vendor/mixitup/mixitup.min.js"></script>
+    <script src="/static/vendor/fslightbox/fslightbox.js"></script>
+
+    <!-- custom JS -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/accordion.js"></script>
+</body>
+
+</html>

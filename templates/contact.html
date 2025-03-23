@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- libraries CSS -->
+    <link rel="stylesheet" href="/static/icon/flaticon_glamer.css">
+    <link rel="stylesheet" href="/static/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendor/splide/splide.min.css">
+    <link rel="stylesheet" href="/static/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/vendor/slim-select/slimselect.css">
+    <link rel="stylesheet" href="/static/vendor/animate-wow/animate.min.css">
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <!-- SIDEBAR SECTION START -->
+    {% include 'header.html' %}
+    <!-- HEADER SECTION END -->
+
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <div class="ul-container">
+            <div class="ul-breadcrumb">
+                <h2 class="ul-breadcrumb-title">Contact Us</h2>
+                <div class="ul-breadcrumb-nav">
+                    <a href="/"><i class="flaticon-home"></i> Home</a>
+                    <i class="flaticon-arrow-point-to-right"></i>
+                    <span class="current-page">Contact Us</span>
+                </div>
+            </div>
+        </div>
+        <!-- BREADCRUMB SECTION END -->
+
+
+        <!-- CONTACT INFO SECTION START -->
+        <section class="ul-contact-infos">
+            <!-- single contact info -->
+            <div class="ul-contact-info">
+                <div class="icon"><i class="flaticon-location"></i></div>
+                <div class="txt">
+                    <h6 class="title">Our Address</h6>
+                    <p class="descr mb-0">{{ content.address }}</p>
+                </div>
+            </div>
+
+            <!-- single contact info -->
+            <div class="ul-contact-info">
+                <div class="icon"><i class="flaticon-email"></i></div>
+                <div class="txt">
+                    <h6 class="title">Email Address</h6>
+                    <p class="descr mb-0">
+                        <a href="mailto:{{ content.email }}">{{ content.email | safe }}</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- single contact info -->
+            <div class="ul-contact-info">
+                <div class="icon"><i class="flaticon-stop-watch-1"></i></div>
+                <div class="txt">
+                    <h6 class="title">Hours of Operation</h6>
+                    <p class="descr mb-0">
+                        <span>{{ content.hours | safe }}</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- CONTACT INFO SECTION END -->
+
+
+        <!-- MAP AREA START -->
+        <div class="ul-contact-map">
+            <iframe src="{{content.map_url}}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <!-- MAP AREA END -->
+
+        <div class="ul-contact-from-section">
+            <div class="ul-contact-form-container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <h3 class="ul-contact-form-container__title">Get in Touch</h3>
+                <form method="post" class="ul-contact-form">
+                    <div class="grid">
+                        <!-- firstname -->
+                        <div class="form-group">
+                            <div class="position-relative">
+                                <input type="text" name="firstname" id="firstname" placeholder="First Name" required>
+                                <span class="field-icon"><i class="flaticon-user"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- lastname -->
+                        <div class="form-group">
+                            <div class="position-relative">
+                                <input type="text" name="lastname" id="lastname" placeholder="Last Name" required>
+                                <span class="field-icon"><i class="flaticon-user"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- phone -->
+                        <div class="form-group">
+                            <div class="position-relative">
+                                <input type="tel" name="phone-number" id="phone-number" placeholder="Phone Number" required>
+                                <span class="field-icon"><i class="flaticon-user"></i></span>
+                            </div>
+                        </div>
+                        <!-- email -->
+                        <div class="form-group">
+                            <div class="position-relative">
+                                <input type="email" name="email" id="email" placeholder="Enter Email Address" required>
+                                <span class="field-icon"><i class="flaticon-email"></i></span>
+                            </div>
+                        </div>
+                        <!-- message -->
+                        <div class="form-group">
+                            <div class="position-relative">
+                                <textarea name="message" id="message" placeholder="Write Message..." required></textarea>
+                                <span class="field-icon"><i class="flaticon-edit"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- submit btn -->
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION START -->
+    {% include 'footer.html' %}
+    <!-- FOOTER SECTION END -->
+
+    <!-- libraries JS -->
+    <script src="/static/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/splide/splide.min.js"></script>
+    <script src="/static/vendor/splide/splide-extension-auto-scroll.min.js"></script>
+    <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/static/vendor/slim-select/slimselect.min.js"></script>
+    <script src="/static/vendor/animate-wow/wow.min.js"></script>
+    <script src="/static/vendor/splittype/index.min.js"></script>
+    <script src="/static/vendor/mixitup/mixitup.min.js"></script>
+    <script src="/static/vendor/fslightbox/fslightbox.js"></script>
+
+    <!-- custom JS -->
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

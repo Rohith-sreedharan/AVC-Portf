@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact Form Submission</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --accent-color: #ffd700;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: var(--text-primary);
+        }
+        .container {
+            max-width: 680px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: var(--spacing-lg);
+            text-align: center;
+            position: relative;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-color);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .header p {
+            margin: var(--spacing-xs) 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content {
+            padding: var(--spacing-lg);
+        }
+        .greeting {
+            font-size: 18px;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-dark);
+        }
+        .info-block {
+            margin: var(--spacing-md) 0;
+            padding: var(--spacing-md);
+            background: linear-gradient(to right, #f8f9fa, #ffffff);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: var(--spacing-sm);
+            align-items: baseline;
+        }
+        .label {
+            font-weight: 600;
+            color: var(--primary-color);
+            width: 100px;
+            flex-shrink: 0;
+        }
+        .value {
+            flex-grow: 1;
+            color: var(--text-primary);
+        }
+        .message-block {
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: var(--spacing-md) 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>New Contact Form Submission</h1>
+            <p>Premium Communication System by Platfware</p>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">
+                Dear Administrator,
+            </div>
+            
+            <p>We have received a new inquiry from the ABC - Apparel Branding Company contact portal. Please find the details below:</p>
+            
+            <div class="info-block">
+                <div class="info-row">
+                    <span class="label">Full Name:</span>
+                    <span class="value">{{ first_name }} {{ last_name }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Email:</span>
+                    <span class="value">{{ email }}</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Phone:</span>
+                    <span class="value">{{ phone }}</span>
+                </div>
+                
+                <div class="message-block">
+                    <div class="label">Message:</div>
+                    <div class="value">{{ message }}</div>
+                </div>
+            </div>
+            
+            <p>This inquiry requires your attention. Please ensure a timely response to maintain our service standards.</p>
+        </div>
+        
+        <div class="footer">
+            <div class="logo">PLATFWARE</div>
+            <p>Enterprise Communication Solutions</p>
+            <div class="divider"></div>
+            <p>Exclusively managing ABC's premium mailing system</p>
+            <p>© {{ 2024 }} ABC - Apparel Branding Company</p>
+            <p>Powered and secured by Platfware Enterprise Solutions</p>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,897 @@
+<div class="ul-sidebar">
+    <!-- header -->
+    <div class="ul-sidebar-header">
+        <div class="ul-sidebar-header-logo">
+            <a href="index.html">
+                <img src="/static/img/logo.png" alt="logo" class="logo">
+            </a>
+        </div>
+        <!-- sidebar closer -->
+        <button class="ul-sidebar-closer"><i class="flaticon-close"></i></button>
+    </div>
+
+    <div class="ul-sidebar-header-nav-wrapper d-block d-lg-none"></div>
+
+    <div class="ul-sidebar-about d-none d-lg-block">
+        <span class="title">About {{ g.company_name }}</span>
+        <p class="mb-0" style="text-align: justify;">ABC is a premier fashion destination, blending traditional craftsmanship with contemporary design. Since our establishment, we've been dedicated to delivering exceptional quality in ethnic and modern wear. Our collections showcase the rich heritage of Indian textiles while embracing global fashion trends. With meticulous attention to detail and commitment to excellence, we create garments that celebrate both style and comfort. From exquisite traditional wear to trendy western outfits, ABC offers a curated selection that caters to diverse tastes and occasions. Our vision is to make premium fashion accessible while preserving the authenticity of traditional craftsmanship.</p>
+    </div>
+
+
+    <!-- product slider -->
+
+    <div class="ul-sidebar-about d-none d-lg-block">
+        <p class="mb-0" style="text-align: justify;">At ABC, we believe in creating lasting relationships with our customers. Our dedicated customer service team is available 24/7 to assist you with any queries. We offer hassle-free returns, secure payment options, and fast shipping across India. Our loyalty program rewards our valued customers with exclusive benefits, early access to sales, and special discounts. We also take pride in our sustainable practices, using eco-friendly packaging and supporting local artisans. Visit our stores or shop online to experience the perfect blend of tradition and contemporary fashion. Join our growing family of satisfied customers and discover why ABC is the preferred choice for fashion-conscious individuals.</p>
+    </div>
+
+    <!-- sidebar footer -->
+    <div class="ul-sidebar-footer">
+        <span class="ul-sidebar-footer-title">Follow us</span>
+
+        <div class="ul-sidebar-footer-social">
+            <a href="{{ g.facebook_url }}"><i class="flaticon-facebook-app-symbol"></i></a>
+            <a href="{{ g.twitter_url }}"><i class="flaticon-twitter"></i></a>
+            <a href="{{ g.instagram_url }}"><i class="flaticon-instagram"></i></a>
+            <a href="{{ g.youtube_url }}"><i class="flaticon-youtube"></i></a>
+        </div>
+    </div>
+</div>
+<!-- SIDEBAR SECTION END -->
+
+<!-- HEADER SECTION START -->
+<header class="ul-header">
+    <!-- header top -->
+    <div class="ul-header-top">
+        <div class="ul-header-top-slider splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                    <li class="splide__slide">
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- header bottom -->
+    <div class="ul-header-bottom">
+        <div class="ul-container">
+            <div class="ul-header-bottom-wrapper">
+                <!-- header left -->
+                <div class="header-bottom-left">
+                    <div class="logo-container">
+                        <a href="index.html" class="d-inline-block"><img src="/static/img/logo.png" alt="logo" class="logo"></a>
+                    </div>
+
+                    <!-- search form -->
+                    <div class="ul-header-search-wrapper">
+                        <button id="headerSearchTrigger" class="ul-header-search-icon">
+                            <i class="flaticon-search-interface-symbol"></i>
+                        </button>
+                    </div>
+
+                    <!-- Search Modal -->
+                    <div id="headerSearchModal" class="ul-modal">
+                        <div class="ul-modal-content">
+                            <div class="ul-modal-header">
+                                <h4>Search Products</h4>
+                                <button class="ul-modal-close">&times;</button>
+                            </div>
+                            <div class="ul-modal-body">
+                                <form id="headerSearchForm" class="ul-search-form" action="/search/nav" method="post">
+                                    <div class="ul-search-input-group">
+                                        <div class="dropdown-wrapper">
+                                            <select name="search-category" id="headerSearchCategory" class="ul-select">
+                                                <option data-placeholder="true">Select Category</option>
+                                                <option value="1">All Apparels</option>
+                                                <option value="2">Men's Apparels</option>
+                                                <option value="3">Women's Apparels</option>
+                                                <option value="4">Kids Apparels</option>
+                                            </select>
+                                        </div>
+                                        <input type="search" id="headerSearchInput" placeholder="Search Here..." class="ul-input">
+                                        <button type="submit" class="ul-btn ul-btn-primary">
+                                            <i class="flaticon-search-interface-symbol"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.getElementById('headerSearchTrigger').addEventListener('click', function() {
+                            const modal = document.getElementById('headerSearchModal');
+                            modal.style.display = 'flex';
+                            document.getElementById('headerSearchInput').focus();
+                        });
+
+                        document.querySelector('.ul-modal-close').addEventListener('click', function() {
+                            document.getElementById('headerSearchModal').style.display = 'none';
+                        });
+
+                        document.getElementById('headerSearchForm').addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            if (!navigator.onLine) {
+                                document.getElementById('headerSearchOffline').style.display = 'block';
+                            } else {
+                                this.submit();
+                            }
+                        });
+
+                        window.addEventListener('click', function(e) {
+                            const modal = document.getElementById('headerSearchModal');
+                            if (e.target === modal) {
+                                modal.style.display = 'none';
+                            }
+                        });
+                    </script>
+
+                    <style>
+                        .ul-modal {
+                            display: none;
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,245,245,0.96));
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 9999;
+                            backdrop-filter: blur(8px);
+                        }
+
+                        .ul-modal-content {
+                            background: var(--ul-white);
+                            border-radius: 16px;
+                            width: 90%;
+                            max-width: 600px;
+                            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+                            border: 1px solid rgba(0, 0, 0, 0.08);
+                            animation: modalFadeIn 0.3s ease-out;
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .dropdown-wrapper {
+                            position: relative;
+                            min-width: 150px;
+                        }
+
+                        .dropdown-wrapper select {
+                            width: 100%;
+                            height: 52px; /* Match input height */
+                            padding: 0 18px;
+                            border: 2px solid var(--ul-primary);
+                            border-radius: 8px;
+                            background: var(--ul-white);
+                            font-size: 0.95rem;
+                            color: var(--ul-primary);
+                            appearance: none;
+                            -webkit-appearance: none;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            outline: 1px solid var(--ul-border-color);
+                        }
+
+                        .dropdown-wrapper select:hover {
+                            background: var(--ul-light);
+                        }
+
+                        .dropdown-wrapper::after {
+                            content: '';
+                            position: absolute;
+                            right: 15px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 0;
+                            height: 0;
+                            border-left: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            border-top: 5px solid var(--ul-primary);
+                            pointer-events: none;
+                        }
+
+                        .dropdown-wrapper select:focus {
+                            outline: 1px solid var(--ul-primary);
+                            box-shadow: 0 0 0 3px rgba(var(--ul-primary-rgb), 0.2);
+                        }
+
+                        @keyframes modalFadeIn {
+                            from {
+                                opacity: 0;
+                                transform: translateY(-30px) scale(0.95);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0) scale(1);
+                            }
+                        }
+
+                        .ul-modal-header {
+                            padding: 25px 30px;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            background: linear-gradient(to right, var(--ul-white), var(--ul-light));
+                        }
+
+                        .ul-modal-header h4 {
+                            font-size: 1.35rem;
+                            margin: 0;
+                            color: var(--ul-heading-color);
+                            font-weight: 600;
+                        }
+
+                        .ul-modal-close {
+                            background: none;
+                            border: none;
+                            font-size: 28px;
+                            cursor: pointer;
+                            color: var(--ul-primary);
+                            opacity: 0.8;
+                            transition: all 0.2s;
+                            padding: 5px;
+                        }
+
+                        .ul-modal-close:hover {
+                            opacity: 1;
+                            transform: rotate(90deg);
+                        }
+
+                        .ul-modal-body {
+                            padding: 30px;
+                        }
+
+                        .ul-search-input-group {
+                            display: flex;
+                            gap: 15px;
+                            align-items: center;
+                        }
+
+                        .ul-input {
+                            flex: 1;
+                            height: 52px; /* Match select height */
+                            padding: 0 18px;
+                            border: 2px solid var(--ul-border-color);
+                            border-radius: 8px;
+                            font-size: 1rem;
+                            transition: all 0.3s;
+                            background: var(--ul-light);
+                            outline: 1px solid var(--ul-border-color);
+                        }
+
+                        .ul-input:focus {
+                            outline: 1px solid var(--ul-primary);
+                            border-color: var(--ul-primary);
+                            background: var(--ul-white);
+                            box-shadow: 0 0 0 3px rgba(var(--ul-primary-rgb), 0.1);
+                        }
+
+                        .ul-search-offline {
+                            margin-top: 20px;
+                            padding: 15px;
+                            background: var(--ul-light);
+                            border-radius: 8px;
+                            text-align: center;
+                            color: var(--ul-text-color);
+                            border-left: 4px solid var(--ul-primary);
+                        }
+
+                        .ul-btn-primary {
+                            height: 52px; /* Match input/select height */
+                            background: var(--ul-primary);
+                            color: white;
+                            border: none;
+                            padding: 0 25px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            transition: all 0.3s;
+                            outline: 1px solid var(--ul-border-color);
+                        }
+
+                        .ul-btn-primary:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(var(--ul-primary-rgb), 0.3);
+                        }
+
+                        .ul-btn-primary:focus {
+                            outline: 1px solid var(--ul-primary);
+                        }
+                        .active {
+                            color: var(--ul-primary);
+                            font-weight: bold;
+                        }
+                    </style>
+                </div>
+
+                <!-- header nav -->
+                <div class=" ul-header-nav-wrapper">
+                    <div class="to-go-to-sidebar-in-mobile">
+                        <nav class="ul-header-nav">
+                            <a href="/" class="{{ 'active' if request.path == '/' }}">Home</a>
+                        
+                            <div class="has-sub-menu has-mega-menu {{ 'active' if request.path.startswith('/shop') }}">
+                                <a role="button">Categories</a>
+
+                                <div class="ul-header-submenu ul-header-megamenu">
+                                    <div class="single-col">
+                                        <span class="single-col-title">Custom Apparels</span>
+                                        <ul>
+                                            <li><a href="/shop/elite-supima-polo" class="{{ 'active' if request.path == '/shop/elite-supima-polo' }}">Elite Supima Polo</a></li>
+                                            <li><a href="/shop/supreme-heavy-weight-cotton-polo" class="{{ 'active' if request.path == '/shop/supreme-heavy-weight-cotton-polo' }}">Supreme Heavy Weight Cotton Polo</a></li>
+                                            <li><a href="/shop/prime-cotton-polo" class="{{ 'active' if request.path == '/shop/prime-cotton-polo' }}">Prime Cotton Polo</a></li>
+                                            <li><a href="/shop/prime-cotton-tipping-polo" class="{{ 'active' if request.path == '/shop/prime-cotton-tipping-polo' }}">Prime Cotton Tipping Polo</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="single-col">
+                                        <span class="single-col-title">Premium Apparels</span>
+                                        <ul>
+                                            <li><a href="/shop/iconic-heavy-cotton-round-neck" class="{{ 'active' if request.path == '/shop/iconic-heavy-cotton-round-neck' }}">Iconic Heavy Cotton Round Neck</a></li>
+                                            <li><a href="/shop/iconic-soft-cotton-round-neck" class="{{ 'active' if request.path == '/shop/iconic-soft-cotton-round-neck' }}">Iconic Soft Cotton Round Neck</a></li>
+                                            <li><a href="/shop/ultra-soft-zipper-hoodie" class="{{ 'active' if request.path == '/shop/ultra-soft-zipper-hoodie' }}">Ultra Soft Zipper Hoodie</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="single-col">
+                                        <span class="single-col-title">Custom Apparel Model</span>
+                                        <ul>
+                                            <li><a href="/shop/ultra-soft-pullover-hoodie" class="{{ 'active' if request.path == '/shop/ultra-soft-pullover-hoodie' }}">Ultra Soft Pullover Hoodie</a></li>
+                                            <li><a href="/shop/premium-dry-fit-pique-performance-polo" class="{{ 'active' if request.path == '/shop/premium-dry-fit-pique-performance-polo' }}">Premium Dry Fit Pique Performance Polo</a></li>
+                                            <li><a href="/shop/heavy-weight-round-neck-240" class="{{ 'active' if request.path == '/shop/heavy-weight-round-neck-240' }}">Heavy Weight Round Neck 240</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="single-col">
+                                        <span class="single-col-title">Children's</span>
+                                        <ul>
+                                            <li><a href="/shop/childrens/clothing" class="{{ 'active' if request.path == '/shop/childrens/clothing' }}">Clothing</a></li>
+                                            <li><a href="/shop/childrens/footwear" class="{{ 'active' if request.path == '/shop/childrens/footwear' }}">Footwear</a></li>
+                                            <li><a href="/shop/childrens/accessories" class="{{ 'active' if request.path == '/shop/childrens/accessories' }}">Accessories</a></li>
+                                            <li><a href="/shop/childrens/toys-games" class="{{ 'active' if request.path == '/shop/childrens/toys-games' }}">Toys & Games</a></li>
+                                            <li><a href="/shop/childrens/baby-essentials" class="{{ 'active' if request.path == '/shop/childrens/baby-essentials' }}">Baby Essentials</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="single-col">
+                                        <span class="single-col-title">Other Apparels</span>
+                                        <ul>
+                                            <li><a href="/shop/corporate-uniforms" class="{{ 'active' if request.path == '/shop/corporate-uniforms' }}">Corporate Uniforms</a></li>
+                                            <li><a href="/shop/school-uniforms" class="{{ 'active' if request.path == '/shop/school-uniforms' }}">School Uniforms</a></li>
+                                            <li><a href="/shop/sports-uniforms" class="{{ 'active' if request.path == '/shop/sports-uniforms' }}">Sports Uniforms</a></li>
+                                            <li><a href="/shop/hospital-uniforms" class="{{ 'active' if request.path == '/shop/hospital-uniforms' }}">Hospital Uniforms</a></li>
+                                            <li><a href="/shop/hotel-uniforms" class="{{ 'active' if request.path == '/shop/hotel-uniforms' }}">Hotel Uniforms</a></li>
+                                            <li><a href="/shop/other-uniforms" class="{{ 'active' if request.path == '/shop/other-uniforms' }}">Other Uniforms</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="single-col promo-col">
+                                        <div class="mega-promo-banner">
+                                            <div class="promo-image-wrapper">
+                                                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                                     alt="Premium Fashion Collection" 
+                                                     class="promo-img">
+                                            </div>
+                                            <div class="promo-content-wrapper">
+                                                <div class="promo-badge">NEW ARRIVAL</div>
+                                                <h3 class="promo-title">Summer Elite<br>Collection 2024</h3>
+                                                <div class="promo-offer">
+                                                    <span class="discount">50%</span>
+                                                    <span class="offer-text">OFF</span>
+                                                </div>
+                                                <p class="promo-description">Exclusive designs with premium fabrics</p>
+                                                <a href="/shop/all" class="promo-cta-button">
+                                                    <span>SHOP NOW</span>
+                                                    <i class="flaticon-right-arrow"></i>
+                                                </a>
+                                            </div>
+                                            <style>
+                                                .promo-col {
+                                                    min-width: 300px !important;
+                                                }
+                                                
+                                                .mega-promo-banner {
+                                                    position: relative;
+                                                    background: #fff;
+                                                    border-radius: 12px;
+                                                    overflow: hidden;
+                                                    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+                                                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                                }
+
+                                                .mega-promo-banner:hover {
+                                                    transform: translateY(-5px);
+                                                    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+                                                }
+
+                                                .promo-image-wrapper {
+                                                    position: relative;
+                                                    overflow: hidden;
+                                                }
+
+                                                .promo-img {
+                                                    width: 100%;
+                                                    height: 320px;
+                                                    object-fit: cover;
+                                                    transition: transform 0.5s ease;
+                                                }
+
+                                                .mega-promo-banner:hover .promo-img {
+                                                    transform: scale(1.05);
+                                                }
+
+                                                .promo-content-wrapper {
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 0;
+                                                    right: 0;
+                                                    bottom: 0;
+                                                    padding: 25px;
+                                                    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+                                                    display: flex;
+                                                    flex-direction: column;
+                                                    justify-content: center;
+                                                    align-items: center;
+                                                }
+
+                                                .promo-badge {
+                                                    background: #ff4444;
+                                                    color: white;
+                                                    padding: 6px 12px;
+                                                    border-radius: 20px;
+                                                    font-size: 12px;
+                                                    font-weight: 600;
+                                                    margin-bottom: 15px;
+                                                    letter-spacing: 1px;
+                                                }
+
+                                                .promo-title {
+                                                    color: #fff;
+                                                    font-size: 28px;
+                                                    font-weight: 700;
+                                                    text-align: center;
+                                                    margin-bottom: 15px;
+                                                    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+                                                    line-height: 1.2;
+                                                }
+
+                                                .promo-offer {
+                                                    margin-bottom: 15px;
+                                                    text-align: center;
+                                                }
+
+                                                .discount {
+                                                    color: #fff;
+                                                    font-size: 42px;
+                                                    font-weight: 800;
+                                                }
+
+                                                .offer-text {
+                                                    color: #fff;
+                                                    font-size: 24px;
+                                                    font-weight: 600;
+                                                    margin-left: 5px;
+                                                }
+
+                                                .promo-description {
+                                                    color: rgba(255,255,255,0.9);
+                                                    font-size: 16px;
+                                                    text-align: center;
+                                                    margin-bottom: 25px;
+                                                }
+
+                                                .promo-cta-button {
+                                                    background: #fff;
+                                                    color: #000;
+                                                    padding: 16px 36px;
+                                                    border-radius: 30px;
+                                                    font-weight: 600;
+                                                    font-size: 15px;
+                                                    text-decoration: none;
+                                                    display: inline-flex;
+                                                    align-items: center;
+                                                    gap: 10px;
+                                                    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                                                    position: relative;
+                                                    overflow: hidden;
+                                                    margin-bottom: 10%;
+                                                }
+
+                                                .promo-cta-button:before {
+                                                    content: '';
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    background: #000;
+                                                    transform: translateX(-100%);
+                                                    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                                                    z-index: 1;
+                                                }
+
+                                                .promo-cta-button span,
+                                                .promo-cta-button i {
+                                                    position: relative;
+                                                    z-index: 2;
+                                                    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                                                }
+
+                                                .promo-cta-button:hover {
+                                                    transform: translateY(-2px);
+                                                    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+                                                }
+
+                                                .promo-cta-button:hover:before {
+                                                    transform: translateX(0);
+                                                }
+
+                                                .promo-cta-button:hover span,
+                                                .promo-cta-button:hover i {
+                                                    color: #fff;
+                                                }
+
+                                                .promo-cta-button:hover i {
+                                                    transform: translateX(5px);
+                                                }
+                                            </style>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/about" class="{{ 'active' if request.path == '/about' }}">About Us</a>
+                            <a href="/location" class="{{ 'active' if request.path == '/location' }}">Location</a>
+                            <a href="/contact" class="{{ 'active' if request.path == '/contact' }}">Contact Us</a>
+                            <a href="/faq" class="{{ 'active' if request.path == '/faq' }}">FAQ</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- actions -->
+                <div class="ul-header-actions">
+                    <div class="unified-header-card">
+                        <div class="shine-effect"></div>
+                        <div class="card-section sale-flash">
+                            <div class="flash-icon">
+                                ⚡
+                            </div>
+                            <div class="flash-text">
+                                <span class="flash-label">LIVE SALE</span>
+                                <span class="flash-details">Up to 50% Off!</span>
+                            </div>
+                        </div>
+
+                        <div class="card-divider"></div>
+
+                        <div class="card-section countdown">
+                            <div id="countdownStatus" class="countdown-status">⏰ Sale Ends In</div>
+                            <div id="countdownTimer" class="countdown-timer">Loading...</div>
+                            <script>
+                                function updateCountdown() {
+                                    const now = new Date();
+                                    const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+                                    const endTime = new Date(ist);
+                                    endTime.setHours(22, 0, 0, 0); // 10 PM IST
+                                    
+                                    if (ist >= endTime) {
+                                        // If current time is past 10 PM, set end time to next day 10 PM
+                                        endTime.setDate(endTime.getDate() + 1);
+                                    }
+                                    
+                                    const diff = endTime - ist;
+                                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                                    
+                                    document.getElementById('countdownTimer').innerHTML = 
+                                        `${hours}h ${minutes}m ${seconds.toString().padStart(2, '0')}s`;
+                                }
+                                setInterval(updateCountdown, 1000);
+                                updateCountdown();
+                            </script>
+                        </div>
+
+                        <div class="card-divider"></div>
+
+                        <div class="card-section shopper-count">
+                            <div class="shopper-pulse-ring"></div>
+                            <div class="shopper-icon">
+                                👥
+                            </div>
+                            <div class="shopper-text">
+                                <div class="shopper-label">Live Shoppers</div>
+                                <div class="shopper-number-wrapper">
+                                    <span id="shopperNumber" class="shopper-number">Loading...</span>
+                                    <span class="shopper-trend">
+                                        📈
+                                    </span>
+                                </div>
+                            </div>
+                            <script>
+                                let lastCount = null;
+                                
+                                function getShopperCount() {
+                                    const now = new Date();
+                                    const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+                                    const hour = ist.getHours();
+                                    
+                                    // Generate base count between 5-5000 based on time of day
+                                    let baseCount;
+                                    if (hour >= 10 && hour < 20) { // Peak hours
+                                        baseCount = 2500 + Math.sin((hour - 10) * Math.PI / 10) * 2500;
+                                    } else { // Off-peak
+                                        baseCount = 500;
+                                    }
+                                    
+                                    // Add small random variation but limit change from last count
+                                    const timeBlock = Math.floor(Date.now() / 1000); // Changes every second
+                                    const rand = Math.sin(timeBlock) * 50; // Smaller random variation
+                                    
+                                    let newCount = Math.round(Math.max(5, Math.min(5000, baseCount + rand)));
+                                    
+                                    // Limit change from last count to prevent drastic jumps
+                                    if (lastCount !== null) {
+                                        const maxChange = 10;
+                                        newCount = Math.max(lastCount - maxChange, 
+                                                          Math.min(lastCount + maxChange, newCount));
+                                    }
+                                    
+                                    lastCount = newCount;
+                                    return newCount;
+                                }
+                                
+                                function getRandomInterval() {
+                                    return Math.floor(Math.random() * 4000) + 1000; // Random between 1-5 seconds
+                                }
+                                
+                                document.getElementById('shopperNumber').textContent = 
+                                    getShopperCount().toLocaleString();
+                                
+                                function scheduleNextUpdate() {
+                                    setTimeout(() => {
+                                        document.getElementById('shopperNumber').textContent = 
+                                            getShopperCount().toLocaleString();
+                                        scheduleNextUpdate();
+                                    }, getRandomInterval());
+                                }
+                                
+                                scheduleNextUpdate();
+                            </script>
+                        </div>
+                    </div>
+
+                    <style>
+                        .unified-header-card {
+                            display: flex;
+                            align-items: center;
+                            background: #ffffff;
+                            backdrop-filter: blur(10px);
+                            border: 1px solid var(--ul-primary);
+                            padding: 12px 24px;
+                            border-radius: 12px;
+                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+                                       0 20px 60px rgba(0, 0, 0, 0.05);
+                            margin-right: 15px;
+                            position: relative;
+                            transition: all 0.3s ease;
+                            overflow: hidden;
+                        }
+
+                        .shine-effect {
+                            position: absolute;
+                            top: -100%;
+                            left: -100%;
+                            width: 150%;
+                            height: 150%;
+                            background: linear-gradient(
+                                135deg,
+                                transparent 0%,
+                                transparent 35%,
+                                rgba(var(--ul-primary-rgb), 0.15) 45%,
+                                rgba(var(--ul-primary-rgb), 0.25) 50%,
+                                rgba(var(--ul-primary-rgb), 0.15) 55%,
+                                transparent 65%,
+                                transparent 100%
+                            );
+                            animation: shine 8s linear infinite;
+                            transform: rotate(45deg);
+                            pointer-events: none;
+                        }
+
+                        @keyframes shine {
+                            0% {
+                                top: -150%;
+                                left: -150%;
+                            }
+                            100% {
+                                top: 150%;
+                                left: 150%;
+                            }
+                        }
+
+                        .unified-header-card:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15),
+                                       0 25px 70px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .card-section {
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            padding: 0 12px;
+                        }
+
+                        .card-divider {
+                            width: 1px;
+                            height: 40px;
+                            background: linear-gradient(to bottom, transparent, var(--ul-primary), transparent);
+                            margin: 0 8px;
+                            opacity: 0.2;
+                        }
+
+                        /* Sale Flash Section */
+                        .sale-flash {
+                            color: var(--ul-primary);
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .flash-icon {
+                            animation: sparkle 1s infinite;
+                            font-size: 1.5rem;
+                        }
+
+                        .flash-label {
+                            color: var(--ul-primary);
+                            font-weight: 600;
+                            font-size: 0.9rem;
+                            display: block;
+                        }
+
+                        .flash-details {
+                            color: var(--ul-primary);
+                            font-weight: 700;
+                            font-size: 1.1rem;
+                        }
+
+                        /* Countdown Section */
+                        .countdown {
+                            text-align: center;
+                        }
+
+                        .countdown-status {
+                            color: var(--ul-primary);
+                            font-weight: 600;
+                            font-size: 0.9rem;
+                        }
+
+                        .countdown-timer {
+                            font-weight: 700;
+                            color: var(--ul-primary);
+                            font-size: 1.1rem;
+                        }
+
+                        /* Shopper Count Section */
+                        .shopper-count {
+                            position: relative;
+                        }
+
+                        .shopper-icon {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: relative;
+                            z-index: 2;
+                            font-size: 1.5rem;
+                        }
+
+                        .shopper-pulse-ring {
+                            position: absolute;
+                            left: 20px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background: var(--ul-primary);
+                            opacity: 0.3;
+                            animation: pulse 2s infinite;
+                        }
+
+                        .shopper-label {
+                            color: var(--ul-primary);
+                            font-weight: 600;
+                            font-size: 0.9rem;
+                        }
+
+                        .shopper-number {
+                            color: var(--ul-primary);
+                            font-weight: 700;
+                            font-size: 1.1rem;
+                        }
+
+                        .shopper-trend {
+                            font-size: 1.2rem;
+                        }
+
+                        /* Keep existing animations */
+                        @keyframes sparkle {
+                            0% { transform: scale(1); }
+                            50% { transform: scale(1.2); }
+                            100% { transform: scale(1); }
+                        }
+
+                        @keyframes pulse {
+                            0% {
+                                transform: translateY(-50%) scale(1);
+                                opacity: 0.3;
+                            }
+                            70% {
+                                transform: translateY(-50%) scale(2);
+                                opacity: 0;
+                            }
+                            100% {
+                                transform: translateY(-50%) scale(1);
+                                opacity: 0;
+                            }
+                        }
+
+                        /* Responsive adjustments */
+                        @media (max-width: 768px) {
+                            .unified-header-card {
+                                padding: 8px 16px;
+                            }
+                            
+                            .card-section {
+                                padding: 0 8px;
+                            }
+
+                            .card-divider {
+                                height: 30px;
+                                margin: 0 4px;
+                            }
+                        }
+                    </style>
+                </div>
+
+                <!-- sidebar opener -->
+                <div>
+                    <button class="ul-header-sidebar-opener"><i class="flaticon-hamburger"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
