@@ -7,6 +7,7 @@ class SystemConfig:
     MAIL_PASSWORD = "your_email_password"
     ADMIN_EMAIL = "admin@abcuniforms.com"
     MAIL_URL = "smtp.gmail.com"
+    COMPANY_LOGO = "/static/images/logo.png"
 
 class SocialConfig:
     FACEBOOK_URL = "https://www.facebook.com/abcuniforms"

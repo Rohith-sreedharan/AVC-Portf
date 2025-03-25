@@ -1,0 +1,366 @@
+{
+    "000001":{
+        "name": "Elite Supima Polo",
+        "category": "Custom",
+        "keywords": ["Elite Supima Polo", "Custom Polo", "Custom T-Shirt"],
+        "desc": "Experience luxury with our Supima Cotton Polo, crafted from the world's finest cotton. Renowned for its exceptional softness, durability, and color retention, this polo offers a premium feel and a sophisticated look that lasts.",
+        "description": "Experience luxury with our Supima Cotton Polo, crafted from the world's finest cotton. This exceptional fabric is not only renowned for its incredible softness but also for its remarkable durability and color retention. Each polo is designed to provide a premium feel that elevates your everyday wardrobe. The Supima Cotton is sourced from the United States, where it is grown under the most ideal conditions, ensuring that only the highest quality fibers are used in our garments. This results in a product that not only looks good but feels good against your skin, making it perfect for all-day wear. The sophisticated look of this polo makes it versatile enough to be dressed up for a business casual setting or dressed down for a relaxed weekend outing. With its tailored fit and elegant design, it flatters a variety of body types, ensuring that you look your best no matter the occasion. The polo is available in a range of classic colors, allowing you to choose the perfect shade to match your personal style. Whether you prefer a timeless black, a crisp white, or a bold navy, there's a color for everyone. Additionally, the polo features a breathable fabric that helps regulate your body temperature, making it comfortable to wear in both warm and cool weather. This makes it an ideal choice for layering under a jacket or wearing on its own. The attention to detail in the stitching and finishing of the polo ensures that it maintains its shape and quality wash after wash. You can trust that this polo will remain a staple in your wardrobe for years to come. Plus, with easy care instructions, you can machine wash it with like colors and tumble dry low, making it as practical as it is stylish. Experience the difference of Supima Cotton and elevate your wardrobe with this luxurious polo that combines comfort, style, and durability in one exceptional piece.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "image_path": "/static/shop/000001/8.png",
+        "image_alt": "Elite Supima Polo",
+        "images":[
+            {
+                "image_path": "/shop/000001/01.png",
+                "image_alt": "Elite Supima Polo",
+                "color": "Black"
+            },
+            {
+                "image_path": "/shop/000001/02.png",
+                "image_alt": "Elite Supima Polo",
+                "color": "White"
+            },
+            {
+                "image_path": "/shop/000001/03.png",
+                "image_alt": "Elite Supima Polo",
+                "color": "Navy"
+            },
+            {
+                "image_path": "/shop/000001/04.png",
+                "image_alt": "Elite Supima Polo",
+                "color": "Red"
+            }
+        ],
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (500 MOQ)"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ],
+        "discount": "25% Off"
+    },
+    "000002": {
+        "name": "Supreme Heavy Weight Cotton Polo",
+        "category": "Custom",
+        "keywords": ["Heavy Weight Cotton Polo", "Custom Polo", "Premium Polo"],
+        "desc": "Crafted for superior strength and long-lasting comfort, our Heavyweight Cotton Polo is designed to withstand everyday wear while offering a premium feel.",
+        "description": "Crafted for superior strength and long-lasting comfort, our Heavyweight Cotton Polo is designed to withstand everyday wear while offering a premium feel. Made from thick, high-quality cotton, this polo provides exceptional durability, structure, and a polished look for both professional and casual settings. With a premium 280 GSM weight and super combed cotton construction, this polo sets the standard for quality and durability. Perfect for those who demand the best in their workwear or casual attire, this heavyweight polo maintains its shape and appearance even after repeated wear and washing. The substantial fabric weight provides excellent structure while remaining comfortable throughout the day. Available in a range of sizes to fit every body type and with various decoration options to suit your branding needs. Whether you're looking for individual pieces or bulk orders for corporate uniforms, this polo delivers exceptional quality and professional appearance.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL"],
+        "extended_sizes": ["2XS", "XS", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000002/82.png",
+        "image_alt": "Supreme Heavy Weight Cotton Polo",
+        "images": [],
+        "colors_available": "8 (No MOQ)",
+        "custom_color": "Custom Color (2000 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (300 MOQ)"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "280 GSM",
+            "Super Combed Cotton"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000003": {
+        "name": "Prime Cotton Polo",
+        "category": "Custom",
+        "keywords": ["Prime Cotton Polo", "Custom Polo", "Business Casual"],
+        "desc": "Our Cotton Polo blends comfort, durability, and sophistication, making it a must-have for any wardrobe.",
+        "description": "Our Cotton Polo blends comfort, durability, and sophistication, making it a must-have for any wardrobe. Crafted from premium-quality cotton, this polo offers a soft, breathable feel with a polished look, perfect for work, casual outings, or corporate branding. The 240 GSM weight provides the perfect balance between durability and comfort, while the super combed cotton ensures a luxuriously soft feel against your skin. This versatile polo is designed to maintain its shape and color through repeated washing, making it an excellent choice for both individual wear and corporate uniforms. With a wide range of available colors and customization options, it's the perfect canvas for your brand or personal style.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL"],
+        "extended_sizes": ["2XS", "XS", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000003/17.png",
+        "image_alt": "Prime Cotton Polo",
+        "images": [],
+        "colors_available": "15 (No MOQ)",
+        "custom_color": "Custom Color (2000 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (200 MOQ)"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "240 GSM",
+            "Super Combed Cotton"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000004": {
+        "name": "Prime Cotton Tipping Polo",
+        "category": "Custom",
+        "keywords": ["Tipping Polo", "Custom Polo", "Contrast Polo"],
+        "desc": "Upgrade your look with our Cotton Collar Cuff Tipping Polo, designed for a refined and stylish appeal.",
+        "description": "Upgrade your look with our Cotton Collar Cuff Tipping Polo, designed for a refined and stylish appeal. Crafted from premium cotton, this polo offers superior comfort, breathability, and durability, while the contrasting tipped collar and cuffs add a touch of sophistication. The 240 GSM weight provides excellent structure and durability, while the super combed cotton ensures a luxuriously soft feel. The distinctive tipped design elements make this polo stand out, perfect for those who want to make a subtle yet stylish statement. Whether for corporate uniforms or personal wear, this polo combines classic style with modern details.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL"],
+        "extended_sizes": ["2XS", "XS", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000004/33.png",
+        "image_alt": "Prime Cotton Tipping Polo",
+        "images": [],
+        "colors_available": "5 (No MOQ)",
+        "custom_color": "Custom Color (2000 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (200 MOQ)"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "240 GSM",
+            "Super Combed Cotton"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000005": {
+        "name": "Iconic Heavy Cotton Round Neck",
+        "category": "Custom",
+        "keywords": ["Round Neck", "T-Shirt", "Heavy Cotton"],
+        "desc": "Designed for lasting comfort and durability, our Heavy Cotton Round Neck T-Shirt is made from thick, premium-quality cotton.",
+        "description": "Designed for lasting comfort and durability, our Heavy Cotton Round Neck T-Shirt is made from thick, premium-quality cotton, offering a structured fit and a superior feel. Whether for casual wear, work uniforms, or branding purposes, this t-shirt ensures long-lasting performance without compromising on comfort. The 200 GSM weight provides the perfect balance of durability and comfort, while the bio-washed treatment ensures exceptional softness. The super combed cotton construction adds to the premium quality, making this t-shirt perfect for everyday wear. With its versatile design and superior construction, it's an excellent choice for both individual use and bulk orders.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL"],
+        "extended_sizes": ["2XS", "XS", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000005/39.png",
+        "image_alt": "Iconic Heavy Cotton Round Neck",
+        "images": [],
+        "colors_available": "6 (No MOQ)",
+        "custom_color": "Custom Color (2000 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (200 MOQ)"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "200 GSM",
+            "Super Combed Cotton",
+            "Bio-Washed"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000006": {
+        "name": "Iconic Soft Cotton Round Neck",
+        "category": "Custom",
+        "keywords": ["Soft Cotton", "Round Neck", "T-Shirt"],
+        "desc": "Experience unmatched softness and breathability with our Soft Cotton Round Neck T-Shirt.",
+        "description": "Experience unmatched softness and breathability with our Soft Cotton Round Neck T-Shirt. Crafted from premium-quality cotton, this t-shirt offers a lightweight, skin-friendly feel, making it perfect for all-day wear. Whether for casual outings, corporate branding, or promotional use, this tee delivers comfort, durability, and style in one package. The 180 GSM weight provides excellent breathability while maintaining durability, and the bio-washed treatment ensures exceptional softness. With its versatile design and wide range of color options, it's perfect for both individual wear and bulk orders. The super combed cotton construction adds to the premium quality, making this t-shirt a reliable choice for any occasion.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL"],
+        "extended_sizes": ["2XS", "XS", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000006/46.png",
+        "image_alt": "Iconic Soft Cotton Round Neck",
+        "images": [],
+        "colors_available": "18 (No MOQ)",
+        "custom_color": "Custom Color (2000 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (200 MOQ)"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "180 GSM",
+            "Super Combed Cotton",
+            "Bio-Washed"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000007": {
+        "name": "Ultra Soft Zipper Hoodie",
+        "category": "Custom",
+        "keywords": ["Zipper Hoodie", "Sweatshirt", "Custom Hoodie"],
+        "desc": "Stay warm and stylish with our Soft Zipper Hoodie, crafted from premium-quality cotton blend for an ultra-soft, cozy feel.",
+        "description": "Stay warm and stylish with our Soft Zipper Hoodie, crafted from premium-quality cotton blend for an ultra-soft, cozy feel. Designed for maximum comfort and versatility, this hoodie is perfect for casual wear, layering, and branding purposes. The 300 GSM weight provides excellent warmth and durability, while the super combed cotton ensures exceptional softness. The full-length zipper adds convenience and versatility to your layering options. Perfect for both individual wear and corporate branding, this hoodie combines style, comfort, and practicality in one premium package.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL"],
+        "extended_sizes": ["2XS", "XS", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000007/58.png",
+        "image_alt": "Ultra Soft Zipper Hoodie",
+        "images": [],
+        "colors_available": "4 (No MOQ)",
+        "custom_color": "Custom Color (500 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (200 MOQ)"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "300 GSM",
+            "Super Combed Cotton"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000008": {
+        "name": "Ultra Soft Pullover Hoodie",
+        "category": "Custom",
+        "keywords": ["Pullover Hoodie", "Sweatshirt", "Custom Hoodie"],
+        "desc": "Stay warm and stylish with our Soft Pullover Hoodie, crafted from premium-quality cotton blend for an ultra-soft, cozy feel.",
+        "description": "Stay warm and stylish with our Soft Pullover Hoodie, crafted from premium-quality cotton blend for an ultra-soft, cozy feel. Designed for maximum comfort and versatility, this hoodie is perfect for casual wear, layering, and branding purposes. The 300 GSM weight provides excellent warmth and durability, while the super combed cotton ensures exceptional softness. The classic pullover design offers timeless style and comfort. Perfect for both individual wear and corporate branding, this hoodie combines style, comfort, and practicality in one premium package.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL"],
+        "extended_sizes": ["2XS", "XS", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000008/63.png",
+        "image_alt": "Ultra Soft Pullover Hoodie",
+        "images": [],
+        "colors_available": "4 (No MOQ)",
+        "custom_color": "Custom Color (500 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (200 MOQ)"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "300 GSM",
+            "Super Combed Cotton"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000009": {
+        "name": "Premium Dry Fit Pique Performance Polo",
+        "category": "Custom",
+        "keywords": ["Dry Fit", "Performance Polo", "Sports Polo"],
+        "desc": "Designed for performance and style, our Dry Fit Pique Performance Polo offers superior breathability and moisture-wicking technology.",
+        "description": "Designed for performance and style, our Dry Fit Pique Performance Polo offers superior breathability, moisture-wicking technology, and all-day comfort. Made from high-quality pique fabric, this polo keeps you cool, dry, and fresh, making it perfect for sports, corporate wear, and active lifestyles. The 200 GSM weight provides excellent durability while maintaining breathability, and the UV protection feature adds an extra layer of functionality. The Super Wick technology ensures moisture management for optimal comfort during activities. Whether for sports teams, corporate uniforms, or individual wear, this performance polo delivers both style and functionality.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["S", "M", "L", "XL", "2XL", "3XL"],
+        "extended_sizes": ["2XS", "XS", "4XL", "5XL", "6XL", "7XL"],
+        "extended_moq": "100 MOQ",
+        "image_path": "/static/shop/000009/75.png",
+        "image_alt": "Premium Dry Fit Pique Performance Polo",
+        "images": [],
+        "colors_available": "20 (No MOQ)",
+        "custom_color": "Custom Color (100 MOQ)",
+        "decorations": [
+            "DTF (No MOQ)",
+            "Embroidery (10 MOQ)",
+            "Screen Printing (50 MOQ)",
+            "Cut & Sew (200 MOQ)"
+        ],
+        "product_details": [
+            "100% Polyester",
+            "200 GSM",
+            "UV Protection",
+            "Super Wick"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    },
+    "000010": {
+        "name": "Heavy Weight Round Neck 240",
+        "category": "Custom",
+        "keywords": ["Heavy Weight", "Round Neck", "T-Shirt"],
+        "desc": "Crafted for durability and superior comfort, our Heavyweight 240 GSM Round Neck T-Shirt is made from thick, high-quality cotton.",
+        "description": "Crafted for durability and superior comfort, our Heavyweight 240 GSM Round Neck T-Shirt is made from thick, high-quality cotton, offering a structured fit and long-lasting performance. Perfect for casual wear, work uniforms, and branding, this tee ensures exceptional strength without compromising on comfort. The bio-washed treatment ensures a soft feel against the skin, while the 240 GSM weight provides excellent durability and structure. Available in a wide range of sizes from Born Baby to 7XL, this versatile t-shirt is perfect for various applications and bulk orders.",
+        "price": "72 Hours Delivery",
+        "Sizes": ["Born Baby", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL", "7XL"],
+        "image_path": "/static/shop/000010/01.png",
+        "image_alt": "Heavy Weight Round Neck 240",
+        "images": [],
+        "colors_available": "15+ Colors",
+        "moq": "50 Quantities",
+        "decorations": [
+            "DTF",
+            "Embroidery",
+            "Screen Printing",
+            "Cut & Sew"
+        ],
+        "product_details": [
+            "100% Cotton",
+            "240 GSM",
+            "Bio-Washed"
+        ],
+        "delivery_time": "72 Hours Delivery",
+        "instructions": [
+            "Machine wash cold with like colors.",
+            "When needed, tumble dry low, remove promptly.",
+            "Cool iron if needed.",
+            "Do not use softener.",
+            "Do not dry clean."
+        ]
+    }
+}

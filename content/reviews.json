@@ -1,0 +1,212 @@
+[
+    {
+        "name": "Lakshmi Krishnan",
+        "designation": "Marketing Director",
+        "message": "உயர்ந்த தரம் கொண்ட ஆடைகள்! Excellent collection and designs. நான் ABC-யின் நிரந்தர வாடிக்கையாளராக மாறிவிட்டேன். Worth every penny!",
+        "image_path": "/static/img/review-author-3.png",
+        "rating": 5
+    },
+    {
+        "name": "Rajesh Kumar",
+        "designation": "CEO, Tech Solutions",
+        "message": "அற்புதமான வடிவமைப்புகள்! Modern designs are fantastic. ABC நிச்சயமாக ஒரு premium brand! Their craftsmanship is outstanding!",
+        "image_path": "/static/img/review-author-4.png",
+        "rating": 5
+    },
+    {
+        "name": "Anjali Mehta",
+        "designation": "Product Manager",
+        "message": "அற்புதமான அனுபவம்! The variety and quality of the products are unmatched. ABC has truly exceeded my expectations!",
+        "image_path": "/static/img/review-author-5.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Suresh Iyer",
+        "designation": "Graphic Designer",
+        "message": "சிறந்த சேவை! The team was very responsive and attentive to my needs. I will definitely return for more purchases!",
+        "image_path": "/static/img/review-author-6.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Nisha Patel",
+        "designation": "Content Writer",
+        "message": "மிகவும் மகிழ்ச்சியான அனுபவம்! The clothes are stylish and comfortable. ABC is my new favorite store!",
+        "image_path": "/static/img/review-author-7.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Vikram Singh",
+        "designation": "Sales Executive",
+        "message": "அற்புதமான தரம்! The attention to detail in the clothing is remarkable. Highly recommend ABC for anyone looking for quality apparel!",
+        "image_path": "/static/img/review-author-8.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Riya Sharma",
+        "designation": "HR Manager",
+        "message": "சிறந்த அனுபவம்! The staff was friendly and the selection was impressive. I will be back for more!",
+        "image_path": "/static/img/review-author-9.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Arjun Rao",
+        "designation": "IT Consultant",
+        "message": "மிகவும் அருமையான சேவை! The quality of the fabrics is exceptional. ABC has become my go-to for all my clothing needs!",
+        "image_path": "/static/img/review-author-10.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Sneha Joshi",
+        "designation": "Event Planner",
+        "message": "அற்புதமான வடிவமைப்புகள்! The outfits I purchased were perfect for my events. Thank you, ABC!",
+        "image_path": "/static/img/review-author-11.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Kiran Nair",
+        "designation": "Financial Analyst",
+        "message": "சிறந்த தரம்! The clothing fits perfectly and looks great. I highly recommend ABC to everyone!",
+        "image_path": "/static/img/review-author-12.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Meera Desai",
+        "designation": "Teacher",
+        "message": "மிகவும் மகிழ்ச்சியான அனுபவம்! The service was excellent and the clothes are beautiful. I will definitely shop here again!",
+        "image_path": "/static/img/review-author-13.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Rahul Verma",
+        "designation": "Entrepreneur",
+        "message": "அற்புதமான சேவை! The team was very helpful and the products are top-notch. ABC is a fantastic brand!",
+        "image_path": "/static/img/review-author-14.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Pooja Reddy",
+        "designation": "Nurse",
+        "message": "சிறந்த தரம்! The clothing is comfortable and stylish. I love shopping at ABC!",
+        "image_path": "/static/img/review-author-15.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Siddharth Mehta",
+        "designation": "Architect",
+        "message": "மிகவும் அருமையான ஆடைகள்! The designs are unique and the quality is excellent. Highly recommend!",
+        "image_path": "/static/img/review-author-16.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Tanvi Kapoor",
+        "designation": "Marketing Specialist",
+        "message": "அற்புதமான அனுபவம்! The staff was friendly and the selection was impressive. I will be back for more!",
+        "image_path": "/static/img/review-author-17.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Vivek Sharma",
+        "designation": "Software Developer",
+        "message": "சிறந்த சேவை! The quality of the products is outstanding. ABC is my favorite store!",
+        "image_path": "/static/img/review-author-18.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Ananya Singh",
+        "designation": "Research Scientist",
+        "message": "மிகவும் மகிழ்ச்சியான அனுபவம்! The clothing is stylish and comfortable. ABC is my new favorite store!",
+        "image_path": "/static/img/review-author-19.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Rohit Gupta",
+        "designation": "Data Analyst",
+        "message": "அற்புதமான வடிவமைப்புகள்! The outfits I purchased were perfect for my events. Thank you, ABC!",
+        "image_path": "/static/img/review-author-20.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Nikita Bansal",
+        "designation": "Content Creator",
+        "message": "சிறந்த தரம்! The clothing fits perfectly and looks great. I highly recommend ABC to everyone!",
+        "image_path": "/static/img/review-author-21.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Amit Joshi",
+        "designation": "Sales Manager",
+        "message": "மிகவும் அருமையான சேவை! The quality of the fabrics is exceptional. ABC has become my go-to for all my clothing needs!",
+        "image_path": "/static/img/review-author-22.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Riya Kapoor",
+        "designation": "HR Executive",
+        "message": "அற்புதமான அனுபவம்! The service was excellent and the clothes are beautiful. I will definitely shop here again!",
+        "image_path": "/static/img/review-author-23.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Karan Mehta",
+        "designation": "Graphic Designer",
+        "message": "சிறந்த சேவை! The team was very helpful and the products are top-notch. ABC is a fantastic brand!",
+        "image_path": "/static/img/review-author-24.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Sonia Reddy",
+        "designation": "Product Designer",
+        "message": "மிகவும் மகிழ்ச்சியான அனுபவம்! The clothing is stylish and comfortable. I love shopping at ABC!",
+        "image_path": "/static/img/review-author-25.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Deepak Singh",
+        "designation": "Business Consultant",
+        "message": "அற்புதமான வடிவமைப்புகள்! The outfits I purchased were perfect for my events. Thank you, ABC!",
+        "image_path": "/static/img/review-author-26.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Priya Sharma",
+        "designation": "Marketing Manager",
+        "message": "சிறந்த தரம்! The clothing fits perfectly and looks great. I highly recommend ABC to everyone!",
+        "image_path": "/static/img/review-author-27.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Rajesh Iyer",
+        "designation": "Operations Manager",
+        "message": "மிகவும் அருமையான சேவை! The quality of the fabrics is exceptional. ABC has become my go-to for all my clothing needs!",
+        "image_path": "/static/img/review-author-28.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Nisha Gupta",
+        "designation": "Event Coordinator",
+        "message": "அற்புதமான அனுபவம்! The service was excellent and the clothes are beautiful. I will definitely shop here again!",
+        "image_path": "/static/img/review-author-29.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Vikram Joshi",
+        "designation": "IT Specialist",
+        "message": "சிறந்த சேவை! The team was very helpful and the products are top-notch. ABC is a fantastic brand!",
+        "image_path": "/static/img/review-author-30.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Sneha Reddy",
+        "designation": "Fashion Designer",
+        "message": "மிகவும் மகிழ்ச்சியான அனுபவம்! The clothing is stylish and comfortable. I love shopping at ABC!",
+        "image_path": "/static/img/review-author-31.jpg",
+        "rating": 5
+    },
+    {
+        "name": "Arjun Patel",
+        "designation": "Web Developer",
+        "message": "அற்புதமான வடிவமைப்புகள்! The outfits I purchased were perfect for my events. Thank you, ABC!",
+        "image_path": "/static/img/review-author-32.jpg",
+        "rating": 5
+    }
+]

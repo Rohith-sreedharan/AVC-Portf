@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop {{ product.name }}</title>
 
     <!-- libraries CSS -->
     <link rel="stylesheet" href="/static/icon/flaticon_glamer.css">
@@ -19,316 +19,13 @@
 </head>
 
 <body>
-    <!-- SIDEBAR SECTION START -->
-    <div class="ul-sidebar">
-        <!-- header -->
-        <div class="ul-sidebar-header">
-            <div class="ul-sidebar-header-logo">
-                <a href="index.html">
-                    <img src="/static/img/logo.png" alt="logo" class="logo">
-                </a>
-            </div>
-            <!-- sidebar closer -->
-            <button class="ul-sidebar-closer"><i class="flaticon-close"></i></button>
-        </div>
-
-        <div class="ul-sidebar-header-nav-wrapper d-block d-lg-none"></div>
-
-        <div class="ul-sidebar-about d-none d-lg-block">
-            <span class="title">About glamer</span>
-            <p class="mb-0">Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra, velit viverra lacinia consequat, ipsum odio mollis dolor, nec facilisis arcu arcu ultricies sapien. Quisque ut dapibus nunc. Vivamus sit amet efficitur velit. Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra velit.</p>
-        </div>
-
-
-        <!-- product slider -->
-        <div class="ul-sidebar-products-wrapper d-none d-lg-flex">
-            <div class="ul-sidebar-products-slider swiper">
-                <div class="swiper-wrapper">
-                    <!-- product card -->
-                    <div class="swiper-slide">
-                        <div class="ul-product">
-                            <div class="ul-product-heading">
-                                <span class="ul-product-price">$99.00</span>
-                                <span class="ul-product-discount-tag">25% Off</span>
-                            </div>
-
-                            <div class="ul-product-img">
-                                <img src="/static/img/product-img-1.jpg" alt="Product Image">
-
-                                <div class="ul-product-actions">
-                                    <button><i class="flaticon-shopping-bag"></i></button>
-                                    <a href="#"><i class="flaticon-hide"></i></a>
-                                    <button><i class="flaticon-heart"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="ul-product-txt">
-                                <h4 class="ul-product-title"><a href="shop-details.html">Orange Airsuit</a></h4>
-                                <h5 class="ul-product-category"><a href="shop.html">Fashion Bag</a></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- product card -->
-                    <div class="swiper-slide">
-                        <div class="ul-product">
-                            <div class="ul-product-heading">
-                                <span class="ul-product-price">$99.00</span>
-                                <span class="ul-product-discount-tag">25% Off</span>
-                            </div>
-
-                            <div class="ul-product-img">
-                                <img src="/static/img/product-img-2.jpg" alt="Product Image">
-
-                                <div class="ul-product-actions">
-                                    <button><i class="flaticon-shopping-bag"></i></button>
-                                    <a href="#"><i class="flaticon-hide"></i></a>
-                                    <button><i class="flaticon-heart"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="ul-product-txt">
-                                <h4 class="ul-product-title"><a href="shop-details.html">Orange Airsuit</a></h4>
-                                <h5 class="ul-product-category"><a href="shop.html">Fashion Bag</a></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- product card -->
-                    <div class="swiper-slide">
-                        <div class="ul-product">
-                            <div class="ul-product-heading">
-                                <span class="ul-product-price">$99.00</span>
-                                <span class="ul-product-discount-tag">25% Off</span>
-                            </div>
-
-                            <div class="ul-product-img">
-                                <img src="/static/img/product-img-2.jpg" alt="Product Image">
-
-                                <div class="ul-product-actions">
-                                    <button><i class="flaticon-shopping-bag"></i></button>
-                                    <a href="#"><i class="flaticon-hide"></i></a>
-                                    <button><i class="flaticon-heart"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="ul-product-txt">
-                                <h4 class="ul-product-title"><a href="shop-details.html">Orange Airsuit</a></h4>
-                                <h5 class="ul-product-category"><a href="shop.html">Fashion Bag</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ul-sidebar-products-slider-nav flex-shrink-0">
-                <button class="prev"><i class="flaticon-left-arrow"></i></button>
-                <button class="next"><i class="flaticon-arrow-point-to-right"></i></button>
-            </div>
-        </div>
-
-        <div class="ul-sidebar-about d-none d-lg-block">
-            <p class="mb-0">Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra, velit viverra lacinia consequat, ipsum odio mollis dolor, nec facilisis arcu arcu ultricies sapien. Quisque ut dapibus nunc. Vivamus sit amet efficitur velit. Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra velit.</p>
-        </div>
-
-        <!-- sidebar footer -->
-        <div class="ul-sidebar-footer">
-            <span class="ul-sidebar-footer-title">Follow us</span>
-
-            <div class="ul-sidebar-footer-social">
-                <a href="#"><i class="flaticon-facebook-app-symbol"></i></a>
-                <a href="#"><i class="flaticon-twitter"></i></a>
-                <a href="#"><i class="flaticon-instagram"></i></a>
-                <a href="#"><i class="flaticon-youtube"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- SIDEBAR SECTION END -->
-
-    <!-- HEADER SECTION START -->
-    <header class="ul-header">
-        <!-- header top -->
-        <div class="ul-header-top">
-            <div class="ul-header-top-slider splide">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                        <li class="splide__slide">
-                            <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- header bottom -->
-        <div class="ul-header-bottom">
-            <div class="ul-container">
-                <div class="ul-header-bottom-wrapper">
-                    <!-- header left -->
-                    <div class="header-bottom-left">
-                        <div class="logo-container">
-                            <a href="index.html" class="d-inline-block"><img src="/static/img/logo.png" alt="logo" class="logo"></a>
-                        </div>
-
-                        <!-- search form -->
-                        <div class="ul-header-search-form-wrapper flex-grow-1 flex-shrink-0">
-                            <form action="#" class="ul-header-search-form">
-                                <div class="dropdown-wrapper">
-                                    <select name="search-category" id="ul-header-search-category">
-                                        <option data-placeholder="true">Select Category</option>
-                                        <option value="1">Watches, Bags, Jewellery</option>
-                                        <option value="1">Watches, Bags, Jewellery</option>
-                                        <option value="1">Watches, Bags, Jewellery</option>
-                                    </select>
-                                </div>
-                                <div class="ul-header-search-form-right">
-                                    <input type="search" name="header-search" id="ul-header-search" placeholder="Search Here">
-                                    <button type="submit"><span class="icon"><i class="flaticon-search-interface-symbol"></i></span></button>
-                                </div>
-                            </form>
-
-                            <button class="ul-header-mobile-search-closer d-xxl-none"><i class="flaticon-close"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- header nav -->
-                    <div class=" ul-header-nav-wrapper">
-                        <div class="to-go-to-sidebar-in-mobile">
-                            <nav class="ul-header-nav">
-                                <a href="index.html">Home</a>
-                                <a href="shop.html">Shop</a>
-                                <a href="shop.html">Women</a>
-                                <a href="shop.html">Men's</a>
-                                <a href="shop.html">Kids</a>
-                                <a href="blog.html">Blog</a>
-
-                                <div class="has-sub-menu has-mega-menu">
-                                    <a role="button">Pages</a>
-
-                                    <div class="ul-header-submenu ul-header-megamenu">
-                                        <div class="single-col">
-                                            <span class="single-col-title">Inner Pages</span>
-                                            <ul>
-                                                <li><a href="shop.html">Shop Left Sidebar</a></li>
-                                                <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                                <li><a href="shop-no-sidebar.html">Shop Full Width</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="blog.html">Blogs</a></li>
-                                                <li><a href="blog-2.html">Blogs Layout 2</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="cart.html">Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="our-store.html">Our Store</a></li>
-                                                <li><a href="reviews.html">Reviews</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="single-col">
-                                            <span class="single-col-title">Men's</span>
-                                            <ul>
-                                                <li><a href="#">Clothing</a></li>
-                                                <li><a href="#">Footwear</a></li>
-                                                <li><a href="#">Accessories</a></li>
-                                                <li><a href="#">Activewear</a></li>
-                                                <li><a href="#">Grooming</a></li>
-                                                <li><a href="#">Ethnic Wear</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="single-col">
-                                            <span class="single-col-title">Women's</span>
-                                            <ul>
-                                                <li><a href="#">Clothing</a></li>
-                                                <li><a href="#">Footwear</a></li>
-                                                <li><a href="#">Bags & Accessories</a></li>
-                                                <li><a href="#">Activewear</a></li>
-                                                <li><a href="#">Beauty & Grooming</a></li>
-                                                <li><a href="#">Ethnic Wear</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="single-col">
-                                            <span class="single-col-title">Children's</span>
-                                            <ul>
-                                                <li><a href="#">Clothing</a></li>
-                                                <li><a href="#">Footwear</a></li>
-                                                <li><a href="#">Accessories</a></li>
-                                                <li><a href="#">Toys & Games</a></li>
-                                                <li><a href="#">Baby Essentials</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="single-col">
-                                            <span class="single-col-title">Jewellery</span>
-                                            <ul>
-                                                <li><a href="#">Ethnic & Traditional Jewellery</a></li>
-                                                <li><a href="#">Bridal Jewellery</a></li>
-                                                <li><a href="#">Bracelets</a></li>
-                                                <li><a href="#">Rings</a></li>
-                                                <li><a href="#">Earrings</a></li>
-                                                <li><a href="#">Chains & Pendants</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-
-                    <!-- actions -->
-                    <div class="ul-header-actions">
-                        <button class="ul-header-mobile-search-opener d-xxl-none"><i class="flaticon-search-interface-symbol"></i></button>
-                        <button><i class="flaticon-user"></i></button>
-                        <button><i class="flaticon-heart"></i></button>
-                        <button><i class="flaticon-shopping-bag"></i></button>
-                    </div>
-
-                    <!-- sidebar opener -->
-                    <div>
-                        <button class="ul-header-sidebar-opener"><i class="flaticon-hamburger"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- HEADER SECTION END -->
+    {% include 'header.html' %}
 
     <main>
         <!-- BREADCRUMB SECTION START -->
         <div class="ul-container">
             <div class="ul-breadcrumb">
-                <h2 class="ul-breadcrumb-title">Shop Details</h2>
+                <h2 class="ul-breadcrumb-title">Shop {{ product.name }} Details</h2>
                 <div class="ul-breadcrumb-nav">
                     <a href="index.html"><i class="flaticon-home"></i> Home</a>
                     <!-- <div> -->
@@ -337,7 +34,7 @@
                     <!-- </div>
                     <div> -->
                     <i class="flaticon-arrow-point-to-right"></i>
-                    <span class="current-page">Shop Details</span>
+                    <span class="current-page">Shop {{ product.name }} Details</span>
                     <!-- </div> -->
                 </div>
             </div>
@@ -356,9 +53,9 @@
                                 <div class="ul-product-details-img-slider swiper">
                                     <div class="swiper-wrapper">
                                         <!-- single img -->
-                                        <div class="swiper-slide"><img src="/static/img/product-details-1.jpg" alt="Product Image"></div>
-                                        <!-- single img -->
-                                        <div class="swiper-slide"><img src="/static/img/product-details-1.jpg" alt="Product Image"></div>
+                                        {% for image in product.images %}
+                                        <div class="swiper-slide"><img src="/static/{{ image.image_path }}" alt="{{ image.image_alt }}"></div>
+                                        {% endfor %}
                                     </div>
 
                                     <div class="ul-product-details-img-slider-nav" id="ul-product-details-img-slider-nav">
@@ -372,110 +69,168 @@
                         <!-- txt -->
                         <div class="col">
                             <div class="ul-product-details-txt">
-                                <!-- product rating -->
-                                <div class="ul-product-details-rating">
-                                    <span class="rating">
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                    </span>
-                                    <span class="review-number">(2 Customer Reviews)</span>
-                                </div>
-
-                                <!-- price -->
-                                <span class="ul-product-details-price">$120.00</span>
+                                <span class="ul-product-details-price"> <i class="flaticon-tag"></i> {{ product.price }}</span>
 
                                 <!-- product title -->
-                                <h3 class="ul-product-details-title">Front view modern dark sunglasses</h3>
+                                <h3 class="ul-product-details-title">{{ product.name }}</h3>
 
                                 <!-- product description -->
-                                <p class="ul-product-details-descr">Aliquam hendrerit a augue insuscipit. Etiam aliquam massa quis des mauris commodo venenatis ligula commodo leez sed blandit convallis dignissim onec vel pellentesque neque.</p>
+                                <p class="ul-product-details-descr">{{ product.desc }}</p>
 
                                 <!-- product options -->
                                 <div class="ul-product-details-options">
+                                    {% if product.get('all_sizes') %}
+                                    <div class="col ul-product-details-option ul-product-details-sizes">
+                                        <span class="title">Regular Sizes ({{ product.all_sizes.regular.moq }})</span>
+                                        <form class="variants">
+                                            {% for size in product.all_sizes.regular.sizes %}
+                                            <label for="ul-product-details-size-{{ size }}">
+                                                <input type="radio" name="product-size" id="ul-product-details-size-{{ size }}" {% if loop.first %}checked{% endif %} hidden>
+                                                <span class="size-btn">{{ size }}</span>
+                                            </label>
+                                            {% endfor %}
+                                        </form>
+                                        
+                                        {% if product.all_sizes.extended.sizes %}
+                                        <span class="title mt-3">Extended Sizes ({{ product.all_sizes.extended.moq }})</span>
+                                        <form class="variants">
+                                            {% for size in product.all_sizes.extended.sizes %}
+                                            <label for="ul-product-details-size-ext-{{ size }}">
+                                                <input type="radio" name="product-size" id="ul-product-details-size-ext-{{ size }}" hidden>
+                                                <span class="size-btn">{{ size }}</span>
+                                            </label>
+                                            {% endfor %}
+                                        </form>
+                                        {% endif %}
+                                    </div>
+                                    {% else %}
                                     <div class="ul-product-details-option ul-product-details-sizes">
-                                        <span class="title">Size</span>
-
-                                        <form action="#" class="variants">
-                                            <label for="ul-product-details-size-1">
-                                                <input type="radio" name="product-size" id="ul-product-details-size-1" checked hidden>
-                                                <span class="size-btn">S</span>
+                                        <span class="title">Sizes</span>
+                                        <form class="variants">
+                                            {% for size in product.Sizes %}
+                                            <label for="ul-product-details-size-{{ size }}">
+                                                <input type="radio" name="product-size" id="ul-product-details-size-{{ size }}" {% if loop.first %}checked{% endif %} hidden>
+                                                <span class="size-btn">{{ size }}</span>
                                             </label>
-
-                                            <label for="ul-product-details-size-2">
-                                                <input type="radio" name="product-size" id="ul-product-details-size-2" hidden>
-                                                <span class="size-btn">M</span>
-                                            </label>
-
-                                            <label for="ul-product-details-size-3">
-                                                <input type="radio" name="product-size" id="ul-product-details-size-3" hidden>
-                                                <span class="size-btn">L</span>
-                                            </label>
-
-                                            <label for="ul-product-details-size-4">
-                                                <input type="radio" name="product-size" id="ul-product-details-size-4" hidden>
-                                                <span class="size-btn">XL</span>
-                                            </label>
-
-                                            <label for="ul-product-details-size-5">
-                                                <input type="radio" name="product-size" id="ul-product-details-size-5" hidden>
-                                                <span class="size-btn">XXL</span>
-                                            </label>
+                                            {% endfor %}
                                         </form>
                                     </div>
+                                    {% endif %}
 
+                                    <!-- {% if product.images %}
                                     <div class="ul-product-details-option ul-product-details-colors">
                                         <span class="title">Color</span>
                                         <form action="#" class="variants">
-                                            <label for="ul-product-details-color-1">
-                                                <input type="radio" name="product-color" id="ul-product-details-color-1" checked hidden>
-                                                <span class="color-btn green"></span>
+                                            {% for color in product.images %}
+                                            <label for="ul-product-details-color-{{ color.color }}">
+                                                <input type="radio" name="product-color" 
+                                                       id="ul-product-details-color-{{ color.color }}" 
+                                                       {% if loop.first %}checked{% endif %}
+                                                       hidden 
+                                                       data-image="/static{{ color.image_path }}"
+                                                       onchange="updateProductImage(this)">
+                                                <span class="color-btn" style="background-color: {{ color.color }}; border: 1px solid black;"></span>
                                             </label>
-
-                                            <label for="ul-product-details-color-2">
-                                                <input type="radio" name="product-color" id="ul-product-details-color-2" hidden>
-                                                <span class="color-btn blue"></span>
-                                            </label>
-
-                                            <label for="ul-product-details-color-3">
-                                                <input type="radio" name="product-color" id="ul-product-details-color-3" hidden>
-                                                <span class="color-btn brown"></span>
-                                            </label>
-
-                                            <label for="ul-product-details-color-4">
-                                                <input type="radio" name="product-color" id="ul-product-details-color-4" hidden>
-                                                <span class="color-btn red"></span>
-                                            </label>
+                                            {% endfor %}
                                         </form>
                                     </div>
+                                    {% endif %} -->
+
+                                    {% if product.colors_available %}
+                                    <div class="ul-product-details-option">
+                                        <span class="title">Available Colors</span>
+                                        <p>{{ product.colors_available }}</p>
+                                        {% if product.custom_color %}
+                                        <p class="text-sm text-gray-600">{{ product.custom_color }}</p>
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
                                 </div>
 
-                                <!-- product quantity -->
-                                <div class="ul-product-details-option ul-product-details-quantity">
-                                    <span class="title">Quantity</span>
-                                    <form action="#" class="ul-product-quantity-wrapper">
-                                        <input type="number" name="product-quantity" id="ul-product-details-quantity" class="ul-product-quantity" value="1" min="1" readonly>
-                                        <div class="btns">
-                                            <button type="button" class="quantityIncreaseButton"><i class="flaticon-plus"></i></button>
-                                            <button type="button" class="quantityDecreaseButton"><i class="flaticon-minus-sign"></i></button>
-                                        </div>
-                                    </form>
+                                {% if product.product_details %}
+                                <div class="ul-product-details-option">
+                                    <span class="title">Product Details</span>
+                                    <ul>
+                                        {% for detail in product.product_details %}
+                                        <li><i class="flaticon-check-mark"></i> {{ detail }}</li>
+                                        {% endfor %}
+                                    </ul>
                                 </div>
+                                {% endif %}
+
+                                <!-- product quantity -->
+                                <div class="ul-product-details-option ul-product-details-decorations mt-3">
+                                    <span class="title">Decorations</span>
+                                    <ul>
+                                        {% for decoration in product.decorations %}
+                                            <li><i class="flaticon-check-mark"></i> {{ decoration }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                                <div class="ul-product-details-option ul-product-details-instructions">
+                                    <span class="title">Instructions</span>
+                                    <ul>
+                                        {% for instruction in product.instructions %}
+                                            <li><i class="flaticon-check-mark"></i> {{ instruction }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                
+
 
                                 <!-- product actions -->
                                 <div class="ul-product-details-actions">
                                     <div class="left">
-                                        <button class="add-to-cart">Add to Cart <span class="icon"><i class="flaticon-cart"></i></span></button>
-                                        <button class="add-to-wishlist"><span class="icon"><i class="flaticon-heart"></i></span> Add to wishlist</button>
+                                        <div class="ul-product-details-actions flex space-x-4 mt-4">
+                                            <a href="https://wa.me/+91{{ phone_number }}?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20the%20product%20at%20{{ url_for('shop_details', id=product.id, _external=True) }}." class="btn btn-primary premium-btn bg-[#00095b] text-white hover:bg-[#0056b3] transition duration-300 shadow-lg rounded-lg px-6 py-3 flex items-center">
+                                                <span class="icon mr-2"><i class="flaticon-chat"></i></span> Connect with Us
+                                            </a>
+                                            <a href="tel:+91{{ phone_number }}" class="btn btn-secondary premium-btn bg-[#FFA31A] text-black hover:bg-[#ff8c00] transition duration-300 shadow-lg rounded-lg px-6 py-3 flex items-center">
+                                                <span class="icon mr-2"><i class="flaticon-phone-call"></i></span> Speak to Our Expert
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="share-options">
-                                        <button><i class="flaticon-facebook-app-symbol"></i></button>
-                                        <button><i class="flaticon-twitter"></i></button>
-                                        <button><i class="flaticon-linkedin-big-logo"></i></button>
-                                        <a href="#"><i class="flaticon-youtube"></i></a>
+                                        <button onclick="shareOnFacebook()"><i class="flaticon-facebook-app-symbol"></i></button>
+                                        <button onclick="shareOnTwitter()"><i class="flaticon-twitter"></i></button>
+                                        <button onclick="shareOnLinkedIn()"><i class="flaticon-linkedin-big-logo"></i></button>
+                                        <a href="#" onclick="shareOnYouTube()"><i class="flaticon-youtube"></i></a>
+                                        <button onclick="openShareMenu()"><i class="flaticon-share"></i> Share</button>
                                     </div>
+                                    <script>
+                                        function shareOnFacebook() {
+                                            const url = '{{ url_for('shop_details', id=product.id, _external=True) }}';
+                                            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                                        }
+                                        function shareOnTwitter() {
+                                            const url = '{{ url_for('shop_details', id=product.id, _external=True) }}';
+                                            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Check%20out%20this%20product!`, '_blank');
+                                        }
+                                        function shareOnLinkedIn() {
+                                            const url = '{{ url_for('shop_details', id=product.id, _external=True) }}';
+                                            window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}`, '_blank');
+                                        }
+                                        function shareOnYouTube() {
+                                            const url = '{{ url_for('shop_details', id=product.id, _external=True) }}';
+                                            alert('Share this product on YouTube: ' + url);
+                                        }
+                                        function openShareMenu() {
+                                            const url = '{{ url_for('shop_details', id=product.id, _external=True) }}';
+                                            if (navigator.share) {
+                                                navigator.share({
+                                                    title: 'Check out this product!',
+                                                    url: url
+                                                }).then(() => {
+                                                    console.log('Share successful');
+                                                }).catch((error) => {
+                                                    console.error('Error sharing:', error);
+                                                });
+                                            } else {
+                                                alert('Sharing not supported on this browser. Please copy the link: ' + url);
+                                            }
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -486,252 +241,16 @@
                     <!-- description -->
                     <div class="ul-product-details-long-descr-wrapper">
                         <h3 class="ul-product-details-inner-title">Item Description</h3>
-                        <p>Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra, velit viverra lacinia consequat, ipsum odio mollis dolor, nec facilisis arcu arcu ultricies sapien. Quisque ut dapibus nunc. Vivamus sit amet efficitur velit. Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra, velit viverra lacinia consequat, ipsum odio mollis dolor, nec facilisis arcu arcu ultricies sapien. Quisque ut dapibus nunc. Vivamus sit amet efficitur velit.
-                            <br>
-                            <br>
-                            Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra, velit viverra lacinia consequat, ipsum odio mollis dolor, nec facilisis arcu arcu ultricies sapien. Quisque ut dapibus nunc. Vivamus sit amet efficitur velit. Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis
-                        </p>
+                        <p style="text-align: justify;">{{ product.description }}</p>
                     </div>
 
-                    <!-- reviews -->
-                    <div class="ul-product-details-reviews">
-                        <h3 class="ul-product-details-inner-title">02 Reviews</h3>
-
-                        <!-- single review -->
-                        <div class="ul-product-details-review">
-                            <!-- reviewer image -->
-                            <div class="ul-product-details-review-reviewer-img">
-                                <img src="/static/img/reviewer-img-1.png" alt="Reviewer Image">
-                            </div>
-
-                            <div class="ul-product-details-review-txt">
-                                <div class="header">
-                                    <div class="left">
-                                        <h4 class="reviewer-name">Temptics Pro</h4>
-                                        <h5 class="review-date">March 20, 2023 at 2:37 pm</h5>
-                                    </div>
-
-                                    <div class="right">
-                                        <div class="rating">
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star-3"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <p>Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra, velit viverra lacinia consequat, ipsum odio mollis dolor, nec facilisis arcu arcu ultricies sapien. Quisque ut dapibus nunc. Vivamus sit amet efficitur velit. Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla</p>
-
-                                <button class="ul-product-details-review-reply-btn">Reply</button>
-                            </div>
-                        </div>
-
-                        <!-- single review -->
-                        <div class="ul-product-details-review">
-                            <!-- reviewer image -->
-                            <div class="ul-product-details-review-reviewer-img">
-                                <img src="/static/img/reviewer-img-2.png" alt="Reviewer Image">
-                            </div>
-
-                            <div class="ul-product-details-review-txt">
-                                <div class="header">
-                                    <div class="left">
-                                        <h4 class="reviewer-name">Temptics Pro</h4>
-                                        <h5 class="review-date">March 20, 2023 at 2:37 pm</h5>
-                                    </div>
-
-                                    <div class="right">
-                                        <div class="rating">
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star"></i>
-                                            <i class="flaticon-star-3"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <p>Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla. Integer non quam commodo, scelerisque felis id, eleifend turpis. Phasellus in nulla quis erat tempor tristique eget vel purus. Nulla pharetra pharetra pharetra. Praesent varius eget justo ut lacinia. Phasellus pharetra, velit viverra lacinia consequat, ipsum odio mollis dolor, nec facilisis arcu arcu ultricies sapien. Quisque ut dapibus nunc. Vivamus sit amet efficitur velit. Phasellus eget fermentum mauris. Suspendisse nec dignissim nulla</p>
-
-                                <button class="ul-product-details-review-reply-btn">Reply</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- review form -->
-                    <div class="ul-product-details-review-form-wrapper">
-                        <h3 class="ul-product-details-inner-title">Write A Review</h3>
-                        <span class="note">Your email address will not be published.</span>
-
-                        <form class="ul-product-details-review-form">
-                            <div class="form-group rating-field-wrapper">
-                                <span class="title">Rate this product? *</span>
-                                <div class="rating-field">
-                                    <button type="button"><i class="flaticon-star-3"></i></button>
-                                    <button type="button"><i class="flaticon-star-3"></i></button>
-                                    <button type="button"><i class="flaticon-star-3"></i></button>
-                                    <button type="button"><i class="flaticon-star-3"></i></button>
-                                    <button type="button"><i class="flaticon-star-3"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="row row-cols-2 row-cols-xxs-1 ul-bs-row">
-                                <div class="form-group">
-                                    <input type="text" name="review-name" id="review-name" placeholder="Your Name">
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="email" name="review-email" id="review-email" placeholder="Your Email">
-                                </div>
-
-                                <div class="form-group col-12">
-                                    <textarea name="review-message" id="review-message" placeholder="Your Review"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <button type="submit">Post Review <span><i class="flaticon-up-right-arrow"></i></span></button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- MAIN CONTENT SECTION END -->
     </main>
 
     <!-- FOOTER SECTION START -->
-    <footer class="ul-footer">
-        <div class="ul-inner-container">
-            <div class="ul-footer-top">
-                <!-- single links column -->
-                <div class="ul-footer-top-widget">
-                    <h3 class="ul-footer-top-widget-title">Brands</h3>
-
-                    <div class="ul-footer-top-widget-links">
-                        <a href="#">Zara</a>
-                        <a href="#">Guess</a>
-                        <a href="#">Mango</a>
-                        <a href="#">LCWaikiki</a>
-                        <a href="#">Monda</a>
-                    </div>
-                </div>
-
-                <!-- single links column -->
-                <div class="ul-footer-top-widget">
-                    <h3 class="ul-footer-top-widget-title">Categories</h3>
-
-                    <div class="ul-footer-top-widget-links">
-                        <a href="#">Watches</a>
-                        <a href="#">Watch Accessories</a>
-                        <a href="#">Clocks</a>
-                        <a href="#">Jewellery</a>
-                        <a href="#">Women’s Collection</a>
-                    </div>
-                </div>
-
-                <!-- single links column -->
-                <div class="ul-footer-top-widget">
-                    <h3 class="ul-footer-top-widget-title">Accessories</h3>
-
-                    <div class="ul-footer-top-widget-links">
-                        <a href="#">Order Tracking</a>
-                        <a href="#">Terms & Conditions</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Tutorials</a>
-                        <a href="#">FAQ</a>
-                    </div>
-                </div>
-
-                <!-- single links column -->
-                <div class="ul-footer-top-widget">
-                    <h3 class="ul-footer-top-widget-title">Services</h3>
-
-                    <div class="ul-footer-top-widget-links">
-                        <a href="#">Sale</a>
-                        <a href="#">Quick Ship</a>
-                        <a href="#">New Designs</a>
-                        <a href="#">Protection Plan</a>
-                        <a href="#">Gift Cards</a>
-                    </div>
-                </div>
-
-                <!-- single links column -->
-                <div class="ul-footer-top-widget">
-                    <h3 class="ul-footer-top-widget-title">Policies</h3>
-
-                    <div class="ul-footer-top-widget-links">
-                        <a href="#">Policy</a>
-                        <a href="#">Dressy Inside</a>
-                        <a href="#">About Us</a>
-                        <a href="#">Company</a>
-                        <a href="#">Careers</a>
-                    </div>
-                </div>
-
-                <!-- single links column -->
-                <div class="ul-footer-top-widget">
-                    <h3 class="ul-footer-top-widget-title">Help</h3>
-
-                    <div class="ul-footer-top-widget-links">
-                        <a href="#">Contact us</a>
-                        <a href="#">About us</a>
-                        <a href="#">Reviews</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Refund policy</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ul-footer-middle">
-                <!-- single widget -->
-                <div class="ul-footer-middle-widget">
-                    <h3 class="ul-footer-middle-widget-title">Download Our Apps</h3>
-                    <div class="ul-footer-middle-widget-content">
-                        <div class="app-links">
-                            <a href="#"><img src="/static/img/android.png" alt="Play Store Link Image"></a>
-                            <a href="#"><img src="/static/img/ios.png" alt="App Store Link Image"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- single widget -->
-                <div class="ul-footer-middle-widget">
-                    <h3 class="ul-footer-middle-widget-title">Follow us</h3>
-                    <div class="ul-footer-middle-widget-content">
-                        <div class="social-links">
-                            <a href="#"><i class="flaticon-facebook-app-symbol"></i></a>
-                            <a href="#"><i class="flaticon-twitter"></i></a>
-                            <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                            <a href="#"><i class="flaticon-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- single widget -->
-                <div class="ul-footer-middle-widget">
-                    <h3 class="ul-footer-middle-widget-title">Need help? Call now!</h3>
-                    <div class="ul-footer-middle-widget-content">
-                        <div class="contact-nums">
-                            <a href="tel:1234567890">(500) 8001 8588</a>, <a href="tel:1234567890">(500) 544 6550</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- single widget -->
-                <div class="ul-footer-middle-widget align-self-center">
-                    <a href="index.html"><img src="/static/img/logo.png" alt="logo" class="logo"></a>
-                </div>
-            </div>
-
-            <div class="ul-footer-bottom">
-                <p class="copyright-txt">Copyright 2024 © glamer Template Kits</p>
-                <img src="/static/img/payment-methods.png" alt="payment methods logos">
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
     <!-- FOOTER SECTION END -->
 
     <!-- libraries JS -->
@@ -747,6 +266,26 @@
 
     <!-- custom JS -->
     <script src="/static/js/main.js"></script>
+
+    <script>
+    function updateProductImage(input) {
+        const imagePath = input.dataset.image;
+        const sliderImages = document.querySelectorAll('.ul-product-details-img-slider .swiper-slide img');
+        if (sliderImages.length > 0) {
+            sliderImages[0].src = imagePath;
+        }
+    }
+
+    // Add error handling for images
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.onerror = function() {
+                this.src = '/static/images/placeholder.png'; // Replace with your placeholder image
+            };
+        });
+    });
+    </script>
 </body>
 
 </html>

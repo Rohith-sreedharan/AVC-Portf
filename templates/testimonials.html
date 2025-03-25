@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC - Apparel Branding Company</title>
+
+    <!-- libraries CSS -->
+    <link rel="stylesheet" href="/static/icon/flaticon_glamer.css">
+    <link rel="stylesheet" href="/static/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendor/splide/splide.min.css">
+    <link rel="stylesheet" href="/static/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/vendor/slim-select/slimselect.css">
+    <link rel="stylesheet" href="/static/vendor/animate-wow/animate.min.css">
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <!-- SIDEBAR SECTION START -->
+    {% include 'header.html' %}
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <div class="ul-container">
+            <div class="ul-breadcrumb">
+                <h2 class="ul-breadcrumb-title">Testimonials</h2>
+                <div class="ul-breadcrumb-nav">
+                    <a href="/"><i class="flaticon-home"></i> Home</a>
+                    <i class="flaticon-arrow-point-to-right"></i>
+                    <span class="current-page">Testimonials</span>
+                </div>
+            </div>
+        </div>
+
+
+            <section class="ul-reviews overflow-hidden py-5">
+                <div class="container">
+                    <div class="ul-section-heading text-center justify-content-center mb-5">
+                        <div>
+                            <span class="ul-section-sub-title">Customer Reviews</span>
+                            <h2 class="ul-section-title">What Our Customers Say</h2>
+                            <p class="ul-reviews-heading-descr">Hear from our satisfied customers about their experience
+                                with ABC...</p>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Grid -->
+                    <div class="row g-4">
+                        {% for review in reviews %}
+                        <div class="col-lg-3 col-md-6">
+                            <div class="ul-review h-100">
+                                <div class="ul-review-rating">
+                                    {% for _ in range(review.rating|default(5)) %}
+                                    <i class="flaticon-star"></i>
+                                    {% endfor %}
+                                </div>
+                                <p class="ul-review-descr" style="min-height: 120px;">{{ review.message }}</p>
+                                <div class="ul-review-bottom">
+                                    <div class="ul-review-reviewer">
+                                        <div class="reviewer-image">
+                                            <img src="{{ review.image_path }}" alt="{{ review.name }}">
+                                        </div>
+                                        <div>
+                                            <h3 class="reviewer-name">{{ review.name }}</h3>
+                                            <span class="reviewer-role">{{ review.designation }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Pagination -->
+                    {% if total_pages > 1 %}
+                    <div class="ul-pagination mt-5">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center">
+                                {% if current_page > 1 %}
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ url_for('testimonials', page=current_page-1) }}"
+                                        aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                {% endif %}
+
+                                {% for page_num in range(1, total_pages + 1) %}
+                                <li class="page-item {% if page_num == current_page %}active{% endif %}">
+                                    <a class="page-link" href="{{ url_for('testimonials', page=page_num) }}">{{ page_num
+                                        }}</a>
+                                </li>
+                                {% endfor %}
+
+                                {% if current_page < total_pages %} <li class="page-item">
+                                    <a class="page-link" href="{{ url_for('testimonials', page=current_page+1) }}"
+                                        aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                    </li>
+                                    {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    {% endif %}
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER SECTION START -->
+        {% include 'footer.html' %}
+        <!-- FOOTER SECTION END -->
+    
+        <!-- libraries JS -->
+        <script src="/static/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="/static/vendor/splide/splide.min.js"></script>
+        <script src="/static/vendor/splide/splide-extension-auto-scroll.min.js"></script>
+        <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/static/vendor/slim-select/slimselect.min.js"></script>
+        <script src="/static/vendor/animate-wow/wow.min.js"></script>
+        <script src="/static/vendor/splittype/index.min.js"></script>
+        <script src="/static/vendor/mixitup/mixitup.min.js"></script>
+        <script src="/static/vendor/fslightbox/fslightbox.js"></script>
+    
+        <!-- custom JS -->
+        <script src="/static/js/main.js"></script>
+    </body>
+    
+    </html>
