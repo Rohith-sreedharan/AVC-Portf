@@ -1,41 +1,4 @@
-<div class="ul-sidebar">
-    <!-- header -->
-    <div class="ul-sidebar-header">
-        <div class="ul-sidebar-header-logo">
-            <a href="index.html">
-                <img src="/static/img/logo.png" alt="logo" class="logo">
-            </a>
-        </div>
-        <!-- sidebar closer -->
-        <button class="ul-sidebar-closer"><i class="flaticon-close"></i></button>
-    </div>
 
-    <div class="ul-sidebar-header-nav-wrapper d-block d-lg-none"></div>
-
-    <div class="ul-sidebar-about d-none d-lg-block">
-        <span class="title">About {{ g.company_name }}</span>
-        <p class="mb-0" style="text-align: justify;">ABC is a premier fashion destination, blending traditional craftsmanship with contemporary design. Since our establishment, we've been dedicated to delivering exceptional quality in ethnic and modern wear. Our collections showcase the rich heritage of Indian textiles while embracing global fashion trends. With meticulous attention to detail and commitment to excellence, we create garments that celebrate both style and comfort. From exquisite traditional wear to trendy western outfits, ABC offers a curated selection that caters to diverse tastes and occasions. Our vision is to make premium fashion accessible while preserving the authenticity of traditional craftsmanship.</p>
-    </div>
-
-
-    <!-- product slider -->
-
-    <div class="ul-sidebar-about d-none d-lg-block">
-        <p class="mb-0" style="text-align: justify;">At ABC, we believe in creating lasting relationships with our customers. Our dedicated customer service team is available 24/7 to assist you with any queries. We offer hassle-free returns, secure payment options, and fast shipping across India. Our loyalty program rewards our valued customers with exclusive benefits, early access to sales, and special discounts. We also take pride in our sustainable practices, using eco-friendly packaging and supporting local artisans. Visit our stores or shop online to experience the perfect blend of tradition and contemporary fashion. Join our growing family of satisfied customers and discover why ABC is the preferred choice for fashion-conscious individuals.</p>
-    </div>
-
-    <!-- sidebar footer -->
-    <div class="ul-sidebar-footer">
-        <span class="ul-sidebar-footer-title">Follow us</span>
-
-        <div class="ul-sidebar-footer-social">
-            <a href="{{ g.facebook_url }}"><i class="flaticon-facebook-app-symbol"></i></a>
-            <a href="{{ g.twitter_url }}"><i class="flaticon-twitter"></i></a>
-            <a href="{{ g.instagram_url }}"><i class="flaticon-instagram"></i></a>
-            <a href="{{ g.youtube_url }}"><i class="flaticon-youtube"></i></a>
-        </div>
-    </div>
-</div>
 <!-- SIDEBAR SECTION END -->
 
 <!-- HEADER SECTION START -->
@@ -46,7 +9,7 @@
             <div class="splide__track">
                 <ul class="splide__list">
                     <li class="splide__slide">
-                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
+                        <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i>limited time offer</p>
                     </li>
                     <li class="splide__slide">
                         <p class="ul-header-top-slider-item"><i class="flaticon-sparkle"></i> limited time offer</p>
@@ -87,247 +50,439 @@
                 <!-- header left -->
                 <div class="header-bottom-left">
                     <div class="logo-container">
-                        <a href="index.html" class="d-inline-block"><img src="/static/img/logo.png" alt="logo" class="logo"></a>
+                        <a href="/" class="d-inline-block"><img src="/static/img/logo.png" alt="logo" class="logo"></a>
                     </div>
 
                     <!-- search form -->
-                    <div class="ul-header-search-wrapper">
-                        <button id="headerSearchTrigger" class="ul-header-search-icon">
-                            <i class="flaticon-search-interface-symbol"></i>
-                        </button>
-                    </div>
-
-                    <!-- Search Modal -->
-                    <div id="headerSearchModal" class="ul-modal">
-                        <div class="ul-modal-content">
-                            <div class="ul-modal-header">
-                                <h4>Search Products</h4>
-                                <button class="ul-modal-close">&times;</button>
+                    <div class="ul-header-search-wrapper" id="searchContainer">
+                        <div class="search-input-group">
+                            <div class="dropdown-wrapper">
+                                <select name="search-category" id="headerSearchCategory" class="ul-select">
+                                    <option value="1">All</option>
+                                    <option value="2">Men's</option>
+                                    <option value="3">Women's</option>
+                                    <option value="4">Kids</option>
+                                </select>
                             </div>
-                            <div class="ul-modal-body">
-                                <form id="headerSearchForm" class="ul-search-form" action="/search/nav" method="post">
-                                    <div class="ul-search-input-group">
-                                        <div class="dropdown-wrapper">
-                                            <select name="search-category" id="headerSearchCategory" class="ul-select">
-                                                <option data-placeholder="true">Select Category</option>
-                                                <option value="1">All Apparels</option>
-                                                <option value="2">Men's Apparels</option>
-                                                <option value="3">Women's Apparels</option>
-                                                <option value="4">Kids Apparels</option>
-                                            </select>
-                                        </div>
-                                        <input type="search" id="headerSearchInput" placeholder="Search Here..." class="ul-input">
-                                        <button type="submit" class="ul-btn ul-btn-primary">
-                                            <i class="flaticon-search-interface-symbol"></i>
-                                        </button>
-                                    </div>
-                                </form>
+                            <div class="search-input-wrapper">
+                                <input type="search" id="headerSearchInput" placeholder="Search products..." class="ul-search-input">
+                                <button type="button" id="searchButton" class="search-btn">
+                                    <i class="flaticon-search-interface-symbol"></i>
+                                </button>
+                                <!-- Search Results Dropdown -->
+                                <div id="searchResults" class="search-results-dropdown"></div>
                             </div>
                         </div>
                     </div>
 
                     <script>
-                        document.getElementById('headerSearchTrigger').addEventListener('click', function() {
-                            const modal = document.getElementById('headerSearchModal');
-                            modal.style.display = 'flex';
-                            document.getElementById('headerSearchInput').focus();
+                        let searchTimeout;
+                        let currentSearchQuery = '';
+                        
+                        const searchInput = document.getElementById('headerSearchInput');
+                        const searchCategory = document.getElementById('headerSearchCategory');
+                        const searchResults = document.getElementById('searchResults');
+                        const searchButton = document.getElementById('searchButton');
+
+                        // Handle input events for live search
+                        searchInput.addEventListener('input', function() {
+                            const query = this.value.trim();
+                            
+                            if (query.length < 2) {
+                                hideSearchResults();
+                                return;
+                            }
+
+                            clearTimeout(searchTimeout);
+                            searchTimeout = setTimeout(() => {
+                                performSearch(query);
+                            }, 300);
                         });
 
-                        document.querySelector('.ul-modal-close').addEventListener('click', function() {
-                            document.getElementById('headerSearchModal').style.display = 'none';
-                        });
-
-                        document.getElementById('headerSearchForm').addEventListener('submit', function(e) {
-                            e.preventDefault();
-                            if (!navigator.onLine) {
-                                document.getElementById('headerSearchOffline').style.display = 'block';
-                            } else {
-                                this.submit();
+                        // Handle category change
+                        searchCategory.addEventListener('change', function() {
+                            const query = searchInput.value.trim();
+                            if (query.length >= 2) {
+                                performSearch(query);
                             }
                         });
 
-                        window.addEventListener('click', function(e) {
-                            const modal = document.getElementById('headerSearchModal');
-                            if (e.target === modal) {
-                                modal.style.display = 'none';
+                        // Handle search button click
+                        searchButton.addEventListener('click', function() {
+                            const query = searchInput.value.trim();
+                            if (query.length >= 2) {
+                                performSearch(query);
+                            }
+                        });
+
+                        // Handle Enter key
+                        searchInput.addEventListener('keydown', function(e) {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                                const query = this.value.trim();
+                                if (query.length >= 2) {
+                                    // If there are search results, navigate to the first one
+                                    const firstResult = searchResults.querySelector('.search-result-item');
+                                    if (firstResult) {
+                                        firstResult.click();
+                                    } else {
+                                        performSearch(query);
+                                    }
+                                }
+                            } else if (e.key === 'Escape') {
+                                hideSearchResults();
+                            }
+                        });
+
+                        // Perform search via AJAX
+                        function performSearch(query) {
+                            if (query === currentSearchQuery) return;
+                            
+                            currentSearchQuery = query;
+                            const category = searchCategory.value;
+                            
+                            // Show loading state
+                            searchResults.innerHTML = '<div class="no-results">Searching...</div>';
+                            showSearchResults();
+                            
+                            fetch(`/search/api?q=${encodeURIComponent(query)}&category=${category}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Search request failed');
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    displaySearchResults(data);
+                                })
+                                .catch(error => {
+                                    console.error('Search error:', error);
+                                    searchResults.innerHTML = '<div class="no-results">Search temporarily unavailable</div>';
+                                    showSearchResults();
+                                });
+                        }
+
+                        // Display search results
+                        function displaySearchResults(results) {
+                            if (results.length === 0) {
+                                searchResults.innerHTML = '<div class="no-results">No products found</div>';
+                            } else {
+                                searchResults.innerHTML = results.map(product => `
+                                    <div class="search-result-item" onclick="navigateToProduct('${product.url}')">
+                                        <img src="${product.image}" alt="${product.name}" class="result-image" onerror="this.src='/static/images/placeholder.png'">
+                                        <div class="result-content">
+                                            <h4 class="result-title">${escapeHtml(product.name)}</h4>
+                                            <p class="result-desc">${escapeHtml(product.desc)}</p>
+                                            <span class="result-price">${escapeHtml(product.price)}</span>
+                                        </div>
+                                    </div>
+                                `).join('');
+                            }
+                            showSearchResults();
+                        }
+
+                        // Helper function to escape HTML
+                        function escapeHtml(text) {
+                            const div = document.createElement('div');
+                            div.textContent = text;
+                            return div.innerHTML;
+                        }
+
+                        // Navigate to product page
+                        function navigateToProduct(url) {
+                            window.location.href = url;
+                        }
+
+                        // Show search results dropdown
+                        function showSearchResults() {
+                            searchResults.style.display = 'block';
+                        }
+
+                        // Hide search results dropdown
+                        function hideSearchResults() {
+                            searchResults.style.display = 'none';
+                            currentSearchQuery = '';
+                        }
+
+                        // Hide results when clicking outside
+                        document.addEventListener('click', function(e) {
+                            if (!document.getElementById('searchContainer').contains(e.target)) {
+                                hideSearchResults();
+                            }
+                        });
+
+                        // Handle focus events
+                        searchInput.addEventListener('focus', function() {
+                            if (this.value.trim().length >= 2) {
+                                showSearchResults();
                             }
                         });
                     </script>
 
                     <style>
-                        .ul-modal {
-                            display: none;
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(245,245,245,0.96));
-                            justify-content: center;
-                            align-items: center;
-                            z-index: 9999;
-                            backdrop-filter: blur(8px);
-                        }
-
-                        .ul-modal-content {
-                            background: var(--ul-white);
-                            border-radius: 16px;
-                            width: 90%;
-                            max-width: 600px;
-                            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-                            border: 1px solid rgba(0, 0, 0, 0.08);
-                            animation: modalFadeIn 0.3s ease-out;
+                        /* Search Container */
+                        .ul-header-search-wrapper {
                             position: relative;
-                            overflow: hidden;
+                            z-index: 1000;
+                            flex: 1;
+                            max-width: 600px;
+                            min-width: 300px;
                         }
 
+                        .search-input-group {
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                            background: var(--ul-white);
+                            border: 2px solid var(--ul-border-color);
+                            border-radius: 8px;
+                            padding: 4px;
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                            transition: all 0.3s ease;
+                            width: 100%;
+                        }
+
+                        .search-input-group:focus-within {
+                            border-color: var(--ul-primary);
+                            box-shadow: 0 4px 12px rgba(var(--ul-primary-rgb), 0.2);
+                        }
+
+                        /* Category Dropdown */
                         .dropdown-wrapper {
                             position: relative;
-                            min-width: 150px;
+                            min-width: 90px;
+                            flex-shrink: 0;
                         }
 
                         .dropdown-wrapper select {
                             width: 100%;
-                            height: 52px; /* Match input height */
-                            padding: 0 18px;
-                            border: 2px solid var(--ul-primary);
-                            border-radius: 8px;
-                            background: var(--ul-white);
-                            font-size: 0.95rem;
+                            height: 44px;
+                            padding: 0 12px;
+                            border: none;
+                            background: transparent;
+                            font-size: 0.9rem;
                             color: var(--ul-primary);
                             appearance: none;
                             -webkit-appearance: none;
                             cursor: pointer;
-                            transition: all 0.3s ease;
-                            outline: 1px solid var(--ul-border-color);
-                        }
-
-                        .dropdown-wrapper select:hover {
-                            background: var(--ul-light);
+                            outline: none;
                         }
 
                         .dropdown-wrapper::after {
                             content: '';
                             position: absolute;
-                            right: 15px;
+                            right: 8px;
                             top: 50%;
                             transform: translateY(-50%);
                             width: 0;
                             height: 0;
-                            border-left: 5px solid transparent;
-                            border-right: 5px solid transparent;
-                            border-top: 5px solid var(--ul-primary);
+                            border-left: 4px solid transparent;
+                            border-right: 4px solid transparent;
+                            border-top: 4px solid var(--ul-primary);
                             pointer-events: none;
                         }
 
-                        .dropdown-wrapper select:focus {
-                            outline: 1px solid var(--ul-primary);
-                            box-shadow: 0 0 0 3px rgba(var(--ul-primary-rgb), 0.2);
-                        }
-
-                        @keyframes modalFadeIn {
-                            from {
-                                opacity: 0;
-                                transform: translateY(-30px) scale(0.95);
-                            }
-                            to {
-                                opacity: 1;
-                                transform: translateY(0) scale(1);
-                            }
-                        }
-
-                        .ul-modal-header {
-                            padding: 25px 30px;
-                            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            background: linear-gradient(to right, var(--ul-white), var(--ul-light));
-                        }
-
-                        .ul-modal-header h4 {
-                            font-size: 1.35rem;
-                            margin: 0;
-                            color: var(--ul-heading-color);
-                            font-weight: 600;
-                        }
-
-                        .ul-modal-close {
-                            background: none;
-                            border: none;
-                            font-size: 28px;
-                            cursor: pointer;
-                            color: var(--ul-primary);
-                            opacity: 0.8;
-                            transition: all 0.2s;
-                            padding: 5px;
-                        }
-
-                        .ul-modal-close:hover {
-                            opacity: 1;
-                            transform: rotate(90deg);
-                        }
-
-                        .ul-modal-body {
-                            padding: 30px;
-                        }
-
-                        .ul-search-input-group {
-                            display: flex;
-                            gap: 15px;
-                            align-items: center;
-                        }
-
-                        .ul-input {
+                        /* Search Input Wrapper */
+                        .search-input-wrapper {
+                            position: relative;
                             flex: 1;
-                            height: 52px; /* Match select height */
-                            padding: 0 18px;
-                            border: 2px solid var(--ul-border-color);
-                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            min-width: 0;
+                        }
+
+                        .ul-search-input {
+                            width: 100%;
+                            height: 44px;
+                            padding: 0 50px 0 16px;
+                            border: none;
+                            background: transparent;
                             font-size: 1rem;
-                            transition: all 0.3s;
-                            background: var(--ul-light);
-                            outline: 1px solid var(--ul-border-color);
-                        }
-
-                        .ul-input:focus {
-                            outline: 1px solid var(--ul-primary);
-                            border-color: var(--ul-primary);
-                            background: var(--ul-white);
-                            box-shadow: 0 0 0 3px rgba(var(--ul-primary-rgb), 0.1);
-                        }
-
-                        .ul-search-offline {
-                            margin-top: 20px;
-                            padding: 15px;
-                            background: var(--ul-light);
-                            border-radius: 8px;
-                            text-align: center;
+                            outline: none;
                             color: var(--ul-text-color);
-                            border-left: 4px solid var(--ul-primary);
                         }
 
-                        .ul-btn-primary {
-                            height: 52px; /* Match input/select height */
+                        .ul-search-input::placeholder {
+                            color: var(--ul-text-light);
+                        }
+
+                        .search-btn {
+                            position: absolute;
+                            right: 8px;
+                            top: 50%;
+                            transform: translateY(-50%);
                             background: var(--ul-primary);
                             color: white;
                             border: none;
-                            padding: 0 25px;
-                            border-radius: 8px;
+                            width: 36px;
+                            height: 36px;
+                            border-radius: 6px;
                             cursor: pointer;
-                            transition: all 0.3s;
-                            outline: 1px solid var(--ul-border-color);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transition: all 0.3s ease;
+                            flex-shrink: 0;
                         }
 
-                        .ul-btn-primary:hover {
-                            transform: translateY(-2px);
-                            box-shadow: 0 5px 15px rgba(var(--ul-primary-rgb), 0.3);
+                        .search-btn:hover {
+                            background: var(--ul-primary-dark);
+                            transform: translateY(-50%) scale(1.05);
                         }
 
-                        .ul-btn-primary:focus {
-                            outline: 1px solid var(--ul-primary);
+                        /* Search Results Dropdown */
+                        .search-results-dropdown {
+                            position: absolute;
+                            top: calc(100% + 2px);
+                            left: 0;
+                            right: 0;
+                            background: rgba(255, 255, 255, 0.98);
+                            backdrop-filter: blur(10px);
+                            -webkit-backdrop-filter: blur(10px);
+                            border: 1px solid rgba(0, 0, 0, 0.1);
+                            border-radius: 12px;
+                            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+                            max-height: 350px;
+                            overflow-y: auto;
+                            z-index: 9999;
+                            display: none;
+                            margin-top: 0;
                         }
-                        .active {
+
+                        .search-result-item {
+                            display: flex;
+                            align-items: center;
+                            padding: 12px 16px;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                            cursor: pointer;
+                            transition: all 0.2s ease;
+                            min-height: 70px;
+                            background: transparent;
+                        }
+
+                        .search-result-item:hover {
+                            background: rgba(var(--ul-primary-rgb), 0.05);
+                            transform: translateY(-1px);
+                        }
+
+                        .search-result-item:last-child {
+                            border-bottom: none;
+                            border-radius: 0 0 12px 12px;
+                        }
+
+                        .result-image {
+                            width: 50px;
+                            height: 50px;
+                            object-fit: cover;
+                            border-radius: 8px;
+                            margin-right: 12px;
+                            flex-shrink: 0;
+                            border: 1px solid rgba(0, 0, 0, 0.08);
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .result-content {
+                            flex: 1;
+                            min-width: 0;
+                        }
+
+                        .result-title {
+                            font-size: 0.95rem;
+                            font-weight: 600;
+                            color: var(--ul-heading-color);
+                            margin: 0 0 4px 0;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        .result-desc {
+                            font-size: 0.8rem;
+                            color: var(--ul-text-light);
+                            margin: 0 0 4px 0;
+                            line-height: 1.3;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                        }
+
+                        .result-price {
+                            font-size: 0.85rem;
+                            color: var(--ul-primary);
+                            font-weight: 600;
+                            background: rgba(var(--ul-primary-rgb), 0.1);
+                            padding: 2px 8px;
+                            border-radius: 4px;
+                            display: inline-block;
+                        }
+
+                        .no-results {
+                            padding: 20px;
+                            text-align: center;
+                            color: var(--ul-text-light);
+                            font-style: italic;
+                            background: transparent;
+                        }
+
+                        /* Responsive Design */
+                        @media (max-width: 1200px) {
+                            .ul-header-search-wrapper {
+                                max-width: 450px;
+                                min-width: 280px;
+                            }
+                        }
+
+                        @media (max-width: 992px) {
+                            .ul-header-search-wrapper {
+                                max-width: 350px;
+                                min-width: 250px;
+                            }
+                            
+                            .ul-search-input {
+                                font-size: 0.9rem;
+                            }
+                        }
+
+                        @media (max-width: 768px) {
+                            .search-input-group {
+                                flex-direction: column;
+                                gap: 8px;
+                                padding: 8px;
+                            }
+
+                            .dropdown-wrapper {
+                                width: 100%;
+                                min-width: auto;
+                            }
+
+                            .search-input-wrapper {
+                                width: 100%;
+                            }
+
+                            .search-results-dropdown {
+                                max-height: 300px;
+                            }
+
+                            .result-title {
+                                font-size: 0.85rem;
+                            }
+
+                            .result-desc {
+                                font-size: 0.75rem;
+                            }
+                        }
+
+                        @media (max-width: 480px) {
+                            .ul-header-search-wrapper {
+                                min-width: 200px;
+                            }
+                        }
+
+                        /* Previously global .active rule caused style leakage site-wide.
+                           Scope it to only header nav links. */
+                        .ul-header .ul-header-nav a.active {
                             color: var(--ul-primary);
                             font-weight: bold;
                         }
@@ -347,40 +502,40 @@
                                     <div class="single-col">
                                         <span class="single-col-title">Custom Apparels</span>
                                         <ul>
-                                            <li><a href="/shop/000001" class="{{ 'active' if request.path == '/shop/000001' }}">Elite Supima Polo</a></li>
-                                            <li><a href="/shop/000002" class="{{ 'active' if request.path == '/shop/000002' }}">Supreme Heavy Weight Cotton Polo</a></li>
-                                            <li><a href="/shop/000003" class="{{ 'active' if request.path == '/shop/000003' }}">Prime Cotton Polo</a></li>
-                                            <li><a href="/shop/000004" class="{{ 'active' if request.path == '/shop/000004' }}">Prime Cotton Tipping Polo</a></li>
-                                        </ul>
-                                    </div>
+                                            <li><a href="/shop-details?id=000001" class="{{ 'active' if request.path == '/shop-details?id=000001' }}">Elite Supima Polo</a></li>
+                                            <li><a href="/shop-details?id=000002" class="{{ 'active' if request.path == '/shop-details?id=000002' }}">Supreme Heavy Weight Cotton Polo</a></li>
+                                            <li><a href="/shop-details?id=000003" class="{{ 'active' if request.path == '/shop-details?id=000003' }}">Prime Cotton Polo</a></li>
+                                            <li><a href="/shop-details?id=000004" class="{{ 'active' if request.path == '/shop-details?id=000004' }}">Prime Cotton Tipping Polo</a></li>
+                                            </ul>
+                                            </div>
 
-                                    <div class="single-col">
-                                        <span class="single-col-title">Premium Apparels</span>
-                                        <ul>
-                                            <li><a href="/shop/000005" class="{{ 'active' if request.path == '/shop/000005' }}">Iconic Heavy Cotton Round Neck</a></li>
-                                            <li><a href="/shop/000006" class="{{ 'active' if request.path == '/shop/000006' }}">Iconic Soft Cotton Round Neck</a></li>
-                                            <li><a href="/shop/000007" class="{{ 'active' if request.path == '/shop/000007' }}">Ultra Soft Zipper Hoodie</a></li>
-                                        </ul>
-                                    </div>
+                                            <div class="single-col">
+                                                <span class="single-col-title">Premium Apparels</span>
+                                                <ul>
+                                                    <li><a href="/shop-details?id=000005" class="{{ 'active' if request.path == '/shop-details?id=000005' }}">Iconic Heavy Cotton Round Neck</a></li>
+                                                    <li><a href="/shop-details?id=000006" class="{{ 'active' if request.path == '/shop-details?id=000006' }}">Iconic Soft Cotton Round Neck</a></li>
+                                                    <li><a href="/shop-details?id=000007" class="{{ 'active' if request.path == '/shop-details?id=000007' }}">Ultra Soft Zipper Hoodie</a></li>
+                                                </ul>
+                                            </div>
 
-                                    <div class="single-col">
-                                        <span class="single-col-title">Custom Apparel Model</span>
-                                        <ul>
-                                            <li><a href="/shop/000008" class="{{ 'active' if request.path == '/shop/000008' }}">Ultra Soft Pullover Hoodie</a></li>
-                                            <li><a href="/shop/000009" class="{{ 'active' if request.path == '/shop/000009' }}">Premium Dry Fit Pique Performance Polo</a></li>
-                                            <li><a href="/shop/000010" class="{{ 'active' if request.path == '/shop/000010' }}">Heavy Weight Round Neck 240</a></li>
-                                        </ul>
-                                    </div>
+                                            <div class="single-col">
+                                                <span class="single-col-title">Custom Apparel Model</span>
+                                                <ul>
+                                                    <li><a href="/shop-details?id=000008" class="{{ 'active' if request.path == '/shop-details?id=000008' }}">Ultra Soft Pullover Hoodie</a></li>
+                                                    <li><a href="/shop-details?id=000009" class="{{ 'active' if request.path == '/shop-details?id=000009' }}">Premium Dry Fit Pique Performance Polo</a></li>
+                                                    <li><a href="/shop-details?id=000010" class="{{ 'active' if request.path == '/shop-details?id=000010' }}">Heavy Weight Round Neck 240</a></li>
+                                                </ul>
+                                            </div>
 
-                                    <div class="single-col">
-                                        <span class="single-col-title">Children's</span>
-                                        <ul>
-                                            <li><a href="/shop/000011" class="{{ 'active' if request.path == '/shop/000011' }}">Clothing</a></li>
-                                            <li><a href="/shop/000012" class="{{ 'active' if request.path == '/shop/000012' }}">Footwear</a></li>
-                                            <li><a href="/shop/000013" class="{{ 'active' if request.path == '/shop/000013' }}">Accessories</a></li>
-                                            <li><a href="/shop/000014" class="{{ 'active' if request.path == '/shop/000014' }}">Toys & Games</a></li>
-                                            <li><a href="/shop/000015" class="{{ 'active' if request.path == '/shop/000015' }}">Baby Essentials</a></li>
-                                        </ul>
+                                            <div class="single-col">
+                                                <span class="single-col-title">Children's</span>
+                                                <ul>
+                                                    <li><a href="/shop-details?id=000011" class="{{ 'active' if request.path == '/shop-details?id=000011' }}">Clothing</a></li>
+                                                    <li><a href="/shop-details?id=000012" class="{{ 'active' if request.path == '/shop-details?id=000012' }}">Footwear</a></li>
+                                                    <li><a href="/shop-details?id=000013" class="{{ 'active' if request.path == '/shop-details?id=000013' }}">Accessories</a></li>
+                                                    <li><a href="/shop-details?id=000014" class="{{ 'active' if request.path == '/shop-details?id=000014' }}">Toys & Games</a></li>
+                                                    <li><a href="/shop-details?id=000015" class="{{ 'active' if request.path == '/shop-details?id=000015' }}">Baby Essentials</a></li>
+                                                </ul>
                                     </div>
 
                                     <div class="single-col">
@@ -568,328 +723,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="/about" class="{{ 'active' if request.path == '/about' }}">About Us</a>
+                            <a href="/shop" class="{{ 'active' if request.path == '/shop' }}">Our Products</a>
+                            <a href="/gallery" class="{{ 'active' if request.path == '/gallery' }}">Our Gallery</a>
                             <a href="/testimonials" class="{{ 'active' if request.path == '/testimonials' }}">Testimonials</a>
                             <a href="/contact" class="{{ 'active' if request.path == '/contact' }}">Contact Us</a>
                             <a href="/faq" class="{{ 'active' if request.path == '/faq' }}">FAQ</a>
+                            <a href="/about" class="{{ 'active' if request.path == '/about' }}">About Us</a>
                         </nav>
                     </div>
-                </div>
-
-                <!-- actions -->
-                <div class="ul-header-actions">
-                    <div class="unified-header-card">
-                        <div class="shine-effect"></div>
-                        <div class="card-section sale-flash">
-                            <div class="flash-icon">
-                                ⚡
-                            </div>
-                            <div class="flash-text">
-                                <span class="flash-label">LIVE SALE</span>
-                                <span class="flash-details">Up to 50% Off!</span>
-                            </div>
-                        </div>
-
-                        <div class="card-divider"></div>
-
-                        <div class="card-section countdown">
-                            <div id="countdownStatus" class="countdown-status">⏰ Sale Ends In</div>
-                            <div id="countdownTimer" class="countdown-timer">Loading...</div>
-                            <script>
-                                function updateCountdown() {
-                                    const now = new Date();
-                                    const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
-                                    const endTime = new Date(ist);
-                                    endTime.setHours(22, 0, 0, 0); // 10 PM IST
-                                    
-                                    if (ist >= endTime) {
-                                        // If current time is past 10 PM, set end time to next day 10 PM
-                                        endTime.setDate(endTime.getDate() + 1);
-                                    }
-                                    
-                                    const diff = endTime - ist;
-                                    const hours = Math.floor(diff / (1000 * 60 * 60));
-                                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                                    
-                                    document.getElementById('countdownTimer').innerHTML = 
-                                        `${hours}h ${minutes}m ${seconds.toString().padStart(2, '0')}s`;
-                                }
-                                setInterval(updateCountdown, 1000);
-                                updateCountdown();
-                            </script>
-                        </div>
-
-                        <div class="card-divider"></div>
-
-                        <div class="card-section shopper-count">
-                            <div class="shopper-pulse-ring"></div>
-                            <div class="shopper-icon">
-                                👥
-                            </div>
-                            <div class="shopper-text">
-                                <div class="shopper-label">Live Shoppers</div>
-                                <div class="shopper-number-wrapper">
-                                    <span id="shopperNumber" class="shopper-number">Loading...</span>
-                                    <span class="shopper-trend">
-                                        📈
-                                    </span>
-                                </div>
-                            </div>
-                            <script>
-                                let lastCount = null;
-                                
-                                function getShopperCount() {
-                                    const now = new Date();
-                                    const ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
-                                    const hour = ist.getHours();
-                                    
-                                    // Generate base count between 5-5000 based on time of day
-                                    let baseCount;
-                                    if (hour >= 10 && hour < 20) { // Peak hours
-                                        baseCount = 2500 + Math.sin((hour - 10) * Math.PI / 10) * 2500;
-                                    } else { // Off-peak
-                                        baseCount = 500;
-                                    }
-                                    
-                                    // Add small random variation but limit change from last count
-                                    const timeBlock = Math.floor(Date.now() / 1000); // Changes every second
-                                    const rand = Math.sin(timeBlock) * 50; // Smaller random variation
-                                    
-                                    let newCount = Math.round(Math.max(5, Math.min(5000, baseCount + rand)));
-                                    
-                                    // Limit change from last count to prevent drastic jumps
-                                    if (lastCount !== null) {
-                                        const maxChange = 10;
-                                        newCount = Math.max(lastCount - maxChange, 
-                                                          Math.min(lastCount + maxChange, newCount));
-                                    }
-                                    
-                                    lastCount = newCount;
-                                    return newCount;
-                                }
-                                
-                                function getRandomInterval() {
-                                    return Math.floor(Math.random() * 4000) + 1000; // Random between 1-5 seconds
-                                }
-                                
-                                document.getElementById('shopperNumber').textContent = 
-                                    getShopperCount().toLocaleString();
-                                
-                                function scheduleNextUpdate() {
-                                    setTimeout(() => {
-                                        document.getElementById('shopperNumber').textContent = 
-                                            getShopperCount().toLocaleString();
-                                        scheduleNextUpdate();
-                                    }, getRandomInterval());
-                                }
-                                
-                                scheduleNextUpdate();
-                            </script>
-                        </div>
-                    </div>
-
-                    <style>
-                        .unified-header-card {
-                            display: flex;
-                            align-items: center;
-                            background: #ffffff;
-                            backdrop-filter: blur(10px);
-                            border: 1px solid var(--ul-primary);
-                            padding: 12px 24px;
-                            border-radius: 12px;
-                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
-                                       0 20px 60px rgba(0, 0, 0, 0.05);
-                            margin-right: 15px;
-                            position: relative;
-                            transition: all 0.3s ease;
-                            overflow: hidden;
-                        }
-
-                        .shine-effect {
-                            position: absolute;
-                            top: -100%;
-                            left: -100%;
-                            width: 150%;
-                            height: 150%;
-                            background: linear-gradient(
-                                135deg,
-                                transparent 0%,
-                                transparent 35%,
-                                rgba(var(--ul-primary-rgb), 0.15) 45%,
-                                rgba(var(--ul-primary-rgb), 0.25) 50%,
-                                rgba(var(--ul-primary-rgb), 0.15) 55%,
-                                transparent 65%,
-                                transparent 100%
-                            );
-                            animation: shine 8s linear infinite;
-                            transform: rotate(45deg);
-                            pointer-events: none;
-                        }
-
-                        @keyframes shine {
-                            0% {
-                                top: -150%;
-                                left: -150%;
-                            }
-                            100% {
-                                top: 150%;
-                                left: 150%;
-                            }
-                        }
-
-                        .unified-header-card:hover {
-                            transform: translateY(-2px);
-                            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15),
-                                       0 25px 70px rgba(0, 0, 0, 0.1);
-                        }
-
-                        .card-section {
-                            display: flex;
-                            align-items: center;
-                            gap: 12px;
-                            padding: 0 12px;
-                        }
-
-                        .card-divider {
-                            width: 1px;
-                            height: 40px;
-                            background: linear-gradient(to bottom, transparent, var(--ul-primary), transparent);
-                            margin: 0 8px;
-                            opacity: 0.2;
-                        }
-
-                        /* Sale Flash Section */
-                        .sale-flash {
-                            color: var(--ul-primary);
-                            position: relative;
-                            overflow: hidden;
-                        }
-
-                        .flash-icon {
-                            animation: sparkle 1s infinite;
-                            font-size: 1.5rem;
-                        }
-
-                        .flash-label {
-                            color: var(--ul-primary);
-                            font-weight: 600;
-                            font-size: 0.9rem;
-                            display: block;
-                        }
-
-                        .flash-details {
-                            color: var(--ul-primary);
-                            font-weight: 700;
-                            font-size: 1.1rem;
-                        }
-
-                        /* Countdown Section */
-                        .countdown {
-                            text-align: center;
-                        }
-
-                        .countdown-status {
-                            color: var(--ul-primary);
-                            font-weight: 600;
-                            font-size: 0.9rem;
-                        }
-
-                        .countdown-timer {
-                            font-weight: 700;
-                            color: var(--ul-primary);
-                            font-size: 1.1rem;
-                        }
-
-                        /* Shopper Count Section */
-                        .shopper-count {
-                            position: relative;
-                        }
-
-                        .shopper-icon {
-                            width: 40px;
-                            height: 40px;
-                            border-radius: 50%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            position: relative;
-                            z-index: 2;
-                            font-size: 1.5rem;
-                        }
-
-                        .shopper-pulse-ring {
-                            position: absolute;
-                            left: 20px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            width: 40px;
-                            height: 40px;
-                            border-radius: 50%;
-                            background: var(--ul-primary);
-                            opacity: 0.3;
-                            animation: pulse 2s infinite;
-                        }
-
-                        .shopper-label {
-                            color: var(--ul-primary);
-                            font-weight: 600;
-                            font-size: 0.9rem;
-                        }
-
-                        .shopper-number {
-                            color: var(--ul-primary);
-                            font-weight: 700;
-                            font-size: 1.1rem;
-                        }
-
-                        .shopper-trend {
-                            font-size: 1.2rem;
-                        }
-
-                        /* Keep existing animations */
-                        @keyframes sparkle {
-                            0% { transform: scale(1); }
-                            50% { transform: scale(1.2); }
-                            100% { transform: scale(1); }
-                        }
-
-                        @keyframes pulse {
-                            0% {
-                                transform: translateY(-50%) scale(1);
-                                opacity: 0.3;
-                            }
-                            70% {
-                                transform: translateY(-50%) scale(2);
-                                opacity: 0;
-                            }
-                            100% {
-                                transform: translateY(-50%) scale(1);
-                                opacity: 0;
-                            }
-                        }
-
-                        /* Responsive adjustments */
-                        @media (max-width: 768px) {
-                            .unified-header-card {
-                                padding: 8px 16px;
-                            }
-                            
-                            .card-section {
-                                padding: 0 8px;
-                            }
-
-                            .card-divider {
-                                height: 30px;
-                                margin: 0 4px;
-                            }
-                        }
-                    </style>
-                </div>
-
-                <!-- sidebar opener -->
-                <div>
-                    <button class="ul-header-sidebar-opener"><i class="flaticon-hamburger"></i></button>
                 </div>
             </div>
         </div>

@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, g, flash
+from flask import Flask, render_template, request, redirect, url_for, g, flash, jsonify
 from config import SystemConfig, SocialConfig
 from threading import Thread
 from helpers import send_email_admin
 import json
 import os
+
 app = Flask(__name__)
 
 @app.context_processor
@@ -18,9 +19,31 @@ def inject_globals():
     g.company_email = SystemConfig.COMPANY_EMAIL
     return dict()
 
+# setup sttaic folder
+app.static_folder = 'static'
+app.static_url_path = '/static'
+app.secret_key = "MustBeChangedInProduction"
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    try:
+        with open('content/reviews.json', 'r') as f:
+            all_reviews = json.load(f)
+    except FileNotFoundError:
+        all_reviews = []
+
+    page = request.args.get('page', 1, type=int)
+    per_page = 16  # 4x4 grid
+    
+    total_reviews = len(all_reviews)
+    total_pages = (total_reviews + per_page - 1) // per_page
+    start_idx = (page - 1) * per_page
+    end_idx = start_idx + per_page
+    
+    current_reviews = all_reviews[start_idx:end_idx]
+    return render_template('index.html', reviews=current_reviews,
+                         current_page=page,
+                         total_pages=total_pages)
 
 @app.route('/about')
 def about():
@@ -39,24 +62,20 @@ def faq():
 
 @app.route('/testimonials')
 def testimonials():
-    # Load reviews from JSON file
     try:
         with open('content/reviews.json', 'r') as f:
             all_reviews = json.load(f)
     except FileNotFoundError:
         all_reviews = []
 
-    # Get page number from query parameters, default to 1
     page = request.args.get('page', 1, type=int)
     per_page = 16  # 4x4 grid
     
-    # Calculate pagination
     total_reviews = len(all_reviews)
     total_pages = (total_reviews + per_page - 1) // per_page
     start_idx = (page - 1) * per_page
     end_idx = start_idx + per_page
     
-    # Get reviews for current page
     current_reviews = all_reviews[start_idx:end_idx]
     
     return render_template('testimonials.html', 
@@ -81,7 +100,6 @@ def shop():
     start_idx = (page - 1) * per_page
     end_idx = start_idx + per_page
     
-    # Get products for current page
     current_products = all_products[start_idx:end_idx]
     
     return render_template('shop.html', 
@@ -157,6 +175,51 @@ def shop_details():
     except Exception as e:
         app.logger.error(f'Unexpected error: {str(e)}')
         return render_template('500.html', error="An unexpected error occurred"), 500
+
+@app.route('/search/api')
+def search_api():
+    """API endpoint for live search results"""
+    query = request.args.get('q', '').strip().lower()
+    category = request.args.get('category', '')
+    
+    if not query or len(query) < 2:
+        return jsonify([])
+    
+    try:
+        with open('content/shop.json', 'r') as f:
+            products_dict = json.load(f)
+    except FileNotFoundError:
+        return jsonify([])
+    
+    results = []
+    for product_id, product in products_dict.items():
+        # Search in name, description, and keywords
+        search_text = f"{product.get('name', '')} {product.get('desc', '')} {' '.join(product.get('keywords', []))}".lower()
+        
+        # Category filter
+        if category and category != '1':  # '1' is "All Apparels"
+            product_category = product.get('category', '').lower()
+            category_map = {
+                '2': 'men',
+                '3': 'women', 
+                '4': 'kids'
+            }
+            if category in category_map and category_map[category] not in product_category:
+                continue
+        
+        # Check if query matches
+        if query in search_text:
+            results.append({
+                'id': product_id,
+                'name': product.get('name', ''),
+                'desc': product.get('desc', '')[:100] + '...' if len(product.get('desc', '')) > 100 else product.get('desc', ''),
+                'image': product.get('image_path', '/static/images/placeholder.png'),
+                'price': product.get('price', ''),
+                'url': f'/shop-details?id={product_id}'
+            })
+    
+    # Limit results to 8 items
+    return jsonify(results[:8])
 
 if __name__ == '__main__':
     app.run(debug=True)

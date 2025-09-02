@@ -1,0 +1,3581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apparel Branding Company | ABC Apparel | Luxury Apparel Branding</title>
+    <meta name="description" content="ABC Apparel is a leading apparel branding company specializing in luxury apparel branding. We offer a wide range of services to help you create a unique and memorable brand identity for your clothing line." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Critical CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
+    
+    <!-- Non-Critical CSS (Deferred) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1.1.2/dist/mouse-follower.min.css">
+
+    <!-- Essential Styles -->
+    <style>
+        /* Loader */
+        .loader-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        .loader-screen.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-initial {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .loader-expanded {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .progress-bar {
+            animation: progress 2s ease-out forwards;
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0;
+            }
+            40% {
+                width: 40%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Marquee Animation */
+        .marquee-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            --gap: 1.5rem;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: fit-content;
+            animation: marquee 40s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: var(--gap);
+            padding: 0.5rem 0;
+        }
+
+        /* Card Animations */
+        .testimonial-card {
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                min-width: 300px;
+            }
+        }
+        /* ==========================================================================
+   Base Styles & CSS Variables
+   ========================================================================== */
+:root {
+    /* Brand Colors */
+    --brand-blue: #00095b;
+    --brand-white: #FFF;
+    --brand-blue-light: rgba(0, 9, 91, 0.1);
+    --brand-blue-medium: rgba(0, 9, 91, 0.5);
+
+    /* Royal Theme Colors */
+    --royal-gold: #C6A355;
+    --royal-blue: #162B4D;
+    --royal-cream: #F9F6F0;
+    --royal-black: #1A1A1A;
+    --royal-accent: #D4AF37;
+    --royal-primary: #003459;
+    --royal-secondary: #00a7e1;
+    --royal-light: #ffffff;
+    --royal-highlight: #FFA500;
+    --royal-dark: #00171f;
+    --royal-muted: #94A3B8;
+    --royal-gradient: linear-gradient(135deg, #003459, #00a7e1);
+    --royal-overlay: rgba(0, 52, 89, 0.1);
+
+    /* System Colors */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --ck-black: #000000;
+    --ck-white: #ffffff;
+    --ck-gray-100: #f7f7f7;
+    --ck-gray-200: #e5e5e5;
+    --ck-gray-300: #d4d4d4;
+    --ck-gray-400: #a3a3a3;
+    --ck-gray-500: #737373;
+    --ck-gray-600: #525252;
+    --ck-gray-700: #404040;
+    --ck-gray-800: #262626;
+    --ck-gray-900: #171717;
+    --brand-blue: #00095b;
+    --brand-white: #FFF;
+    --brand-blue-light: rgba(0, 9, 91, 0.1);
+    --brand-blue-medium: rgba(0, 9, 91, 0.5);
+}
+
+/* Dark theme overrides */
+.dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('../fonts/HelveticaNeue-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('../fonts/HelveticaNeue-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+body {
+    font-family: 'HelveticaNeue', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font-cormorant {
+    font-family: 'Cormorant', serif;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ==========================================================================
+   Layout & Container Styles
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ==========================================================================
+   Component Styles
+   ========================================================================== */
+
+/* Navigation */
+.nav-scrolled {
+    background: rgba(249, 246, 240, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Buttons */
+.premium-btn {
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border: 1px solid rgba(0, 167, 225, 0.3);
+    transition: all 0.4s ease;
+}
+
+.premium-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+}
+
+.premium-btn:hover::before {
+    inset: -4px;
+    border-color: rgba(0, 167, 225, 0.5);
+    box-shadow: 0 0 30px rgba(0, 167, 225, 0.2);
+}
+
+/* Cards */
+.testimonial-card {
+    transform: translateZ(0);
+    will-change: transform;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+/* ==========================================================================
+   Animation Styles
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.image-fade {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-fade:hover {
+    opacity: 0.8;
+}
+
+.image-rounded {
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   Modal Styles
+   ========================================================================== */
+.modal-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-content.modal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Custom Cursor
+   ========================================================================== */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--royal-overlay);
+    border: 2px solid var(--royal-secondary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.1s ease;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--royal-primary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.15s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+    .testimonial-card {
+        min-width: 300px;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* ==========================================================================
+   Performance Optimizations
+   ========================================================================== */
+.marquee-track {
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================================================
+   Royal Theme Styles
+   ========================================================================== */
+.royal-pattern {
+    position: fixed;
+    inset: 0;
+    background-image: url('../images/royal-pattern.png');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.royal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 4.5rem;
+    line-height: 1.2;
+    color: var(--royal-blue);
+    position: relative;
+}
+
+.royal-accent {
+    color: var(--royal-gold);
+    position: relative;
+    display: inline-block;
+}
+
+.royal-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--royal-gold), transparent);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(249, 246, 240, 0.95) 0%, rgba(249, 246, 240, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(198, 163, 85, 0.1);
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.royal-btn {
+    position: relative;
+    padding: 1.2rem 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.royal-btn.primary {
+    background: var(--royal-blue);
+    color: var(--royal-cream);
+    border: none;
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(96, 165, 250, 0.4),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.royal-btn:hover .btn-shine {
+    left: 100%;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 6rem;
+    position: relative;
+}
+
+.image-frame {
+    position: relative;
+    border: 1px solid var(--royal-gold);
+    padding: 2rem;
+}
+
+.frame-border {
+    position: absolute;
+    inset: -10px;
+    border: 1px solid var(--royal-gold);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.service-card {
+    position: relative;
+    background: var(--royal-dark);
+    padding: 3rem;
+    transition: transform 0.5s ease;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.card-frame {
+    position: relative;
+    border: 1px solid rgba(198, 163, 85, 0.3);
+    padding: 2rem;
+}
+
+.card-frame::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 1px solid rgba(198, 163, 85, 0.15);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--royal-accent);
+    box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.2);
+}
+
+.service-card:hover .card-frame::before {
+    inset: -10px;
+}
+
+.royal-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--royal-gold), transparent);
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+    50.1% {
+        transform-origin: bottom;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+/* ==========================================================================
+   Royal Theme Styles
+   ========================================================================== */
+body {
+    background-color: var(--royal-cream);
+    color: var(--royal-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Royal Pattern Background */
+.royal-pattern {
+    position: fixed;
+    inset: 0;
+    background-image: url('../images/royal-pattern.png');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Typography */
+.royal-title {
+    font-family: 'Cinzel', serif;
+    font-size: 4.5rem;
+    line-height: 1.2;
+    color: var(--royal-blue);
+    position: relative;
+}
+
+.royal-accent {
+    color: var(--royal-gold);
+    position: relative;
+    display: inline-block;
+}
+
+.royal-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--royal-gold), transparent);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(249, 246, 240, 0.95) 0%, rgba(249, 246, 240, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(198, 163, 85, 0.1);
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Royal Buttons */
+.royal-btn {
+    position: relative;
+    padding: 1.2rem 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.royal-btn.primary {
+    background: var(--royal-blue);
+    color: var(--royal-cream);
+    border: none;
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(96, 165, 250, 0.4),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.royal-btn:hover .btn-shine {
+    left: 100%;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 6rem;
+    position: relative;
+}
+
+.image-frame {
+    position: relative;
+    border: 1px solid var(--royal-gold);
+    padding: 2rem;
+}
+
+.frame-border {
+    position: absolute;
+    inset: -10px;
+    border: 1px solid var(--royal-gold);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Luxury Card Styles */
+.service-card {
+    position: relative;
+    background: var(--royal-dark);
+    padding: 3rem;
+    transition: transform 0.5s ease;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.card-frame {
+    position: relative;
+    border: 1px solid rgba(198, 163, 85, 0.3);
+    padding: 2rem;
+}
+
+.card-frame::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 1px solid rgba(198, 163, 85, 0.15);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--royal-accent);
+    box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.2);
+}
+
+.service-card:hover .card-frame::before {
+    inset: -10px;
+}
+
+/* Royal Scroll Indicator */
+.royal-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--royal-gold), transparent);
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+    50.1% {
+        transform-origin: bottom;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+/* Royal Theme Styles */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-secondary);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Luxury Grain Effect */
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: url('../images/grain.png');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+    animation: grainAnimation 8s steps(10) infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+@keyframes grainAnimation {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    20% { transform: translate(-10%, 5%); }
+    30% { transform: translate(5%, -10%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-10%, 5%); }
+    60% { transform: translate(15%, 0); }
+    70% { transform: translate(0, 10%); }
+    80% { transform: translate(-15%, 0); }
+    90% { transform: translate(10%, 5%); }
+    100% { transform: translate(5%, 0); }
+}
+
+/* Navigation Styles */
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.site-header[data-scroll="1"] {
+    background: rgba(249, 246, 240, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    padding: 8rem 4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.title-accent {
+    display: block;
+    color: var(--color-secondary);
+    position: relative;
+}
+
+/* Sophisticated Animations */
+@keyframes lineReveal {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* More styles... */
+
+/* Premium Loader */
+.loader-screen {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    background: var(--brand-white);
+}
+
+.loader-screen.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-initial {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.loader-expanded {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.progress-bar {
+    animation: progress 2s ease-out forwards;
+}
+
+@keyframes progress {
+    0% {
+        width: 0;
+    }
+    40% {
+        width: 40%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.loading-bar {
+    width: 0;
+    animation: loading 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    box-shadow: 0 0 20px rgba(0, 9, 91, 0.2);
+    background: var(--brand-blue);
+}
+
+@keyframes loading {
+    0% { width: 0; }
+    20% { width: 20%; }
+    50% { width: 50%; }
+    80% { width: 80%; }
+    100% { width: 100%; }
+}
+
+/* Navigation */
+.nav-link {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 4px 0;
+    position: relative;
+    color: var(--brand-blue);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Premium Button */
+.premium-btn {
+    background: linear-gradient(to right, #00095b, rgba(0, 9, 91, 0.9));
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.premium-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 9, 91, 0.3);
+}
+
+/* Testimonial Card Styles */
+.testimonial-card {
+    transform: translateZ(0);
+    will-change: transform;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px) translateZ(0);
+}
+
+.testimonial-card blockquote {
+    font-family: 'Cormorant', serif;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    position: relative;
+}
+
+.testimonial-card img {
+    transition: all 0.6s ease;
+}
+
+.testimonial-card:hover img {
+    transform: scale(1.05);
+    ring-color: rgba(0, 167, 225, 0.4);
+}
+
+.testimonial-card .absolute {
+    transition: opacity 0.6s ease;
+}
+
+.testimonial-card:hover .absolute {
+    opacity: 0.8;
+}
+
+/* Gradient Border Animation */
+@keyframes borderGlow {
+    0% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.2; }
+}
+
+.testimonial-card:hover .absolute {
+    animation: borderGlow 2s ease-in-out infinite;
+}
+
+/* Quote Icon Animation */
+.testimonial-card img[alt="Quote"] {
+    transition: all 0.6s ease;
+}
+
+.testimonial-card:hover img[alt="Quote"] {
+    opacity: 0.4;
+    transform: scale(1.1) rotate(-10deg);
+}
+
+/* Text Hover Effects */
+.testimonial-card h4 {
+    transition: all 0.4s ease;
+}
+
+.testimonial-card:hover h4 {
+    color: #00a7e1;
+}
+
+/* Modal Styles for Testimonials */
+.testimonial-modal {
+    background: rgba(0, 23, 31, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.testimonial-modal-content {
+    background: linear-gradient(135deg, #002a41, #001219);
+    border: 1px solid rgba(0, 167, 225, 0.1);
+}
+
+/* Form Input Styles */
+.form-input, .form-select, .form-textarea {
+    background: rgba(12, 27, 68, 0.3);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: var(--royal-light);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--royal-accent);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Lead Form Modal Styles */
+.modal-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-content.modal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-group {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.form-group.field-active input,
+.form-group.field-active textarea,
+.form-group.field-active select {
+    border-color: rgb(59, 130, 246);
+    box-shadow: 0 0 0 1px rgb(59, 130, 246);
+}
+
+/* Enhanced button animations */
+.premium-btn,
+.premium-btn-small {
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-btn::after,
+.premium-btn-small::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.4s ease-out;
+}
+
+.premium-btn:hover::after,
+.premium-btn-small:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: var(--royal-overlay);
+    border: 2px solid var(--royal-secondary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.1s ease;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--royal-primary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.15s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+/* Cursor hover effects */
+.hover-trigger {
+    cursor: none;
+}
+
+.hover-trigger:hover ~ .custom-cursor {
+    transform: translate(-50%, -50%) scale(1.5);
+    background: rgba(198, 163, 85, 0.1);
+}
+
+/* Background gradient for sections */
+.bg-royal-gradient {
+    background: #003459;
+    background: linear-gradient(135deg, #003459, #00a7e1);
+}
+
+.bg-royal-light-gradient {
+    background: linear-gradient(to right, var(--royal-light), #FFF);
+}
+
+/* Buttons - Calvin Klein Style */
+.ck-button {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    background: var(--ck-black);
+    color: var(--ck-white);
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.ck-button:hover {
+    background: var(--ck-gray-800);
+}
+
+.ck-button-outline {
+    background: transparent;
+    border: 1px solid var(--ck-black);
+    color: var(--ck-black);
+}
+
+.ck-button-outline:hover {
+    background: var(--ck-black);
+    color: var(--ck-white);
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Modal - Calvin Klein Style */
+.ck-modal {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.ck-modal-content {
+    background: var(--ck-white);
+    padding: 3rem;
+    max-width: 600px;
+    width: 90%;
+}
+
+/* Form Elements - Calvin Klein Style */
+.ck-input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--ck-gray-300);
+    font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.ck-input:focus {
+    outline: none;
+    border-color: var(--ck-black);
+}
+
+/* Navigation Dots Hover Effect */
+.fabric-nav-dot {
+    transition: all 0.3s ease;
+}
+
+.fabric-nav-dot:hover {
+    background-color: #162B4D;
+    transform: scale(1.2);
+}
+
+/* Text Gradients */
+.text-gradient {
+    /* Fallback color */
+    color: #1a365d;
+    
+    /* Enhanced premium gradient */
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    background: -webkit-linear-gradient(135deg, #2563eb, #1e40af);
+    background: -moz-linear-gradient(135deg, #2563eb, #1e40af);
+    background: -o-linear-gradient(135deg, #2563eb, #1e40af);
+    
+    /* Text fill properties */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    
+    /* Ensure proper rendering */
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section Backgrounds */
+.bg-luxury {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(30, 64, 175, 0.1));
+    z-index: 1;
+}
+
+.bg-luxury-dark {
+    background: linear-gradient(135deg, #0f172a, #020617);
+    position: relative;
+}
+
+/* Add smooth transitions */
+.bg-luxury, .bg-luxury-dark {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Luxury Animations */
+@keyframes luxuryFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.luxury-fade {
+    animation: luxuryFade 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Premium Hover Effects */
+.premium-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.2);
+}
+
+/* Typography */
+/* h1, h2, h3, h4, h5, h6 {
+    font-family: 'HelveticaNeue', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    color: var(--royal-white);
+} */
+
+.text-display {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.02em;
+    font-weight: 300;
+}
+
+/* Optimize animations */
+.marquee-content {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Use hardware acceleration for animations */
+.fabric-card {
+    transform: translateZ(0);
+    will-change: transform;
+    transition: transform 0.3s ease;
+}
+
+/* Reduce paint operations */
+.fabric-card:hover {
+    transform: translateY(-8px) translateZ(0);
+}
+
+/* Remove unused styles */
+.luxury-gradient,
+.custom-shadow,
+.btn-luxury,
+.feature-card,
+.fade-in-text,
+.beam-animation {
+    display: none;
+}
+
+/* Simplify transitions */
+.nav-link::after {
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+/* Cinematic Effects */
+.cinematic-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 23, 31, 0.9) 0%,
+        rgba(0, 23, 31, 0.5) 50%,
+        rgba(0, 23, 31, 0.9) 100%
+    );
+    mix-blend-mode: multiply;
+}
+
+/* Smooth Scroll Container */
+.scroll-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    will-change: transform;
+}
+
+/* Premium Text Reveal */
+.split-text {
+    opacity: 0;
+}
+
+.char {
+    display: inline-block;
+    transform-origin: 50% 100%;
+    transform: translateY(100%) rotateX(-80deg);
+    opacity: 0;
+}
+
+/* Premium Hover Effects */
+.premium-image {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-image:hover {
+    clip-path: polygon(2% 2%, 98% 2%, 98% 98%, 2% 98%);
+}
+
+/* Enhanced Cursor Styles */
+.mf-cursor {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    mix-blend-mode: difference;
+}
+
+.mf-cursor.-media {
+    transform: scale(2);
+}
+
+/* Premium Loading Screen */
+.loader-screen {
+    background: var(--brand-white);
+}
+
+.loader-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: loaderFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loaderFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cinematic Image Reveal */
+.image-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-reveal::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00171f;
+    transform-origin: left;
+}
+
+/* Premium Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, #00a7e1, #007ea7);
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 1000;
+}
+
+/* Premium Hero Styles */
+.bg-gradient-radial {
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 167, 225, 0.15) 0%,
+        transparent 70%
+    );
+}
+
+.bg-gradient-radial-corner {
+    background: radial-gradient(circle at center,
+        rgba(0, 167, 225, 0.1) 0%,
+        transparent 70%
+    );
+}
+
+/* Animated Grain Effect */
+.grain-overlay {
+    background-image: url('/static/images/noise.png');
+    animation: grainAnimation 8s steps(10) infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+@keyframes grainAnimation {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    20% { transform: translate(-10%, 5%); }
+    30% { transform: translate(5%, -10%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-10%, 5%); }
+    60% { transform: translate(15%, 0); }
+    70% { transform: translate(0, 10%); }
+    80% { transform: translate(-15%, 0); }
+    90% { transform: translate(10%, 5%); }
+    100% { transform: translate(5%, 0); }
+}
+
+/* Luxury Lines Animation */
+.luxury-lines {
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 49.9%,
+        rgba(0, 167, 225, 0.1) 50%,
+        transparent 50.1%
+    );
+    background-size: 150px 100%;
+    animation: lineShift 15s linear infinite;
+}
+
+@keyframes lineShift {
+    from { background-position: 0 0; }
+    to { background-position: 150px 0; }
+}
+
+/* Premium Text Gradient */
+.premium-text-gradient {
+    /* Fallback for browsers that don't support gradient text */
+    color: #00a7e1;
+    
+    /* Gradient background */
+    background: linear-gradient(135deg, #00a7e1 0%, #ffd700 50%, #00a7e1 100%);
+    background: -webkit-linear-gradient(135deg, #00a7e1 0%, #ffd700 50%, #00a7e1 100%);
+    background: -moz-linear-gradient(135deg, #00a7e1 0%, #ffd700 50%, #00a7e1 100%);
+    background: -o-linear-gradient(135deg, #00a7e1 0%, #ffd700 50%, #00a7e1 100%);
+    
+    /* Text fill properties */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    
+    /* Animation properties */
+    background-size: 200% auto;
+    -webkit-animation: shimmer 8s linear infinite;
+    -moz-animation: shimmer 8s linear infinite;
+    -o-animation: shimmer 8s linear infinite;
+    animation: shimmer 8s linear infinite;
+}
+
+/* Animation keyframes with vendor prefixes */
+@-webkit-keyframes shimmer {
+    to { background-position: 200% center; }
+}
+@-moz-keyframes shimmer {
+    to { background-position: 200% center; }
+}
+@-o-keyframes shimmer {
+    to { background-position: 200% center; }
+}
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+
+/* Hero Animations */
+.hero-title, .hero-subtitle, .hero-cta, .premium-badge, .scroll-indicator {
+    animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-play-state: paused;
+}
+
+.hero-subtitle { animation-delay: 0.3s; }
+.hero-cta { animation-delay: 0.6s; }
+.premium-badge { animation-delay: 0.2s; }
+.scroll-indicator { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Line Animation */
+.scroll-line {
+    animation: scrollLineAnimation 2s ease-in-out infinite;
+}
+
+@keyframes scrollLineAnimation {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Add these new animations */
+@keyframes gradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes marquee2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    --gap: 2rem;
+    --duration: 40s;
+    --scroll-start: 0;
+    --scroll-end: -50%;
+    display: flex;
+    user-select: none;
+}
+
+.marquee {
+    flex-shrink: 0;
+    display: flex;
+    gap: var(--gap);
+    min-width: 100%;
+    animation: scroll var(--duration) linear infinite;
+}
+
+.marquee-group {
+    flex-shrink: 0;
+    display: flex;
+    gap: var(--gap);
+    min-width: 100%;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(var(--scroll-start));
+    }
+    to {
+        transform: translateX(var(--scroll-end));
+    }
+}
+
+.testimonial-card {
+    transform: translateZ(0);
+    will-change: transform;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-card img {
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Popup Animation */
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#testimonialPopup .bg-white {
+    animation: popupIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader-screen {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader-text-wrapper {
+    position: relative;
+    height: auto;
+}
+
+.loader-expanded {
+    transform: translateY(0);
+}
+
+.progress-bar {
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.3/umd/index.min.js"></script>
+    <script src="https://unpkg.com/mouse-follower@1.1.2/dist/mouse-follower.min.js"></script>
+</head>
+
+<body class="bg-white text-neutral-900">
+    <!-- Loader -->
+    <div class="loader-screen fixed inset-0 z-[9999] bg-white flex items-center justify-center">
+        <div class="loader-content text-center">
+            <div class="loader-text-wrapper relative overflow-hidden mb-2">
+                <div class="text-5xl font-cormorant font-light tracking-[0.4em] text-[#00095b] mb-4">
+                    <span class="loader-text">Apparel Branding Company</span>
+                </div>
+            </div>
+            <!-- Progress Bar Container -->
+            <div class="relative w-[300px] mx-auto">
+                <div class="h-[2px] bg-[#00095b]/10 overflow-hidden">
+                    <div class="progress-bar h-full w-0 bg-[#00095b]"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <nav class="fixed w-full z-50 bg-white border-b border-[#00095b]/10">
+        <div class="container mx-auto px-6">            
+            <div class="py-2 text-xs tracking-wider border-b border-neutral-100">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-4">
+                        <a href="/shop" class="hover:text-neutral-500">Our Products</a>
+                        <a href="/contact" class="hover:text-neutral-500">Customer Care</a>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/+919025199658" class="hover:text-neutral-500">Whatsapp</a>
+                        <a href="https://instagram.com/springreenoff" class="hover:text-neutral-500">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="py-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-8 items-center">
+                        <a href="/" class="text-2xl tracking-[0.2em] font-light">
+                            <img src="/static/images/logo.png" alt="Apparel Branding Company" class="w-50 h-20">
+                        </a>
+                        <div class="hidden md:flex space-x-6">
+                            <a href="/about" class="nav-link">About Us</a>
+                            <a href="#services" class="nav-link">Our Services</a>
+                            <a href="/shop" class="nav-link">Our Products</a>
+                            <a href="/contact" class="nav-link">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <a href="/faq" class="hover:text-neutral-500">FAQ</a>
+                        <a href="/contact" class="hover:text-neutral-500">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Video Background -->
+        <div class="absolute inset-0 w-full h-full">
+            <!-- Gradient overlay - adjusted opacity -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#00095b]/70 via-[#00095b]/50 to-[#00095b]/70 z-20"></div>
+            <div class="absolute inset-0 bg-[url('https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/noise.png')] opacity-[0.15] mix-blend-overlay z-20"></div>
+            
+            <!-- YouTube iframe - reduced z-index -->
+            <iframe 
+                class="absolute inset-0 w-full h-full object-cover scale-110 z-10"
+                src="https://www.youtube.com/embed/wF17FUovPNA?autoplay=1&mute=1&loop=1&playlist=wF17FUovPNA&controls=0&showinfo=0"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                style="filter: brightness(0.7) contrast(1.2);"
+            ></iframe>
+        </div>
+
+        <!-- Hero Content - increased z-index -->
+        <div class="container mx-auto px-6 relative z-30">
+            <div class="max-w-[1200px]" data-aos="fade-up" data-aos-duration="1000">
+                <!-- Premium Badge -->
+                <div class="inline-block mb-12 mt-12" data-aos="fade-down" data-aos-delay="200">
+                    <span class="text-white/95 text-sm tracking-[0.5em] uppercase bg-[#00095b]/20 backdrop-blur-md px-10 py-4 rounded-full border border-white/20 shadow-lg">
+                        Branding Since 2005
+                    </span>
+                </div>
+
+                <h1 class="text-white font-cormorant text-5xl font-bold" style="text-shadow: 2px 4px 16px rgba(0,0,0,0.8);font-weight: 200;font-size: 100px;">Crafting Luxury & Timeless Elegance</h1>
+
+                <!-- Subtitle -->
+                <div class="mt-16 mb-20 max-w-2xl" data-aos="fade-up" data-aos-delay="400">
+                    <p class="text-xl md:text-2xl text-white/95 tracking-wider font-light leading-relaxed font-cormorant drop-shadow-lg">
+                        Where timeless craftsmanship meets modern sophistication, creating bespoke masterpieces that define luxury
+                    </p>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center space-x-8" data-aos="fade-up" data-aos-delay="600">
+                    <button class="premium-btn group relative overflow-hidden border border-white/20 hover:border-white/40 transition-colors duration-300">
+                        <span class="relative z-10 text-white font-light tracking-[0.3em] text-sm uppercase px-14 py-7 inline-block">
+                            Discover Collection
+                        </span>
+                        <div class="absolute inset-0 bg-white/10 backdrop-blur-sm transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+                    </button>
+                    <div class="hidden md:block w-12 h-[1px] bg-gradient-to-r from-white to-transparent opacity-70"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center" data-aos="fade-up" data-aos-delay="800">
+            <span class="text-white/70 text-sm tracking-[0.3em] uppercase mb-4 hover:text-white/90 transition-colors duration-300">Explore</span>
+            <div class="h-20 w-[1px] bg-gradient-to-b from-white to-transparent animate-scrollLine"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="atelier" class="py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1558304970-abd589baebe5?auto=format&fit=crop&q=80"
+                        alt="Our Atelier" class="w-full h-[600px] object-cover hover-scale image-fade image-rounded" />
+                    <div class="absolute -bottom-8 -right-8 bg-[#0A0A0A] p-8 border border-neutral-800">
+                        <p class="text-2xl font-cormorant" style="color: #FFF;">
+                            "Seven decades of excellence in bespoke tailoring"
+                        </p>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <span class="text-sm tracking-[4px] text-neutral-400">OUR LEGACY</span>
+                    <h2 class="text-5xl font-cormorant mt-4 mb-8">
+                        A Heritage of Excellence Since 1995
+                    </h2>
+                    <p class="text-neutral-300 mb-12">
+                        In the realm of bespoke fashion, we stand as custodians of timeless elegance. Our atelier combines centuries-old craftsmanship with contemporary innovation, creating garments that transcend mere clothing to become personal statements of distinction.
+                    </p>
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <span class="text-4xl font-cormorant">27+</span>
+                            <p class="text-sm text-neutral-400 mt-2">Years of Excellence</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-4xl font-cormorant">1000+</span>
+                            <p class="text-sm text-neutral-400 mt-2">Satisfied Clients</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-4xl font-cormorant">100%</span>
+                            <p class="text-sm text-neutral-400 mt-2">Handcrafted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-32 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <span class="text-[#00095b] text-sm tracking-[0.4em] uppercase">Our Services</span>
+                <h2 class="mt-8 text-5xl font-cormorant text-[#00095b]">Luxury Craftsmanship</h2>
+                <div class="w-32 h-[1px] mx-auto bg-gradient-to-r from-transparent via-[#00095b] to-transparent my-8"></div>
+            </div>
+
+            <!-- Service Cards -->
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Bespoke Suits -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1558304970-abd589baebe5" alt="Bespoke Suits" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Bespoke Suits</h3>
+                    <p class="text-[#00095b]/70">Crafted to perfection, tailored to you.</p>
+                </div>
+
+                <!-- Wedding Attire -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde" alt="Wedding Attire" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Wedding Attire</h3>
+                    <p class="text-[#00095b]/70">Elegance for your special day.</p>
+                </div>
+
+                <!-- Evening Wear -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35" alt="Evening Wear" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Evening Wear</h3>
+                    <p class="text-[#00095b]/70">Sophisticated elegance for special occasions.</p>
+                </div>
+
+                <!-- Business Attire -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" alt="Business Attire" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Business Attire</h3>
+                    <p class="text-[#00095b]/70">Professional excellence in every stitch.</p>
+                </div>
+
+                <!-- Custom Shirts -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf" alt="Custom Shirts" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Custom Shirts</h3>
+                    <p class="text-[#00095b]/70">Tailored to your unique style.</p>
+                </div>
+
+                <!-- Accessories -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7" alt="Accessories" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Accessories</h3>
+                    <p class="text-[#00095b]/70">Complete your look with distinction.</p>
+                </div>
+
+                <!-- Style Consultation -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1543132220-3ec99c6094dc" alt="Style Consultation" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Style Consultation</h3>
+                    <p class="text-[#00095b]/70">Expert guidance for your wardrobe.</p>
+                </div>
+
+                <!-- Made-to-Measure -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7" alt="Made-to-Measure" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Made-to-Measure</h3>
+                    <p class="text-[#00095b]/70">Precision in every measurement.</p>
+                </div>
+
+                <!-- Fabric Selection -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973e31985" alt="Fabric Selection" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Fabric Selection</h3>
+                    <p class="text-[#00095b]/70">Premium materials from global mills.</p>
+                </div>
+
+                <!-- Personal Shopping -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04" alt="Personal Shopping" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Personal Shopping</h3>
+                    <p class="text-[#00095b]/70">Curated selections for your lifestyle.</p>
+                </div>
+
+
+                <!-- Seasonal Collections -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" alt="Seasonal Collections" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Seasonal Collections</h3>
+                    <p class="text-[#00095b]/70">Stay ahead of fashion trends.</p>
+                </div>
+
+                <!-- Private Events -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-lg mb-8">
+                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa" alt="Private Events" class="w-full aspect-[3/4] object-cover">
+                        <div class="absolute inset-0 bg-[#00095b]/10 group-hover:bg-[#00095b]/20 transition-colors"></div>
+                    </div>
+                    <h3 class="text-2xl font-cormorant text-[#00095b] mb-4">Private Events</h3>
+                    <p class="text-[#00095b]/70">Exclusive fashion experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-32 bg-[#00095b]/5 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <span class="text-[#00095b] text-sm tracking-[0.4em] uppercase">Our Collection</span>
+                <h2 class="mt-8 text-5xl font-cormorant text-[#00095b]">Yarn Selection</h2>
+                <div class="w-32 h-[1px] mx-auto bg-gradient-to-r from-transparent via-[#00095b] to-transparent my-8"></div>
+            </div>
+
+            <!-- Infinite Marquee Container -->
+            <div class="marquee-wrapper overflow-hidden">
+                <div class="marquee-track flex animate-infinite-scroll">
+                    <!-- First Set of Cards -->
+                    <div class="marquee-content flex gap-8 mx-4">
+                        <!-- Cotton Card -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-cotton.png" alt="Cotton Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Cotton</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Cotton is a natural fiber that is soft, breathable, and comfortable. Perfect for everyday wear.
+                            </p>
+                        </div>
+
+                        <!-- Wool Card -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-wool.png" alt="Wool Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Wool</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Premium wool known for its warmth, durability, and natural wrinkle resistance. Perfect for suits and winter garments, our wool selection offers exceptional quality and comfort for sophisticated attire.
+                            </p>
+                        </div>
+
+                        <!-- Silk Card -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-silk.png" alt="Silk Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Silk</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Luxurious silk fabric renowned for its smooth texture and natural sheen. Ideal for elegant evening wear and formal attire, our silk collection embodies sophistication and timeless luxury.
+                            </p>
+                        </div>
+
+                        <!-- Lycra Card -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-lycra.png" alt="Lycra Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Lycra</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Modern stretch fabric that provides excellent flexibility and shape retention. Perfect for athletic wear and fitted garments, Lycra ensures comfort and freedom of movement.
+                            </p>
+                        </div>
+
+                        <!-- Linen Card -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-linen.png" alt="Linen Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Linen</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Natural linen fiber known for its exceptional coolness and freshness in hot weather. Our linen selection offers breathability and a distinct texture perfect for summer clothing and casual elegance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate Set for Seamless Loop -->
+                    <div class="marquee-content flex gap-8 mx-4">
+                        <!-- Cotton Card (Duplicate) -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-cotton.png" alt="Cotton Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Cotton</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Cotton is a natural fiber that is soft, breathable, and comfortable. Perfect for everyday wear.
+                            </p>
+                        </div>
+
+                        <!-- Wool Card (Duplicate) -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-wool.png" alt="Wool Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Wool</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Premium wool known for its warmth, durability, and natural wrinkle resistance. Perfect for suits and winter garments, our wool selection offers exceptional quality and comfort for sophisticated attire.
+                            </p>
+                        </div>
+
+                        <!-- Silk Card (Duplicate) -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-silk.png" alt="Silk Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Silk</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Luxurious silk fabric renowned for its smooth texture and natural sheen. Ideal for elegant evening wear and formal attire, our silk collection embodies sophistication and timeless luxury.
+                            </p>
+                        </div>
+
+                        <!-- Lycra Card (Duplicate) -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-lycra.png" alt="Lycra Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Lycra</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Modern stretch fabric that provides excellent flexibility and shape retention. Perfect for athletic wear and fitted garments, Lycra ensures comfort and freedom of movement.
+                            </p>
+                        </div>
+
+                        <!-- Linen Card (Duplicate) -->
+                        <div class="testimonial-card relative flex-shrink-0 w-[300px] bg-white p-6 rounded-xl">
+                            <div class="relative overflow-hidden mb-6">
+                                <img src="/static/images/fab-linen.png" alt="Linen Fabric" class="w-full aspect-square object-cover">
+                            </div>
+                            <h3 class="text-xl text-[#00095b] whitespace-normal">Linen</h3>
+                            <p class="text-[#00095b]/70 text-sm mt-2 whitespace-normal line-clamp-4">
+                                Natural linen fiber known for its exceptional coolness and freshness in hot weather. Our linen selection offers breathability and a distinct texture perfect for summer clothing and casual elegance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .testimonial-card {
+                position: relative;
+                transition: transform 0.3s ease;
+            }
+
+            .testimonial-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .testimonial-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 12px;
+                padding: 1px;
+                
+            }
+        </style>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-32 bg-white relative overflow-hidden">
+        <!-- Section Header -->
+        <div class="text-center mb-20">
+            <span class="text-[#00095b] text-sm tracking-[0.4em] uppercase">Testimonials</span>
+            <h2 class="mt-8 text-5xl font-cormorant text-[#00095b]">Client Stories</h2>
+            <div class="w-32 h-[1px] mx-auto bg-gradient-to-r from-transparent via-[#00095b] to-transparent my-8"></div>
+        </div>
+
+        <!-- Marquee Testimonials -->
+        <div class="marquee-wrapper overflow-hidden">
+            <div class="marquee flex">
+                <!-- First set -->
+                <div class="marquee-content flex gap-8 mx-4 animate-marquee">
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(1)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
+                                 alt="James Wilson" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Exceptional craftsmanship and attention to detail."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">JAMES WILSON</p>
+                                    <p class="text-sm text-white/70">CEO, Wilson Enterprises</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(2)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" 
+                                 alt="Sarah Chen" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Their attention to detail is unmatched."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">SARAH CHEN</p>
+                                    <p class="text-sm text-white/70">Fashion Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(3)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" 
+                                 alt="Michael Roberts" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Perfect fit and impeccable service."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">MICHAEL ROBERTS</p>
+                                    <p class="text-sm text-white/70">Executive Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 4 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(4)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" 
+                                 alt="Emma Thompson" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Luxury redefined in every stitch."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">EMMA THOMPSON</p>
+                                    <p class="text-sm text-white/70">Creative Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 5 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(5)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" 
+                                 alt="David Kim" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Outstanding quality and craftsmanship."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">DAVID KIM</p>
+                                    <p class="text-sm text-white/70">Entrepreneur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second set (clone) -->
+                <div class="marquee-content flex gap-8 mx-4 animate-marquee">
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(1)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
+                                 alt="James Wilson" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Exceptional craftsmanship and attention to detail."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">JAMES WILSON</p>
+                                    <p class="text-sm text-white/70">CEO, Wilson Enterprises</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(2)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" 
+                                 alt="Sarah Chen" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Their attention to detail is unmatched."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">SARAH CHEN</p>
+                                    <p class="text-sm text-white/70">Fashion Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(3)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" 
+                                 alt="Michael Roberts" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Perfect fit and impeccable service."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">MICHAEL ROBERTS</p>
+                                    <p class="text-sm text-white/70">Executive Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 4 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(4)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" 
+                                 alt="Emma Thompson" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Luxury redefined in every stitch."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">EMMA THOMPSON</p>
+                                    <p class="text-sm text-white/70">Creative Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 5 -->
+                    <div class="testimonial-card cursor-pointer" onclick="openTestimonial(5)">
+                        <div class="relative flex-shrink-0 w-[400px] h-[600px] overflow-hidden rounded-xl">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e" 
+                                 alt="David Kim" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-[#00095b]/30 hover:bg-[#00095b]/20 transition-colors">
+                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                                    <blockquote class="text-2xl font-cormorant mb-4">
+                                        "Outstanding quality and craftsmanship."
+                                    </blockquote>
+                                    <p class="text-sm tracking-wider">DAVID KIM</p>
+                                    <p class="text-sm text-white/70">Entrepreneur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .marquee-wrapper {
+                width: 100%;
+                position: relative;
+            }
+
+            .marquee {
+                display: flex;
+                width: 200%; /* Double width to accommodate both sets */
+                animation: scroll 60s linear infinite;
+            }
+
+            .marquee-content {
+                flex: 0 0 50%; /* Each set takes up half the total width */
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%); /* Move left by 50% (one set) */
+                }
+            }
+
+            /* Ensure continuous movement */
+            .marquee:hover {
+                animation-play-state: running !important;
+            }
+        </style>
+
+        <!-- Testimonial Popup Modal -->
+        <div id="testimonialModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm">
+            <div class="container mx-auto px-4 h-full flex items-center justify-center">
+                <div class="bg-white max-w-2xl w-full p-12 relative rounded-xl">
+                    <button class="absolute top-4 right-4 text-[#00095b] hover:text-[#00095b]/70 transition-colors"
+                        onclick="closeTestimonialModal()">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    <div class="modal-content text-center">
+                        <img src="" alt="" class="w-24 h-24 rounded-full object-cover mx-auto mb-8" id="modalImage">
+                        <h3 class="text-3xl font-cormorant text-[#00095b] mb-2" id="modalName"></h3>
+                        <p class="text-[#00095b]/70 mb-8" id="modalTitle"></p>
+                        <blockquote class="text-xl text-[#00095b] italic" id="modalQuote"></blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const testimonials = [
+                {
+                    id: 1,
+                    name: "James Wilson",
+                    title: "CEO, Wilson Enterprises",
+                    quote: "Exceptional craftsmanship and attention to detail. The team's dedication to perfection is evident in every garment they create.",
+                    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+                },
+                {
+                    id: 2,
+                    name: "Sarah Chen",
+                    title: "Fashion Designer",
+                    quote: "Their attention to detail is unmatched. The fit and quality of their garments are truly remarkable.",
+                    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+                },
+                {
+                    id: 3,
+                    name: "Michael Roberts",
+                    title: "Executive Director",
+                    quote: "Perfect fit and impeccable service. The team's expertise in tailoring is evident in every piece.",
+                    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+                },
+                {
+                    id: 4,
+                    name: "Emma Thompson",
+                    title: "Creative Director",
+                    quote: "Luxury redefined in every stitch.",
+                    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e"
+                },
+                {
+                    id: 5,
+                    name: "David Kim",
+                    title: "Entrepreneur",
+                    quote: "Outstanding quality and craftsmanship.",
+                    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
+                },
+                {
+                    id: 6,
+                    name: "Emily White",
+                    title: "Fashion Blogger",
+                    quote: "I've never seen anything like this before.",
+                    image: "https://images.unsplash.com/photo-1506748687818-fdfb13ed6b1e"
+                },
+                {
+                    id: 7,
+                    name: "John Doe",
+                    title: "Fashion Enthusiast",
+                    quote: "The attention to detail is unmatched.",
+                    image: "https://images.unsplash.com/photo-1506748687818-fdfb13ed6b1e"
+                },
+                {
+                    id: 8,
+                    name: "Jane Smith",
+                    title: "Fashion Influencer",
+                    quote: "I'm in love with their designs.",
+                    image: "https://images.unsplash.com/photo-1506748687818-fdfb13ed6b1e"
+                },
+                {
+                    id: 9,
+                    name: "Michael Brown",
+                    title: "Fashion Photographer",
+                    quote: "Their creativity is unmatched.",
+                    image: "https://images.unsplash.com/photo-1506748687818-fdfb13ed6b1e"
+                },
+                {
+                    id: 10,
+                    name: "Sophia Lee",
+                    title: "Fashion Stylist",
+                    quote: "Their attention to detail is truly remarkable.",
+                    image: "https://images.unsplash.com/photo-1506748687818-fdfb13ed6b1e"
+                }
+            ];
+
+            function openTestimonial(id) {
+                const testimonial = testimonials.find(t => t.id === id);
+                const modal = document.getElementById('testimonialModal');
+                
+                document.getElementById('modalImage').src = testimonial.image;
+                document.getElementById('modalName').textContent = testimonial.name;
+                document.getElementById('modalTitle').textContent = testimonial.title;
+                document.getElementById('modalQuote').textContent = testimonial.quote;
+                
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+
+            function closeTestimonialModal() {
+                const modal = document.getElementById('testimonialModal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+
+            // Clone cards for seamless loop
+            document.addEventListener('DOMContentLoaded', function() {
+                const originalContent = document.querySelector('.marquee-content');
+                const clone = originalContent.cloneNode(true);
+                document.querySelector('.marquee-track').appendChild(clone);
+            });
+        </script>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100">
+        <div class="container mx-auto px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Newsletter -->
+                <div class="md:col-span-2">
+                    <h4 class="text-sm font-medium mb-4 tracking-wider">NEWSLETTER</h4>
+                    <p class="text-sm text-neutral-600 mb-4">Sign up to receive updates on new collections and special offers</p>
+                    <form class="flex gap-4">
+                        <input type="email" placeholder="Enter your email" 
+                               class="flex-1 px-4 py-2 border border-neutral-300 focus:border-neutral-900 outline-none">
+                        <button class="px-6 py-2 bg-neutral-900 text-white hover:bg-neutral-700 text-sm tracking-wider">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-sm font-medium mb-4 tracking-wider">CUSTOMER SERVICE</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#contact" class="hover:text-neutral-500">Contact Us</a></li>
+                        <li><a href="#shipping" class="hover:text-neutral-500">Shipping Information</a></li>
+                        <li><a href="#returns" class="hover:text-neutral-500">Returns & Exchanges</a></li>
+                        <li><a href="#size" class="hover:text-neutral-500">Size Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- About -->
+                <div>
+                    <h4 class="text-sm font-medium mb-4 tracking-wider">ABOUT</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#story" class="hover:text-neutral-500">Our Story</a></li>
+                        <li><a href="#stores" class="hover:text-neutral-500">Store Locator</a></li>
+                        <li><a href="#careers" class="hover:text-neutral-500">Careers</a></li>
+                        <li><a href="#sustainability" class="hover:text-neutral-500">Sustainability</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Section -->
+        <div class="border-t border-neutral-200">
+            <div class="container mx-auto px-6 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-sm text-neutral-600">
+                        © <span id="currentYear"></span> ABC - Apparel Branding Company. All rights reserved.
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <a href="https://platfware.com" target="_blank" class="text-sm text-neutral-600 hover:text-neutral-900">Designed with ❤️ by <span class="font-bold">Platfware</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="testimonialModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center">
+            <div class="bg-neutral-900 max-w-2xl w-full p-12 relative">
+                <button class="absolute top-4 right-4 text-neutral-400 hover:text-white"
+                    onclick="closeTestimonialModal()">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="modal-content">
+                    <img src="" alt="" class="w-24 h-24 rounded-full object-cover mx-auto mb-8" />
+                    <h3 class="text-3xl font-cormorant text-center mb-2"></h3>
+                    <p class="text-neutral-400 text-center mb-8"></p>
+                    <blockquote class="text-xl text-center"></blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="leadFormModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center">
+            <div class="bg-[#0C1B44] max-w-2xl w-full p-12 relative border border-blue-900/30">
+                <!-- Close Button -->
+                <button class="absolute top-6 right-6 text-blue-300 hover:text-white transition-colors"
+                    onclick="closeLeadModal()">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Form Content -->
+                <div class="modal-content">
+                    <div class="text-center mb-12">
+                        <span class="text-sm tracking-[4px] text-blue-300">BOOK APPOINTMENT</span>
+                        <h3
+                            class="text-4xl font-cormorant mt-4 bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent">
+                            Begin Your Journey
+                        </h3>
+                        <p class="text-blue-100/80 mt-4">
+                            Experience the epitome of bespoke tailoring
+                        </p>
+                    </div>
+
+                    <form id="appointmentForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <input type="text" placeholder="First Name" required
+                                    class="w-full bg-[#081231] border border-blue-900/30 px-6 py-4 text-white placeholder:text-blue-300/50 focus:outline-none focus:border-blue-500 transition-colors" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Last Name" required
+                                    class="w-full bg-[#081231] border border-blue-900/30 px-6 py-4 text-white placeholder:text-blue-300/50 focus:outline-none focus:border-blue-500 transition-colors" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required
+                                class="w-full bg-[#081231] border border-blue-900/30 px-6 py-4 text-white placeholder:text-blue-300/50 focus:outline-none focus:border-blue-500 transition-colors" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required
+                                class="w-full bg-[#081231] border border-blue-900/30 px-6 py-4 text-white placeholder:text-blue-300/50 focus:outline-none focus:border-blue-500 transition-colors" />
+                        </div>
+
+                        <div class="form-group">
+                            <select
+                                class="w-full bg-[#081231] border border-blue-900/30 px-6 py-4 text-blue-300 focus:outline-none focus:border-blue-500 transition-colors">
+                                <option value="">Select Service</option>
+                                <option value="bespoke">Bespoke Suits</option>
+                                <option value="wedding">Wedding Attire</option>
+                                <option value="alterations">Alterations</option>
+                                <option value="consultation">Style Consultation</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea placeholder="Tell us about your requirements" rows="4" required
+                                class="w-full bg-[#081231] border border-blue-900/30 px-6 py-4 text-white placeholder:text-blue-300/50 focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 transition-all duration-300">
+                            <span class="relative z-10 text-white font-medium tracking-wider">Schedule
+                                Consultation</span>
+                            <div
+                                class="absolute inset-0 bg-white/10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500">
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Marquee functionality
+            initMarquee();
+            
+            // Initialize AOS
+            AOS.init();
+        });
+
+        function initMarquee() {
+            const originalContent = document.querySelector('.marquee-content');
+            const clone = originalContent.cloneNode(true);
+            document.querySelector('.marquee-track').appendChild(clone);
+
+            const marqueeTrack = document.querySelector('.marquee-track');
+            marqueeTrack.addEventListener('mouseenter', () => {
+                marqueeTrack.style.animationPlayState = 'paused';
+            });
+            marqueeTrack.addEventListener('mouseleave', () => {
+                marqueeTrack.style.animationPlayState = 'running';
+            });
+        }
+    </script>
+    <script>
+        // Core initialization
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCore();
+    initializeAnimations();
+    initializeInteractions();
+});
+
+// Core functionality initialization
+function initializeCore() {
+    // Initialize AOS
+    AOS.init({
+        duration: 600,
+        once: true,
+        disable: window.innerWidth < 768
+    });
+
+    // Initialize loader
+    initializeLoader();
+
+    // Initialize GSAP and plugins
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Initialize smooth scroll
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        lerp: 0.05,
+        multiplier: 0.5
+    });
+
+    // Initialize mouse follower
+    const cursor = new MouseFollower({
+        container: document.body,
+        speed: 0.3
+    });
+}
+
+// Loader initialization
+function initializeLoader() {
+    const loader = document.querySelector('.loader-screen');
+    if (!loader) return;
+
+    const tl = gsap.timeline();
+    
+    tl.to('.loading-bar', {
+        width: '100%',
+        duration: 2,
+        ease: 'power2.inOut'
+    })
+    .to('.loader-screen', {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut',
+        onComplete: () => {
+            document.body.style.overflow = 'visible';
+            loader.style.display = 'none';
+        }
+    });
+}
+
+// Animation initializations
+function initializeAnimations() {
+    initializeHeroAnimations();
+    initializeScrollAnimations();
+    initializeTextAnimations();
+}
+
+function initializeHeroAnimations() {
+    // Hero section animations
+    document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta, .premium-badge, .scroll-indicator')
+        .forEach(el => el.style.animationPlayState = 'running');
+
+    // Split text animation
+    const splitText = new SplitType('[data-split]', {
+        types: 'chars,words',
+        tagName: 'span'
+    });
+
+    gsap.from(splitText.chars, {
+        opacity: 0,
+        y: 50,
+        rotateX: -90,
+        stagger: 0.02,
+        duration: 1.5,
+        ease: 'power4.out',
+        scrollTrigger: {
+            trigger: '.hero-title',
+            start: 'top center+=100'
+        }
+    });
+}
+
+function initializeScrollAnimations() {
+    // Parallax effects
+    gsap.utils.toArray('[data-speed]').forEach(el => {
+        gsap.to(el, {
+            y: (i, target) => (ScrollTrigger.maxScroll(window) * target.dataset.speed),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: el,
+                start: 'top top',
+                end: 'max',
+                invalidateOnRefresh: true,
+                scrub: true
+            }
+        });
+    });
+
+    // Scroll progress
+    gsap.to('.scroll-progress', {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: { 
+            scrub: 0.3
+        }
+    });
+}
+
+function initializeTextAnimations() {
+    // Cinematic text reveal
+    const text = new SplitType('.split-text', { types: 'chars' });
+    gsap.to(text.chars, {
+        rotateX: 0,
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        stagger: 0.02,
+        ease: 'power4.out',
+        scrollTrigger: {
+            trigger: '.split-text',
+            start: 'top center+=100',
+        }
+    });
+}
+
+// Interactive elements initialization
+function initializeInteractions() {
+    initializeNavigation();
+    initializeMarquee();
+    initializeTestimonials();
+    initializeForms();
+    initializeCustomCursor();
+}
+
+// Navigation functionality
+function initializeNavigation() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    window.addEventListener('scroll', throttle(() => {
+        nav.classList.toggle('nav-scrolled', window.pageYOffset > 50);
+    }, 100));
+}
+
+// Marquee functionality
+function initializeMarquee() {
+    const wrapper = document.querySelector('.marquee-wrapper');
+    if (!wrapper) return;
+
+    const marquee = wrapper.querySelector('.marquee');
+    const groups = wrapper.querySelectorAll('.marquee-group');
+    if (!marquee || groups.length === 0) return;
+
+    // Clone for infinite scroll if needed
+    if (groups.length === 1) {
+        const clone = groups[0].cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        marquee.appendChild(clone);
+    }
+
+    // Performance optimizations
+    [marquee, ...groups].forEach(el => {
+        el.style.willChange = 'transform';
+    });
+
+    // Intersection observer for performance
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                const elements = [marquee, ...groups];
+                elements.forEach(el => {
+                    el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+                });
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    observer.observe(wrapper);
+}
+
+// Testimonial functionality
+function initializeTestimonials() {
+    // Testimonial click handlers
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const id = card.dataset.testimonialId;
+            if (id) openTestimonial(id);
+        });
+    });
+}
+
+// Form handling
+function initializeForms() {
+    const form = document.getElementById('appointmentForm');
+    if (!form) return;
+
+    form.addEventListener('submit', handleFormSubmit);
+}
+
+function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    if (!submitBtn) return;
+
+    // Show loading state
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+    `;
+
+    // Simulate form submission
+    setTimeout(() => {
+        submitBtn.innerHTML = 'Thank you! We\'ll contact you soon.';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            closeLeadModal();
+            setTimeout(() => {
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 300);
+        }, 2000);
+    }, 1500);
+}
+
+// Utility functions
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Testimonial Data
+const testimonialData = {
+    1: {
+        name: "James Wilson",
+        title: "CEO, Global Ventures",
+        quote: "The attention to detail at Maison Royal is unparalleled. Each stitch tells a story of perfection.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+        year: "2019",
+        services: "Bespoke Suits",
+        location: "London, UK"
+    },
+    2: {
+        name: "Emma Roberts",
+        title: "Creative Director",
+        quote: "Their bespoke service exceeded all my expectations. True masters of their craft.",
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+        year: "2020",
+        services: "Custom Design",
+        location: "Paris, France"
+    },
+    3: {
+        name: "Thomas Chen",
+        title: "Tech Entrepreneur",
+        quote: "A perfect blend of traditional craftsmanship and modern style. Simply outstanding.",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+        year: "2021",
+        services: "Bespoke Suits",
+        location: "San Francisco, USA"
+    },
+    4: {
+        name: "Alexander White",
+        title: "Finance Executive",
+        quote: "Every detail is meticulously crafted. The quality speaks for itself.",
+        image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef",
+        year: "2019",
+        services: "Custom Tailoring",
+        location: "New York, USA"
+    },
+    5: {
+        name: "Sophie Zhang",
+        title: "Art Curator",
+        quote: "The personalized experience at Maison Royal is second to none. Truly exceptional.",
+        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+        year: "2022",
+        services: "Evening Wear",
+        location: "Shanghai, China"
+    },
+    6: {
+        name: "Marcus Johnson",
+        title: "Design Director",
+        quote: "Their attention to detail and commitment to perfection is remarkable.",
+        image: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79",
+        year: "2021",
+        services: "Bespoke Collection",
+        location: "London, UK"
+    }
+};
+
+// Modal functionality
+function openTestimonialModal(id) {
+    const modal = document.getElementById('testimonialModal');
+    if (!modal) return; // Guard clause
+
+    const data = testimonialData[id];
+    if (!data) return; // Guard clause for missing data
+
+    // Update modal content
+    const modalElements = {
+        'modalImage': data.image,
+        'modalName': data.name,
+        'modalTitle': data.title,
+        'modalQuote': data.quote,
+        'modalYear': data.year,
+        'modalServices': data.services,
+        'modalLocation': data.location
+    };
+
+    // Safely update each element
+    Object.entries(modalElements).forEach(([elementId, value]) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            if (elementId === 'modalImage') {
+                element.src = value;
+            } else {
+                element.textContent = value;
+            }
+        }
+    });
+
+    // Show modal
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeTestimonialModal() {
+    const modal = document.getElementById('testimonialModal');
+    if (!modal) return;
+
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Modal outside click handler
+    const modal = document.getElementById('testimonialModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTestimonialModal();
+            }
+        });
+    }
+
+    // Close button handler
+    const closeButton = document.querySelector('#testimonialModal button');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeTestimonialModal);
+    }
+
+    // Escape key handler
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeTestimonialModal();
+        }
+    });
+});
+
+// Service Cards Initialization
+function initializeServiceCards() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        const img = card.querySelector('img');
+        const content = card.querySelector('.p-8');
+        
+        if (!img || !content) return;
+
+        card.addEventListener('mouseenter', function() {
+            img.style.transform = 'scale(1.1)';
+            content.style.transform = 'translateY(-10px)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            img.style.transform = 'scale(1)';
+            content.style.transform = 'translateY(0)';
+        });
+    });
+}
+
+// Custom Cursor Initialization
+function initializeCustomCursor() {
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    
+    if (!cursor || !cursorDot) return;
+
+    document.addEventListener('mousemove', function(e) {
+        requestAnimationFrame(() => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+    });
+
+    const hoverElements = document.querySelectorAll('a, button, .hover-trigger');
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            cursor.style.background = 'rgba(198, 163, 85, 0.1)';
+            cursor.style.borderColor = 'var(--royal-accent)';
+        });
+
+        element.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.background = 'rgba(198, 163, 85, 0.3)';
+            cursor.style.borderColor = 'var(--royal-secondary)';
+        });
+    });
+}
+
+// Lead Form Modal Functions
+function openLeadModal() {
+    const modal = document.getElementById('leadFormModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    
+    // Animate modal entrance
+    requestAnimationFrame(() => {
+        modal.querySelector('.modal-content').classList.add('modal-active');
+    });
+    
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLeadModal() {
+    const modal = document.getElementById('leadFormModal');
+    modal.querySelector('.modal-content').classList.remove('modal-active');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+    }, 300);
+}
+
+// Update existing button click handlers
+document.querySelectorAll('.btn-appointment, .premium-btn-small').forEach(btn => {
+    btn.addEventListener('click', openLeadModal);
+});
+
+// Add form field animations
+document.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(field => {
+    field.addEventListener('focus', function() {
+        this.parentElement.classList.add('field-active');
+    });
+
+    field.addEventListener('blur', function() {
+        if (!this.value) {
+            this.parentElement.classList.remove('field-active');
+        }
+    });
+});
+
+// Fabric Navigation
+function initializeFabricNavigation() {
+    const dots = document.querySelectorAll('.fabric-nav-dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            // Remove active state from all dots
+            dots.forEach(d => d.classList.remove('bg-[#162B4D]'));
+            // Add active state to clicked dot
+            dot.classList.add('bg-[#162B4D]');
+            
+            // Here you can add logic to show different fabric sets
+            // For example, sliding to different fabric groups
+        });
+    });
+}
+
+// Initialize Premium Effects
+function initializePremiumEffects() {
+    // Initialize GSAP
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Initialize Smooth Scroll
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        lerp: 0.05,
+        multiplier: 0.5
+    });
+
+    // Initialize Mouse Follower
+    const cursor = new MouseFollower({
+        container: document.body,
+        speed: 0.3
+    });
+
+    // Cinematic Text Reveal
+    const text = new SplitType('.split-text', { types: 'chars' });
+    gsap.to(text.chars, {
+        rotateX: 0,
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        stagger: 0.02,
+        ease: 'power4.out',
+        scrollTrigger: {
+            trigger: '.split-text',
+            start: 'top center+=100',
+        }
+    });
+
+    // Parallax Effects
+    gsap.utils.toArray('[data-speed]').forEach(el => {
+        gsap.to(el, {
+            y: (i, target) => (ScrollTrigger.maxScroll(window) * target.dataset.speed),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: el,
+                start: 'top top',
+                end: 'max',
+                invalidateOnRefresh: true,
+                scrub: true
+            }
+        });
+    });
+
+    // Premium Image Reveal
+    gsap.utils.toArray('.image-reveal').forEach(image => {
+        gsap.fromTo(image.querySelector('img'),
+            { scale: 1.2, opacity: 0 },
+            {
+                scale: 1,
+                opacity: 1,
+                duration: 1.5,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: image,
+                    start: 'top bottom-=100',
+                }
+            }
+        );
+        
+        gsap.to(image.querySelector('::after'), {
+            scaleX: 0,
+            transformOrigin: 'right',
+            duration: 1.5,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+                trigger: image,
+                start: 'top bottom-=100',
+            }
+        });
+    });
+
+    // Scroll Progress Indicator
+    gsap.to('.scroll-progress', {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: { 
+            scrub: 0.3
+        }
+    });
+
+    // Enhanced Hover Effects
+    document.querySelectorAll('.premium-hover').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.setSize(2);
+            cursor.addState('-inverse');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            cursor.setSize(1);
+            cursor.removeState('-inverse');
+        });
+    });
+}
+
+// Initialize Premium Fabric Showcase
+function initializeFabricShowcase() {
+    const cards = document.querySelectorAll('.premium-fabric-card');
+    const navBtns = document.querySelectorAll('.fabric-nav-btn');
+
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const fabricType = btn.dataset.fabric;
+            
+            // Update navigation
+            navBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update showcase
+            cards.forEach(card => {
+                if (card.dataset.fabric === fabricType) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateX(0)';
+                } else {
+                    card.style.opacity = '0.5';
+                    card.style.transform = 'translateX(-20px)';
+                }
+            });
+        });
+    });
+}
+
+// Initialize Fabric Carousel
+function initializeFabricCarousel() {
+    const slides = document.getElementById('fabricSlides');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dots = document.querySelectorAll('.fabric-nav-dot');
+    
+    const fabrics = [
+        ['cotton', 'silk', 'wool'],
+        ['lycra', 'linen', 'cashmere']
+    ];
+    
+    let currentSet = 0;
+    
+    // Update active dot
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSet);
+        });
+    }
+    
+    // Slide transition
+    function slideToSet(index) {
+        currentSet = index;
+        slides.style.transform = `translateX(-${currentSet * 100}%)`;
+        updateDots();
+        
+        // Update cards with new content
+        const cards = slides.querySelectorAll('.premium-fabric-card');
+        cards.forEach((card, i) => {
+            card.classList.add('fade-out');
+            
+            setTimeout(() => {
+                const fabricType = fabrics[currentSet][i];
+                card.setAttribute('data-fabric', fabricType);
+                card.querySelector('img').src = `/static/images/fab-${fabricType}.png`;
+                card.querySelector('h3').textContent = getFabricTitle(fabricType);
+                card.querySelector('p').textContent = getFabricDescription(fabricType);
+                card.classList.remove('fade-out');
+            }, 350);
+        });
+    }
+    
+    // Navigation event listeners
+    prevBtn.addEventListener('click', () => {
+        currentSet = (currentSet - 1 + fabrics.length) % fabrics.length;
+        slideToSet(currentSet);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        currentSet = (currentSet + 1) % fabrics.length;
+        slideToSet(currentSet);
+    });
+    
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => slideToSet(index));
+    });
+    
+    // Helper function for fabric titles
+    function getFabricTitle(type) {
+        const titles = {
+            cotton: 'Egyptian Cotton',
+            silk: 'Mulberry Silk',
+            wool: 'Merino Wool',
+            lycra: 'Premium Lycra',
+            linen: 'Irish Linen',
+            cashmere: 'Pure Cashmere'
+        };
+        return titles[type] || type;
+    }
+    
+    // Helper function for fabric descriptions
+    function getFabricDescription(type) {
+        const descriptions = {
+            cotton: 'Premium Selection',
+            silk: 'Luxury Grade',
+            wool: 'Finest Quality',
+            lycra: 'Performance Blend',
+            linen: 'Heritage Collection',
+            cashmere: 'Ultra Soft'
+        };
+        return descriptions[type] || '';
+    }
+    
+    // Initialize first set
+    updateDots();
+}
+
+function initializeInfiniteCarousel() {
+    const carousel = document.querySelector('.infinite-carousel');
+    if (!carousel) return;
+
+    // Clone slides for infinite effect
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    slides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        carousel.appendChild(clone);
+    });
+
+    // Intersection Observer for performance
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                carousel.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    observer.observe(carousel);
+
+    // Reset animation on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            carousel.style.animation = 'none';
+            carousel.offsetHeight; // Trigger reflow
+            carousel.style.animation = 'scrollX 40s linear infinite';
+        }, 250);
+    });
+}
+
+function initializePremiumFabrics() {
+    const showcase = document.querySelector('.premium-fabric-showcase');
+    if (!showcase) return;
+
+    const navItems = showcase.querySelectorAll('.fabric-nav-item');
+    const featured = showcase.querySelector('.featured-fabric');
+    
+    const fabricData = {
+        cotton: {
+            title: 'Egyptian Cotton',
+            subtitle: 'Premium Selection',
+            specs: {
+                threadCount: '400',
+                origin: 'Egypt',
+                grade: 'Premium'
+            }
+        },
+        silk: {
+            title: 'Mulberry Silk',
+            subtitle: 'Luxury Grade',
+            specs: {
+                threadCount: '600',
+                origin: 'China',
+                grade: 'AAA'
+            }
+        },
+        wool: {
+            title: 'Merino Wool',
+            subtitle: 'Finest Quality',
+            specs: {
+                threadCount: '300',
+                origin: 'Australia',
+                grade: 'Superior'
+            }
+        },
+        lycra: {
+            title: 'Premium Lycra',
+            subtitle: 'Performance Blend',
+            specs: {
+                threadCount: '450',
+                origin: 'Italy',
+                grade: 'Technical'
+            }
+        },
+        linen: {
+            title: 'Irish Linen',
+            subtitle: 'Heritage Collection',
+            specs: {
+                threadCount: '200',
+                origin: 'Ireland',
+                grade: 'Classic'
+            }
+        },
+        cashmere: {
+            title: 'Pure Cashmere',
+            subtitle: 'Ultra Soft',
+            specs: {
+                threadCount: '500',
+                origin: 'Mongolia',
+                grade: 'Luxury'
+            }
+        }
+    };
+
+    function updateFeaturedFabric(fabricType) {
+        const data = fabricData[fabricType];
+        
+        // Fade out current
+        featured.style.opacity = '0';
+        featured.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            // Update content
+            featured.querySelector('img').src = `/static/images/fab-${fabricType}.png`;
+            featured.querySelector('h3').textContent = data.title;
+            featured.querySelector('p').textContent = data.subtitle;
+            
+            // Update specs
+            const specs = featured.querySelectorAll('.fabric-specs div');
+            specs[0].querySelector('.text-2xl').textContent = data.specs.threadCount;
+            specs[1].querySelector('.text-2xl').textContent = data.specs.origin;
+            specs[2].querySelector('.text-2xl').textContent = data.specs.grade;
+            
+            // Fade in new
+            featured.style.opacity = '1';
+            featured.style.transform = 'translateY(0)';
+        }, 400);
+    }
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navItems.forEach(nav => nav.classList.remove('active'));
+            item.classList.add('active');
+            updateFeaturedFabric(item.dataset.fabric);
+        });
+    });
+}
+
+// Testimonial Popup Functions
+function openTestimonial(id) {
+    const testimonials = {
+        1: {
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+            quote: "Exceptional craftsmanship and attention to detail.",
+            name: "JAMES WILSON",
+            title: "CEO, Wilson Enterprises",
+            fullText: "The level of craftsmanship and attention to detail exceeded my expectations. Every stitch, every fabric choice speaks of unparalleled quality. The team's dedication to creating the perfect fit while maintaining comfort is truly remarkable."
+        },
+        // Add more testimonials...
+    };
+
+    const testimonial = testimonials[id];
+    const popup = document.getElementById('testimonialPopup');
+    const content = document.getElementById('testimonialContent');
+
+    content.querySelector('img').src = testimonial.image;
+    content.querySelector('blockquote').textContent = testimonial.quote;
+    content.querySelector('.text-[#00095b]').textContent = testimonial.name;
+    content.querySelector('.text-[#00095b]/70').textContent = testimonial.title;
+    content.querySelector('.text-[#00095b]/80').textContent = testimonial.fullText;
+
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeTestimonial() {
+    const popup = document.getElementById('testimonialPopup');
+    popup.classList.add('hidden');
+    popup.classList.remove('flex');
+    document.body.style.overflow = 'auto';
+}
+
+    </script>
+    <script>
+        // Set current year for copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
