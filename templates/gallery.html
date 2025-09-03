@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC - Apparel Branding Company</title>
+
+    <!-- libraries CSS -->
+    <link rel="stylesheet" href="/static/icon/flaticon_glamer.css">
+    <link rel="stylesheet" href="/static/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendor/splide/splide.min.css">
+    <link rel="stylesheet" href="/static/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/vendor/slim-select/slimselect.css">
+    <link rel="stylesheet" href="/static/vendor/animate-wow/animate.min.css">
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <!-- SIDEBAR SECTION START -->
+    {% include 'header.html' %}
+    <main>
+        <!-- BREADCRUMB SECTION START -->
+        <div class="ul-container">
+            <div class="ul-breadcrumb">
+                <h2 class="ul-breadcrumb-title">Gallery</h2>
+                <div class="ul-breadcrumb-nav">
+                    <a href="/"><i class="flaticon-home"></i> Home</a>
+                    <i class="flaticon-arrow-point-to-right"></i>
+                    <span class="current-page">Gallery</span>
+                </div>
+            </div>
+        </div>
+        <style>
+            .album .responsive-container-block {
+                min-height: 75px;
+                height: fit-content;
+                width: 100%;
+                padding-top: 10px;
+                padding-right: 10px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 0px;
+                margin-right: auto;
+                margin-bottom: 0px;
+                margin-left: auto;
+                justify-content: flex-start;
+            }
+
+            .album .responsive-container-block.bg {
+                max-width: 1320px;
+                margin: 0 0 0 0;
+                justify-content: space-between;
+            }
+
+            .album .img {
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .album #i9rb {
+                color: black;
+            }
+
+            .album #ir6i {
+                color: black;
+            }
+
+            .album #ikz3b {
+                color: black;
+            }
+
+            .album .responsive-container-block.img-cont {
+                flex-direction: column;
+                max-width: 33.3%;
+                min-height: auto;
+                margin: 0 0 0 0;
+                height: 100%;
+            }
+
+            .album #ipix {
+                color: black;
+            }
+
+            .album #ipzoh {
+                color: black;
+            }
+
+            .album #ig5q8 {
+                color: black;
+            }
+
+            .album #imtzl {
+                color: black;
+            }
+
+            .album #i53es {
+                color: black;
+            }
+
+            .album .img.img-big {
+                height: 50%;
+                margin: 0 0 16px 0;
+            }
+
+            @media (max-width: 1024px) {
+                .album .img {
+                    margin: 0 0 18px 0;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .album .img {
+                    max-width: 32.5%;
+                    margin: 0 0 0 0;
+                }
+
+                .album .responsive-container-block.bg {
+                    flex-direction: column;
+                }
+
+                .album .responsive-container-block.img-cont {
+                    max-width: 100%;
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                .album .img.img-big {
+                    max-width: 49%;
+                    margin: 0 0 0 0;
+                }
+            }
+
+            @media (max-width: 500px) {
+                .album .img {
+                    max-width: 94%;
+                    margin: 0 0 25px 0;
+                }
+
+                .album .responsive-container-block.img-cont {
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 10px 10px 10px 10px;
+                }
+
+                .album .img.img-big {
+                    max-width: 94%;
+                    margin: 0 0 25px 0;
+                }
+
+                .album .img.img-last {
+                    margin: 0 0 5px 0;
+                }
+            }
+        </style>
+
+        <section class="ul-reviews overflow-hidden py-5">
+            <div class="container">
+                <div class="ul-section-heading text-center justify-content-center mb-5">
+                    <div>
+                        <span class="ul-section-sub-title">Gallery</span>
+                        <h2 class="ul-section-title">Our Work Showcase</h2>
+                        <p class="ul-reviews-heading-descr">Explore our portfolio and see the quality and creativity we bring to every project.</p>
+                    </div>
+                </div>
+                <div class="album">
+                    <div class="responsive-container-block bg">
+                        <div class="responsive-container-block img-cont">
+                            <img class="img"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.4.svg">
+                            <img class="img"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.5.svg">
+                            <img class="img img-last"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.6.svg">
+                        </div>
+                        <div class="responsive-container-block img-cont">
+                            <img class="img img-big"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.11.svg">
+                            <img class="img img-big img-last"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.10.svg">
+                        </div>
+                        <div class="responsive-container-block img-cont">
+                            <img class="img"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.7.svg">
+                            <img class="img"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.8.svg">
+                            <img class="img"
+                                src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.9.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION START -->
+    {% include 'footer.html' %}
+    <!-- FOOTER SECTION END -->
+
+    <!-- libraries JS -->
+    <script src="/static/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/splide/splide.min.js"></script>
+    <script src="/static/vendor/splide/splide-extension-auto-scroll.min.js"></script>
+    <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/static/vendor/slim-select/slimselect.min.js"></script>
+    <script src="/static/vendor/animate-wow/wow.min.js"></script>
+    <script src="/static/vendor/splittype/index.min.js"></script>
+    <script src="/static/vendor/mixitup/mixitup.min.js"></script>
+    <script src="/static/vendor/fslightbox/fslightbox.js"></script>
+
+    <!-- custom JS -->
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

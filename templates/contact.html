@@ -35,10 +35,136 @@
                 </div>
             </div>
         </div>
-        <!-- BREADCRUMB SECTION END -->
+        <div class="ul-container mb-4 mt-4">
+            <section class="ul-nwsltr-subs">
+                <div class="ul-inner-container">
+                    <div class="ul-section-heading justify-content-center text-center">
+                        <div>
+                            <span class="ul-section-sub-title text-white">Get in Touch</span>
+                            <h2 class="ul-section-title text-white">Contact Us</h2>
+                            <p class="text-white-50 mb-0">Have a question or need assistance? Fill out the form below and our team will respond as soon as possible.</p>
+                        </div>
+                    </div>
 
-
-        <!-- CONTACT INFO SECTION START -->
+                    <div class="ul-nwsltr-subs-form-wrapper">
+                        <div class="icon"><i class="flaticon-airplane"></i></div>
+                        <form action="#" method="post" class="ul-nwsltr-subs-form needs-validation" novalidate autocomplete="off">
+                            <div class="row g-2">
+                                <div class="col-12 col-md-6">
+                                    <input type="text" name="name" id="nwsltr-name" placeholder="Your Name" required aria-label="Your Name">
+                                    <div class="invalid-feedback">Please enter your name.</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="email" name="email" id="nwsltr-email" placeholder="Your Email" required aria-label="Your Email">
+                                    <div class="invalid-feedback">Please enter a valid email.</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <input type="tel" name="phone" id="nwsltr-phone" placeholder="Phone Number" required aria-label="Phone Number" pattern="^[\d\s\-\+\(\)]{7,}$">
+                                    <div class="invalid-feedback">Please enter a valid phone number.</div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <select name="priority" id="nwsltr-priority" required aria-label="Priority">
+                                        <option value="" disabled selected>Priority</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a priority.</div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <select name="category" id="nwsltr-category" required aria-label="Category">
+                                        <option value="" disabled selected>Category</option>
+                                        <option value="Sales">Sales</option>
+                                        <option value="Support Request">Support Request</option>
+                                        <option value="Product Inquiry">Product Inquiry</option>
+                                        <option value="Partnership">Partnership</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a category.</div>
+                                </div>
+                                <div class="col-12"></div>
+                                    <textarea name="message" id="nwsltr-message" rows="3" placeholder="Your Message" required aria-label="Your Message"></textarea>
+                                    <div class="invalid-feedback">Please enter your message.</div>
+                                </div>
+                                <div class="col-12"></div>
+                                    <button type="submit" class="btn btn-primary">Send Message <i class="flaticon-up-right-arrow"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="ul-nwsltr-success alert alert-success mt-3 d-none" role="alert">
+                            Thank you for your enquiry! We'll be in touch soon.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Force newsletter form vertical layout on all screen sizes for this page only -->
+        <style>
+            .ul-nwsltr-subs-form { 
+                display: flex;
+                flex-direction: column !important; 
+                height: auto !important; 
+                border-radius: 20px !important; 
+                gap: 12px; 
+                padding: 16px; 
+                background: rgba(255,255,255,0.95);
+                box-shadow: 0 2px 16px rgba(30,58,138,0.07);
+                transition: box-shadow 0.2s;
+            }
+            .ul-nwsltr-subs-form input,
+            .ul-nwsltr-subs-form select,
+            .ul-nwsltr-subs-form textarea { 
+                width: 100%; 
+                padding: 10px 16px; 
+                border-radius: 8px;
+                border: 1px solid #e0e0e0;
+                background: #f9f9f9;
+                transition: border-color 0.2s;
+            }
+            .ul-nwsltr-subs-form input:focus,
+            .ul-nwsltr-subs-form select:focus,
+            .ul-nwsltr-subs-form textarea:focus {
+                border-color: var(--ul-primary, #1e3a8a);
+                outline: none;
+                background: #fff;
+            }
+            .ul-nwsltr-subs-form button { 
+                width: 100%; 
+                height: 44px; 
+                border-radius: 8px;
+                font-weight: 600;
+                letter-spacing: 0.02em;
+                background: var(--ul-primary, #1e3a8a);
+                border: none;
+                color: #fff;
+                transition: background 0.2s;
+            }
+            .ul-nwsltr-subs-form button:hover, .ul-nwsltr-subs-form button:focus {
+                background: #16306b;
+            }
+            .ul-nwsltr-subs-form-wrapper .icon {
+                text-align: center;
+                font-size: 2.5rem;
+                color: var(--ul-primary, #1e3a8a);
+                margin-bottom: 12px;
+            }
+            .ul-nwsltr-success {
+                text-align: center;
+                font-size: 1.1rem;
+            }
+            /* Responsive: stack fields on small screens */
+            @media (max-width: 768px) {
+                .ul-nwsltr-subs-form .row {
+                    flex-direction: column;
+                }
+                .ul-nwsltr-subs-form .col-12,
+                .ul-nwsltr-subs-form .col-md-6,
+                .ul-nwsltr-subs-form .col-md-3 {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+        </style>
         <section class="ul-contact-infos">
             <div class="contact-grid">
                 <div class="ul-contact-info address">
@@ -330,7 +456,29 @@
                     }
                 }
             </style>
+            <script>
+            // UX: Show success message and prevent actual submit
+            document.addEventListener('DOMContentLoaded', function () {
+                var form = document.querySelector('.ul-nwsltr-subs-form');
+                if (form) {
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        if (form.checkValidity()) {
+                            form.classList.add('was-validated');
+                            form.reset();
+                            document.querySelector('.ul-nwsltr-success').classList.remove('d-none');
+                            setTimeout(function() {
+                                document.querySelector('.ul-nwsltr-success').classList.add('d-none');
+                            }, 4000);
+                        } else {
+                            form.classList.add('was-validated');
+                        }
+                    });
+                }
+            });
+        </script></div>
         </section>
+        
     </main>
 
     <!-- FOOTER SECTION START -->
